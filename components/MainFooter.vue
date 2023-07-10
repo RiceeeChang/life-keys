@@ -1,0 +1,68 @@
+<template>
+  <footer class="bg-1a1a1a font-color-fff">
+    
+    <div class="section-content">
+      <img class="margin-right-50" src="/assets/images/footer_logo.png"/>
+
+      <div>
+        <p class="margin-bottom-16">伯克錸物業管理顧問有限公司</p>
+        <p>04-2472-8880 | max@life-keys.com.tw</p>
+      </div>
+
+      <div class="margin-left-auto">
+        <div class="phone-wrap margin-bottom-16">
+          <div>臺中 04-2472-8880</div>
+          <div>臺南 06-297-1878</div>
+          <div>臺北 02-2550-5000</div>
+          <div>高雄 07-225-7999</div>
+        </div>
+
+        <div class="font-color-d5b877 ">服務時間 09：00 - 18：00  歡迎與我們聯繫</div>
+      </div>
+      
+    </div>
+    <p class="bg-000 text-align-center">&copy; 2023 My Website</p>
+  </footer>
+</template>
+
+<style scoped>
+footer .section-content {
+  /*padding-left: 0;*/
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  display: flex;
+  align-items: flex-end;
+}
+.phone-wrap {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 10px;
+  column-gap: 32px;
+}
+.bg-1a1a1a {
+  background-color: #1a1a1a;
+}
+.font-color-fff {
+  color: #fff;
+}
+.font-color-d5b877 {
+  color: #d5b877;
+}
+.margin-right-50 {
+  margin-right: 50px;
+}
+.margin-left-auto {
+  margin-left: auto;
+}
+.margin-bottom-16 {
+  margin-bottom: 16px;
+}
+.text-align-center {
+  text-align: center;
+}
+.bg-000 {
+  background-color: #000;
+}
+</style>

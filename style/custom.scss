@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500&family=Noto+Serif+TC:wght@200;400&display=swap');
+
+$small-screen: 768px;
+$medium-screen: 1230px;
+$main-color: #d5b877;
+
+$font-weight-r: 300;
+$font-weight-b: 400;
+$font-weight-m: 500;
+
+@mixin small-screen {
+  @media (max-width: #{$small-screen}) {
+    @content;
+  }
+}
+
+* {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: $font-weight-r;
+
+  color: #fff;
+}
+p {
+  margin: unset;
+}
+h1 {
+  font-size: 90px;
+}
+h2 {
+  font-size: 48px;
+}
+p {
+  font-size: 16px;
+}
+ul, li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.font-color-main {
+  color: $main-color;
+}
+.font-color-333333 {
+  color: #333333;
+}
+.font-color-959595 {
+  color: #959595;
+}
+
+.main-font-color {
+  color: $main-color;
+}
+.section-label {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 200;
+  font-size: 20px;
+
+  margin-bottom: 20px;
+}
+.section-title {
+  font-weight: $font-weight-b;
+  font-size: 48px;
+
+  margin-bottom: 50px;
+}
+
+.font-weight-r {
+  font-weight: 300;
+}
+.font-weight-b {
+  font-weight: 400;
+}
+.font-weight-m {
+  font-weight: 500;
+}
+
+.section-content {
+  width: 100%;
+  max-width: 1230px;
+
+  margin: 0 auto;
+  padding: 0 100px;
+
+  @include small-screen {
+    padding: 0 16px;
+  }
+}
+
+.carousel-indicators {
+  margin: none;
+ }
+
+ .carousel-indicators li {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+#carousel-1___BV_indicators_  li::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #d5b877;
+
+  position: relative;
+  top: -4px;
+  left: -4px;
+}
+
+.carousel-item {
+  height: 800px;
+
+  @include small-screen {
+    height: 490px;
+  }
+}
+
+

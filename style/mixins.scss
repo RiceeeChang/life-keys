@@ -1,0 +1,18 @@
+// 定義 mixin
+@mixin small-screen {
+  @media (max-width: #{$small-screen}) {
+    @content;
+  }
+}
+
+@mixin medium-screen {
+  @media (min-width: #{$medium-screen}) and (max-width: #{$large-screen}) {
+    @content;
+  }
+}
+
+@mixin large-screen {
+  @media (min-width: #{$large-screen}) {
+    @content;
+  }
+}
