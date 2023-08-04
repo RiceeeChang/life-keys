@@ -23,6 +23,6 @@ export default {
     PerformanceSection,
     NewsSection,
     JoinusSection,
-  }
+  },
 }
 </script>

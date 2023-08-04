@@ -2,14 +2,15 @@
   <footer class="bg-1a1a1a font-color-fff">
     
     <div class="section-content">
-      <img class="margin-right-50" src="/assets/images/footer_logo.png"/>
+      <img class="margin-right-50 footer-logo-large" src="/assets/images/footer_logo.png"/>
+      <img class="margin-right-50 footer-logo-small" src="/assets/images/footer_logo_207x53.png"/>
 
-      <div>
+      <div class="main-phone">
         <p class="margin-bottom-16">伯克錸物業管理顧問有限公司</p>
         <p>04-2472-8880 | max@life-keys.com.tw</p>
       </div>
 
-      <div class="margin-left-auto">
+      <div class="margin-left-auto part-phone">
         <div class="phone-wrap margin-bottom-16">
           <div>臺中 04-2472-8880</div>
           <div>臺南 06-297-1878</div>
@@ -21,7 +22,7 @@
       </div>
       
     </div>
-    <p class="bg-000 text-align-center">&copy; 2023 My Website</p>
+    <!-- <p class="bg-000 text-align-center">&copy; 2023 My Website</p> -->
   </footer>
 </template>
 
@@ -64,5 +65,38 @@ footer .section-content {
 }
 .bg-000 {
   background-color: #000;
+}
+
+.footer-logo-small {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  footer .section-content {
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 50px 24px;
+  }
+
+  .footer-logo-large {
+    display: none;
+  }
+  .footer-logo-small {
+    display: block;
+  }
+
+  .margin-left-auto {
+    margin-left: 0;
+  }
+
+
+  .main-phone {
+    margin-top: 16px;
+    margin-bottom: 60px;
+  }
+  .phone-wrap {
+    margin-bottom: 54px;
+  }
 }
 </style>

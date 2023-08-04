@@ -56,13 +56,22 @@ ul, li {
   font-weight: 200;
   font-size: 20px;
 
-  margin-bottom: 20px;
+  margin-bottom: 12px;
+  
+  @include small-screen {
+    font-size: 12px;
+  }
 }
 .section-title {
   font-weight: $font-weight-b;
   font-size: 48px;
+  line-height: 1;
 
   margin-bottom: 50px;
+
+  @include small-screen {
+    font-size: 32px;
+  }
 }
 
 .font-weight-r {

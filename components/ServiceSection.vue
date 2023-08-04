@@ -33,7 +33,7 @@
   background-color: #333;
 }
 .service-text {
-  width: 770px;
+  max-width: 770px;
 
   margin-bottom: 80px;
 }
@@ -47,10 +47,10 @@
   row-gap: 24px;
 }
 .service-item {
-
   width: 250px;
   height: 250px;
 
+  background-size: cover;
   background-color: #000;
   mix-blend-mode: luminosity;
 
@@ -65,6 +65,26 @@
   background-color: unset;
   height: 0;
 }
+
+
+@media (max-width: 767px) {
+  #service-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .service-wrap {
+    gap: 4px;
+    row-gap: 12px;
+  }
+  .service-item {
+    width: 180px;
+    height: 180px;
+  }
+  .service-item:last-child {
+    display: none;
+  }
+}
+
 </style>
 
 <script>

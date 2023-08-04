@@ -49,7 +49,7 @@
       }
     },
     async fetch() {
-      const response = await fetch(process.env.SITE_URL+'api/slides')
+      const response = await fetch('http://35.236.181.91:3000/api/slides')
       const data = await response.json()
       console.log(data.docs[0])
       //this.slides = []

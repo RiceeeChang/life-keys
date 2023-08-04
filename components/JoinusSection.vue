@@ -9,8 +9,8 @@
         <a class="joinus-button">加入我們</a>
       </div>
 
-      <img src="/assets/images/joinus.png">
-
+      <img class="desktop" src="/assets/images/joinus.png">
+      <img class="mobile" src="/assets/images/joinus_mobile.jpg">
     </div>
   </section>
 </template>
@@ -19,15 +19,19 @@
 #joinus-section {
   padding-top: 100px;
   padding-bottom: 100px;
-  /*height: 500px;*/
+
+  position: relative;
 }
 #joinus-section .section-content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+
+  
 }
 #joinus-section .section-title-wrap {
-  
+  margin-right: 20px;
 }
 .bg-d5b877 {
   background-color: #d5b877;
@@ -71,8 +75,44 @@
   background-color: #ddd;
 }
 .section-content img {
-  width: 50%;
-  max-width: 560px;
+  width: 66%;
+  max-width: 660px;
+}
+img.mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  #joinus-section {
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+  #joinus-section .section-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  img.desktop {
+    display: none;
+  }
+  img.mobile {
+    display: block;
+  }
+  #joinus-section .section-content img {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    width: 55%;
+  }
+
+  .section-title-wrap {
+    width: 100%;
+    margin-right: 0;
+  }
+  .joinus-button {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 </style>
 

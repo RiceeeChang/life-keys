@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'life-keys',
+    title: '伯克錸物業管理顧問有限公司',
     htmlAttrs: {
       lang: 'zh-hant'
     },
@@ -17,7 +17,7 @@ export default {
   },
 
   env: {
-    SITE_URL: 'http://35.236.181.91:3000/'
+    SITE_URL: 'http://35.236.181.91:4000/'
   },
 
   styleResources : {
@@ -25,12 +25,11 @@ export default {
       '@/style/functions.scss',
       '@/style/variables.scss',
       '@/style/mixins.scss',
-
     ]
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    
+
     '@/style/custom.scss'
   ],
 
