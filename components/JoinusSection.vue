@@ -6,7 +6,7 @@
         <h4 class="section-label font-color-333333">JOIN US</h4>
         <h2 class="section-title font-color-333333">菁英招募</h2>
         <p class="joinus-text color-black">我們重視每一位員工，除了有良好工作環境、也提供學習及成長的空間，歡迎優秀的朋友一起加入伯克錸公寓大廈管理維護。</p>
-        <a class="joinus-button">加入我們</a>
+        <a class="joinus-button" href="/joinus">加入我們</a>
       </div>
 
       <img class="desktop" src="/assets/images/joinus.png">
@@ -15,7 +15,25 @@
   </section>
 </template>
 
-<style scoped>
+<script>
+  export default {
+    head() {
+      return {
+        //link: [{ rel: 'stylesheet', href: 'assets/css/custom.css'}]
+      }
+    },
+    data() {
+      return {
+
+      }
+    },
+    methods: {
+
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
 #joinus-section {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -28,7 +46,7 @@
   justify-content: space-between;
   align-items: center;
 
-  
+
 }
 #joinus-section .section-title-wrap {
   margin-right: 20px;
@@ -84,12 +102,16 @@ img.mobile {
 
 @media (max-width: 767px) {
   #joinus-section {
-    padding-top: 80px;
+    padding-top: 20px;
     padding-bottom: 60px;
   }
   #joinus-section .section-content {
     padding-left: 20px;
     padding-right: 20px;
+  }
+
+  #joinus-section .section-title {
+    margin-bottom: 70px;
   }
   img.desktop {
     display: none;
@@ -100,7 +122,7 @@ img.mobile {
   #joinus-section .section-content img {
     position: absolute;
     right: 0;
-    top: 0;
+    top: -50px;
 
     width: 55%;
   }
@@ -115,21 +137,3 @@ img.mobile {
   }
 }
 </style>
-
-<script>
-  export default {
-    head() {
-      return {
-        //link: [{ rel: 'stylesheet', href: 'assets/css/custom.css'}]
-      }
-    },
-    data() {
-      return {
-
-      }
-    },
-    methods: {
-
-    }
-  }
-</script>

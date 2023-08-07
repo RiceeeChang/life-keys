@@ -1,12 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500&family=Noto+Serif+TC:wght@200;400&display=swap');
-
-$small-screen: 768px;
-$medium-screen: 1230px;
-$main-color: #d5b877;
-
-$font-weight-r: 300;
-$font-weight-b: 400;
-$font-weight-m: 500;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500&family=Noto+Serif+TC:wght@200;400;700&display=swap');
 
 @mixin small-screen {
   @media (max-width: #{$small-screen}) {
@@ -19,6 +11,10 @@ $font-weight-m: 500;
   font-weight: $font-weight-r;
 
   color: #fff;
+}
+
+body {
+  background-color: $main-background-color;
 }
 p {
   margin: unset;
@@ -37,6 +33,18 @@ ul, li {
   padding: 0;
   border: 0;
 }
+
+a {
+  color: #fff;
+}
+
+main {
+  @include small-screen {
+    margin-top: 100px;
+  }
+}
+
+
 
 .font-color-main {
   color: $main-color;
@@ -57,7 +65,7 @@ ul, li {
   font-size: 20px;
 
   margin-bottom: 12px;
-  
+
   @include small-screen {
     font-size: 12px;
   }
@@ -92,39 +100,177 @@ ul, li {
   padding: 0 100px;
 
   @include small-screen {
-    padding: 0 16px;
+    padding: 0 24px;
   }
 }
 
 .carousel-indicators {
-  margin: none;
- }
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 100%;
+  max-width: 1230px;
+  margin: 0;
+  margin-bottom: 40px;
+  padding-right: 100px;
+
+  justify-content: flex-end;
+
+  @include small-screen {
+    margin: 0;
+
+    left: 260px;
+    right: unset;
+    bottom: 50px;
+  }
+}
+
 
  .carousel-indicators li {
   width: 12px;
   height: 12px;
+  margin: 0 6px;
+
+  background-color: $main-color;
   border-radius: 50%;
+
 }
 
-#carousel-1___BV_indicators_  li::after {
+.carousel-indicators li::after {
   content: "";
   display: block;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 1px solid #d5b877;
+
 
   position: relative;
   top: -4px;
   left: -4px;
 }
+.carousel-indicators li.active::after {
+  border: 1px solid $main-color;
+}
 
 .carousel-item {
   height: 800px;
+
+  background-size: cover;
+  background-position: 67% center;
+  background-repeat: no-repeat;
 
   @include small-screen {
     height: 490px;
   }
 }
 
+.carousel-caption {
+  z-index: 0;
+  left: 50%;
+  bottom: 128px;
+  transform: translateX(-50%);
 
+  width: 100%;
+  max-width: 1230px;
+  padding: 0 100px;
+  text-align: start;
+
+  span {
+    font-size: 26px;
+    text-shadow: none;
+    margin-bottom: 28px;
+  }
+  h1 {
+    font-size: 74px;
+    text-shadow: none;
+    @include noto-serif-tc-bold;
+
+    margin-bottom: 40px;
+  }
+  h3 {
+    font-size: 26px;
+    text-shadow: none;
+    @include noto-sans-tc-regular;
+  }
+
+
+  @include small-screen {
+    left: 0;
+    right: 0;
+    bottom: 50px;
+    transform: none;
+
+    max-width: 236px;
+    padding-left: 24px;
+    padding-right: 0;
+
+    span {
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    h3 {
+      font-size: 12px;
+    }
+  }
+}
+
+
+
+.content {
+  max-width: 1140px;
+  padding-top: 40px;
+  padding-bottom: 200px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  @include small-screen {
+    padding: 24px;
+    padding-bottom: 160px;
+  }
+}
+
+
+
+.form-tab {
+  list-style-type: none;
+
+  display: flex;
+  flex-direction: row;
+
+  margin: 0 auto;
+  margin-bottom: 50px;
+
+  li {
+    display: block;
+
+    font-size: 20px;
+    line-height: 20px;
+    box-sizing: border-box;
+
+    height: 45px;
+    padding: 24px 48px;
+    padding-top: 0;
+
+    border-bottom: 1px #fff solid;
+
+    cursor: pointer;
+  }
+
+  .active {
+    color: $main-color;
+    border-bottom: 5px $main-color solid;
+    height: 47px;
+  }
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

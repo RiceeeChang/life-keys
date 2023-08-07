@@ -1,4 +1,42 @@
+
+
 // 定義裝置尺寸寬度
-$small-screen: 767px;
-$medium-screen: 1024px;
+$small-screen: 768px;
+$medium-screen: 1230px;
 $large-screen: 1200px;
+
+$main-color: #d5b877;
+$main-background-color: #333;
+
+
+$font-weight-r: 300;
+$font-weight-b: 400;
+$font-weight-m: 500;
+
+$font-noto-sans-tc: 'Noto Sans TC', sans-serif;
+$font-noto-serif-tc: 'Noto Serif TC', serif;
+
+@mixin noto-sans-tc-thin {
+  font-family: $font-noto-sans-tc;
+  font-weight: 100;
+}
+
+@mixin noto-sans-tc-light {
+  font-family: $font-noto-sans-tc;
+  font-weight: 300;
+}
+
+@mixin noto-sans-tc-regular {
+  font-family: $font-noto-sans-tc;
+  font-weight: 400;
+}
+
+@mixin noto-sans-tc-medium {
+  font-family: $font-noto-sans-tc;
+  font-weight: 500;
+}
+
+@mixin noto-serif-tc-bold {
+  font-family: $font-noto-serif-tc;
+  font-weight: 700;
+}

@@ -17,11 +17,14 @@ export default {
   },
 
   env: {
-    SITE_URL: 'http://35.236.181.91:4000/'
+    SITE_URL: 'http://35.236.181.91:4000/',
+    API_URL: 'http://35.236.181.91:3000/',
+    SITE_TITLE: '伯克錸物業管理顧問有限公司',
   },
 
   styleResources : {
     scss: [
+      '@/style/reset.scss',
       '@/style/functions.scss',
       '@/style/variables.scss',
       '@/style/mixins.scss',
@@ -29,7 +32,6 @@ export default {
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-
     '@/style/custom.scss'
   ],
 
@@ -52,6 +54,10 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
   ],
+
+  bootstrapVue: {
+    icons: true
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

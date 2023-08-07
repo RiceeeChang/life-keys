@@ -1,13 +1,12 @@
 <template>
   <section id="hero-section">
     <div class="">
-      
+
       <b-carousel
         id="carousel-1"
         v-model="slide"
         :interval="4000"
         indicators
-        background="#ababab"
         img-width="1024"
         img-height="490"
         style="text-shadow: 1px 1px 2px #333;"
@@ -15,9 +14,9 @@
         @sliding-end="onSlideEnd"
       >
         <!-- Text slides with image -->
-        <b-carousel-slide v-for="slide in slides" :key="slide.id" :img-src="slide.image.url">
+        <b-carousel-slide v-for="slide in slides" :key="slide.id" :style="'background-image: url(' + slide.image.url +')'"><!---->
           <span>{{ slide.label }}</span>
-          <h1>{{ slide.title }}</h1>
+          <h1 v-html="slide.title"></h1>
           <h3>{{ slide.subtitle }}</h3>
         </b-carousel-slide>
       </b-carousel>
@@ -28,11 +27,6 @@
 
 <script>
   export default {
-    head() {
-      return {
-        //link: [{ rel: 'stylesheet', href: 'assets/css/custom.css'}]
-      }
-    },
     data() {
       return {
         slide: 0,
@@ -49,24 +43,24 @@
       }
     },
     async fetch() {
-      const response = await fetch('http://35.236.181.91:3000/api/slides')
+      const response = await fetch(process.env.API_URL + 'api/slides')
       const data = await response.json()
-      console.log(data.docs[0])
-      //this.slides = []
+
+      for (var i=0; i<data.docs.length; i++) {
+        data.docs[i].title = data.docs[i].title.replace(" ", "<br>");
+      }
+
       this.slides = data.docs
     }
   }
 </script>
 
 <style lang="scss" scoped>
-h1 {
-  font-family: 'Noto Serif TC', serif;
-}
-/*.carousel-item {
+#hero-section {
   height: 800px;
 
   @include small-screen {
     height: 490px;
   }
-}*/
+}
 </style>
