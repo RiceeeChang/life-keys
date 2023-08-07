@@ -260,6 +260,11 @@ main {
     border-bottom: 1px #fff solid;
 
     cursor: pointer;
+
+    @include small-screen {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
   }
 
   .active {
