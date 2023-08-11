@@ -75,15 +75,15 @@
                 </div>
                 <div class="dropdown-menu-divider"></div>
                 <ul class="dropdown-menu-list">
-                  <li><a href="#">- 台北</a></li>
-                  <li><a href="#">- 台中</a></li>
-                  <li><a href="#">- 高雄</a></li>
+                  <li><a href="/company_archievements/north">- 北區</a></li>
+                  <li><a href="/company_archievements/middle">- 中區</a></li>
+                  <li><a href="/company_archievements/south">- 南區</a></li>
                 </ul>
               </div>
             </div>
           </li>
-          <li class="menu-item"><a href="/careers">菁英召募</a></li>
-          <li class="menu-item"><a href="/contact">聯絡我們</a></li>
+          <li><a class="menu-item" href="/careers">菁英召募</a></li>
+          <li><a class="menu-item" href="/contact">聯絡我們</a></li>
         </ul>
         <div class="navbar-toggle on">
 
@@ -100,9 +100,9 @@
             </li>
             <b-collapse id="introduce-menu">
               <ul class="mobile-submenu">
-                <li>社區規劃</li>
-                <li>經營理念</li>
-                <li>管理品質</li>
+                <li><a href="/about_us/community_planning">社區規劃</a></li>
+                <li><a href="/about_us/business_philosophy">經營理念</a></li>
+                <li><a>管理品質</a></li>
               </ul>
             </b-collapse>
             <li>
@@ -137,13 +137,14 @@
             </li>
             <b-collapse id="performance-menu">
               <ul class="mobile-submenu">
-                <li>台北</li>
-                <li>台中</li>
-                <li>高雄</li>
+                <li><a href="/company_archievements">全部</a></li>
+                <li><a href="/company_archievements/north">北區</a></li>
+                <li><a href="/company_archievements/middle">中區</a></li>
+                <li><a href="/company_archievements/south">南區</a></li>
               </ul>
             </b-collapse>
-            <li>菁英召募</li>
-            <li>聯絡我們</li>
+            <li><a href="/careers">菁英召募</a></li>
+            <li><a href="/contact">聯絡我們</a></li>
           </ul>
 
         </div>
@@ -291,6 +292,10 @@ export default {
 }
 .dropdown-menu-list li {
   margin: 0 32px;
+
+  display: flex;
+  align-items: center;
+
   font-weight: 100;
 }
 
@@ -391,11 +396,11 @@ export default {
 .mobile-menu {
   position: absolute;
   top: 75px;
+  left: 75px;
   z-index: 99;
 
   width: 100vw;
   height: calc(100vh - 100px);
-  padding: 0 24px;
 
   background-color: #292929;
 
@@ -404,22 +409,26 @@ export default {
   /* to stop flickering of text in safari */
 
   transform-origin: 0% 0%;
-  transform: translate(60%, 0);
+  /*transform: translate(75%, 0);*/
 
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
 .mobile-menu li {
-  padding: 20px 0;
+  padding: 20px 24px;
   font-size: 16px;
   border-bottom: 1px #333 solid;
+
+  &:active {
+    background-color: $black-button-hover-color;
+  }
 }
 
 /*
  * And let's slide it in from the left
  */
 .navbar-toggle input:checked ~ ul {
-  transform: translate(-40%, 0);;
+  transform: translate(-100vw, 0);;
 }
 
 .menu-collapse-button {
@@ -428,11 +437,17 @@ export default {
 
   background-color: transparent;
   border: none;
-
+  border-radius: 0;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  box-shadow: none !important;
+
+  &:active {
+    background-color: inherit !important;
+  }
 }
 
 span.cross {

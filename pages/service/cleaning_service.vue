@@ -1,5 +1,7 @@
 <template>
-  <div>rent</div>
+  <section class="page-content">
+
+  </section>
 </template>
 
 <script>

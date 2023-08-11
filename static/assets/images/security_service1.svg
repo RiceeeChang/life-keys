@@ -1,0 +1,202 @@
+<svg id="Group_24635" data-name="Group 24635" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="567.553" height="591.179" viewBox="0 0 567.553 591.179">
+  <defs>
+    <style>
+      .cls-1, .cls-16, .cls-28, .cls-29, .cls-3 {
+        fill: none;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-28, .cls-29, .cls-3 {
+        stroke: #fff;
+      }
+
+      .cls-16, .cls-28, .cls-29, .cls-3 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-16, .cls-3 {
+        stroke-width: 0.822px;
+      }
+
+      .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-17, .cls-4 {
+        font-size: 19px;
+        font-family: PingFangTC-Regular, PingFang TC;
+      }
+
+      .cls-5 {
+        letter-spacing: 0.001em;
+      }
+
+      .cls-6 {
+        letter-spacing: 0.006em;
+      }
+
+      .cls-7 {
+        letter-spacing: 0.005em;
+      }
+
+      .cls-8 {
+        letter-spacing: 0.012em;
+      }
+
+      .cls-9 {
+        letter-spacing: 0.013em;
+      }
+
+      .cls-10 {
+        letter-spacing: -0.013em;
+      }
+
+      .cls-11 {
+        letter-spacing: -0.014em;
+      }
+
+      .cls-12 {
+        letter-spacing: -0.011em;
+      }
+
+      .cls-13 {
+        letter-spacing: 0.025em;
+      }
+
+      .cls-14 {
+        letter-spacing: 0.018em;
+      }
+
+      .cls-15 {
+        letter-spacing: 0.014em;
+      }
+
+      .cls-16 {
+        stroke: #d5b876;
+      }
+
+      .cls-17, .cls-27 {
+        fill: #d5b876;
+      }
+
+      .cls-18 {
+        letter-spacing: 0.019em;
+      }
+
+      .cls-19 {
+        letter-spacing: -0.031em;
+      }
+
+      .cls-20 {
+        letter-spacing: 0.008em;
+      }
+
+      .cls-21 {
+        letter-spacing: -0.001em;
+      }
+
+      .cls-22 {
+        letter-spacing: 0.024em;
+      }
+
+      .cls-23 {
+        letter-spacing: 0.007em;
+      }
+
+      .cls-24 {
+        letter-spacing: 0.02em;
+      }
+
+      .cls-25 {
+        letter-spacing: 0.009em;
+      }
+
+      .cls-26 {
+        letter-spacing: 0.028em;
+      }
+
+      .cls-28 {
+        stroke-width: 0.718px;
+      }
+
+      .cls-29 {
+        stroke-width: 10.764px;
+      }
+    </style>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_11314" data-name="Rectangle 11314" class="cls-1" width="567.553" height="591.179"/>
+    </clipPath>
+  </defs>
+  <g id="Group_24618" data-name="Group 24618">
+    <g id="Group_24617" data-name="Group 24617" class="cls-2">
+      <circle id="Ellipse_1565" data-name="Ellipse 1565" class="cls-3" cx="59.123" cy="59.123" r="59.123" transform="translate(448.896 281.369)"/>
+    </g>
+  </g>
+  <text id="門禁" class="cls-4" transform="translate(489.008 335.541)"><tspan class="cls-5" x="0" y="0">門</tspan><tspan y="0">禁</tspan></text>
+  <text id="保全管理" class="cls-4" transform="translate(469.78 358.341)"><tspan class="cls-6" x="0" y="0">保</tspan><tspan class="cls-7" y="0">全</tspan><tspan class="cls-8" y="0">管</tspan><tspan y="0">理</tspan></text>
+  <g id="Group_24620" data-name="Group 24620">
+    <g id="Group_24619" data-name="Group 24619" class="cls-2">
+      <circle id="Ellipse_1566" data-name="Ellipse 1566" class="cls-3" cx="59.123" cy="59.123" r="59.123" transform="translate(212.179 59.534)"/>
+    </g>
+  </g>
+  <text id="車輛" class="cls-4" transform="translate(252.178 114.48)"><tspan class="cls-9" x="0" y="0">車</tspan><tspan y="0">輛</tspan></text>
+  <text id="進出監控" class="cls-4" transform="translate(233.52 137.28)"><tspan class="cls-10" x="0" y="0">進</tspan><tspan class="cls-11" y="0">出</tspan><tspan class="cls-6" y="0">監</tspan><tspan y="0">控</tspan></text>
+  <g id="Group_24622" data-name="Group 24622">
+    <g id="Group_24621" data-name="Group 24621" class="cls-2">
+      <circle id="Ellipse_1567" data-name="Ellipse 1567" class="cls-3" cx="59.123" cy="59.123" r="59.123" transform="translate(0.411 183.591)"/>
+    </g>
+  </g>
+  <text id="防災" class="cls-4" transform="translate(40.638 237.763)"><tspan class="cls-12" x="0" y="0">防</tspan><tspan y="0">災</tspan></text>
+  <text id="救災處理" class="cls-4" transform="translate(20.973 260.562)"><tspan class="cls-13" x="0" y="0">救</tspan><tspan class="cls-14" y="0">災</tspan><tspan class="cls-15" y="0">處</tspan><tspan y="0">理</tspan></text>
+  <g id="Group_24624" data-name="Group 24624">
+    <g id="Group_24623" data-name="Group 24623" class="cls-2">
+      <circle id="Ellipse_1568" data-name="Ellipse 1568" class="cls-16" cx="59.123" cy="59.123" r="59.123" transform="translate(68.586 351.794)"/>
+    </g>
+  </g>
+  <text id="人員" class="cls-17" transform="translate(108.523 407.094)"><tspan class="cls-18" x="0" y="0">人</tspan><tspan y="0">員</tspan></text>
+  <text id="進出管制" class="cls-17" transform="translate(90.055 429.894)"><tspan class="cls-10" x="0" y="0">進</tspan><tspan class="cls-19" y="0">出</tspan><tspan class="cls-20" y="0">管</tspan><tspan y="0">制</tspan></text>
+  <g id="Group_24626" data-name="Group 24626">
+    <g id="Group_24625" data-name="Group 24625" class="cls-2">
+      <circle id="Ellipse_1569" data-name="Ellipse 1569" class="cls-16" cx="59.123" cy="59.123" r="59.123" transform="translate(349.279 366.485)"/>
+    </g>
+  </g>
+  <text id="全區" class="cls-17" transform="translate(389.408 421.785)"><tspan class="cls-21" x="0" y="0">全</tspan><tspan y="0">區</tspan></text>
+  <text id="監控錄影" class="cls-17" transform="translate(369.971 444.585)"><tspan class="cls-7" x="0" y="0">監</tspan><tspan class="cls-22" y="0">控</tspan><tspan class="cls-15" y="0">錄</tspan><tspan y="0">影</tspan></text>
+  <g id="Group_24628" data-name="Group 24628">
+    <g id="Group_24627" data-name="Group 24627" class="cls-2">
+      <circle id="Ellipse_1570" data-name="Ellipse 1570" class="cls-16" cx="59.123" cy="59.123" r="59.123" transform="translate(373.529 113.946) rotate(-45)"/>
+    </g>
+  </g>
+  <text id="人員-2" data-name="人員" class="cls-17" transform="translate(437.956 110.123)"><tspan class="cls-18" x="0" y="0">人</tspan><tspan y="0">員</tspan></text>
+  <text id="教育訓練" class="cls-17" transform="translate(418.823 132.923)"><tspan class="cls-23" x="0" y="0">教</tspan><tspan class="cls-7" y="0">育</tspan><tspan class="cls-24" y="0">訓</tspan><tspan y="0">練</tspan></text>
+  <g id="Group_24630" data-name="Group 24630">
+    <g id="Group_24629" data-name="Group 24629" class="cls-2">
+      <circle id="Ellipse_1571" data-name="Ellipse 1571" class="cls-16" cx="59.123" cy="59.123" r="59.123" transform="translate(41.547 0.411)"/>
+    </g>
+  </g>
+  <text id="緊急" class="cls-17" transform="translate(81.571 55.711)"><tspan class="cls-25" x="0" y="0">緊</tspan><tspan y="0">急</tspan></text>
+  <text id="應變聯防" class="cls-17" transform="translate(62.362 78.511)"><tspan class="cls-14" x="0" y="0">應</tspan><tspan class="cls-7" y="0">變</tspan><tspan class="cls-25" y="0">聯</tspan><tspan y="0">防</tspan></text>
+  <g id="Group_24632" data-name="Group 24632">
+    <g id="Group_24631" data-name="Group 24631" class="cls-2">
+      <circle id="Ellipse_1572" data-name="Ellipse 1572" class="cls-3" cx="59.123" cy="59.123" r="59.123" transform="translate(212.179 472.522)"/>
+    </g>
+  </g>
+  <text id="現場" class="cls-4" transform="translate(252.163 527.823)"><tspan class="cls-15" x="0" y="0">現</tspan><tspan y="0">場</tspan></text>
+  <text id="勤務督勤" class="cls-4" transform="translate(232.897 550.622)"><tspan class="cls-20" x="0" y="0">勤</tspan><tspan class="cls-26" y="0">務</tspan><tspan class="cls-7" y="0">督</tspan><tspan y="0">勤</tspan></text>
+  <g id="Group_24634" data-name="Group 24634">
+    <g id="Group_24633" data-name="Group 24633" class="cls-2">
+      <path id="Path_23402" data-name="Path 23402" class="cls-3" d="M118.657,242.714,271.3,270.629,450.789,325.6"/>
+      <line id="Line_11393" data-name="Line 11393" class="cls-3" y2="64.934" transform="translate(271.302 177.78)"/>
+      <path id="Path_23403" data-name="Path 23403" class="cls-16" d="M366.516,383.883,271.3,299.512l-94.865,77.919"/>
+      <path id="Path_23404" data-name="Path 23404" class="cls-27" d="M271.3,198.073a256.033,256.033,0,0,1-71.869-10.01V310.916c0,39.526,71.869,62.272,71.869,62.272s71.866-22.746,71.866-62.272V188.063a256.022,256.022,0,0,1-71.866,10.01"/>
+      <path id="Path_23405" data-name="Path 23405" class="cls-28" d="M271.3,367.132a193.026,193.026,0,0,1-33.178-15.3c-15.032-8.917-32.95-23.255-32.95-40.919V195.607a263.186,263.186,0,0,0,66.128,8.208,263.18,263.18,0,0,0,66.125-8.208V310.916c0,17.664-17.918,32-32.949,40.919A193.03,193.03,0,0,1,271.3,367.132Z"/>
+      <path id="Path_23406" data-name="Path 23406" class="cls-29" d="M249.862,272.529l19.279,18.484,34.281-40.769"/>
+      <line id="Line_11394" data-name="Line 11394" class="cls-16" x2="129.863" y2="176.265" transform="translate(138.14 105.104)"/>
+      <line id="Line_11395" data-name="Line 11395" class="cls-16" y1="76.632" x2="78.388" transform="translate(339.88 158.554)"/>
+      <line id="Line_11396" data-name="Line 11396" class="cls-3" y1="101.207" transform="translate(271.302 371.315)"/>
+    </g>
+  </g>
+</svg>

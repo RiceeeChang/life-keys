@@ -30,7 +30,10 @@ export default {
   }
 
   label {
+    font-weight: 300;
     margin: 0;
+    line-height: 16px;
+    margin-bottom: 2px;
   }
 }
 </style>

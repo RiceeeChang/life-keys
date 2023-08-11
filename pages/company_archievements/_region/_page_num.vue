@@ -1,10 +1,10 @@
 <template>
   <section class="page-content">
     <ul class="form-tab">
-      <li class="active"><a>全部</a></li>
-      <li><a>北部</a></li>
-      <li><a>中部</a></li>
-      <li><a>南部</a></li>
+      <li :class="{'active': region==undefined }"><a href="/company_archievements">全部</a></li>
+      <li :class="{'active': region=='north' }"><a href="/company_archievements/north">北部</a></li>
+      <li :class="{'active': region=='middle' }"><a href="/company_archievements/middle">中部</a></li>
+      <li :class="{'active': region=='south' }"><a href="/company_archievements/south">南部</a></li>
     </ul>
 
 
@@ -45,6 +45,8 @@ export default {
     this.$store.commit('page/setPageTitle', this.pageTitle)
     this.$store.commit('page/setPageTitleEn', this.pageTitleEn)
     this.$store.commit('page/setBackgroundImage', this.backgroundImage)
+
+    console.log(this.region);
   },
   validate({ params }) {
     const region = params.region
@@ -60,8 +62,12 @@ export default {
     }
   },
   async asyncData({ params }) {
-    const region = params.region
-    return { region }
+    var region = params.region
+    var pageNumber = params.page_num
+
+    pageNumber = (pageNumber == undefined) ? 1 : pageNumber;
+
+    return { region, pageNumber }
   },
   async fetch() {
     //const response = await fetch(process.env.API_URL + 'api/slides')
@@ -159,6 +165,11 @@ export default {
         region: "北部"
       },
     ]
+  },
+  computed: {
+    getRegion() {
+      return this.region
+    }
   }
 }
 </script>
@@ -196,6 +207,7 @@ export default {
     }
     h6 {
       font-size: 20px;
+      font-weight: 400;
       margin-top: 20px;
 
       @include small-screen {
@@ -210,36 +222,5 @@ export default {
     row-gap: 40px;
   }
 }
-.pagination {
-  margin: 0 auto;
-  margin-top: 100px;
 
-  @include small-screen {
-    margin-top: 40px;
-  }
-  ol {
-    list-style-type: none;
-    display: flex;
-    column-gap: 8px;
-
-    li {
-
-      width: 32px;
-      height: 32px;
-      line-height: 28px;
-      text-align: center;
-      vertical-align: middle;
-      border: 1px #fff solid;
-
-      a {
-        font-size: 16px;
-      }
-    }
-    .active {
-      color: #333;
-      background-color: $main-color;
-      border-color: $main-color;
-    }
-  }
-}
 </style>

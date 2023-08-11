@@ -1,0 +1,27 @@
+<svg data-name="Group 24616" xmlns="http://www.w3.org/2000/svg" width="365.235" height="365.235" viewBox="0 0 365.235 365.235">
+    <defs>
+        <clipPath id="pobn8b5fea">
+            <path data-name="Rectangle 11312" style="fill:none" d="M0 0h365.235v365.235H0z"/>
+        </clipPath>
+    </defs>
+    <path data-name="Line 11385" transform="translate(265.869 53.414)" style="stroke-width:.718px;stroke-miterlimit:10;stroke:#fff;fill:none" d="M0 26.043 26.043 0"/>
+    <path data-name="Line 11386" transform="translate(73.323 248.602)" style="stroke-width:.718px;stroke-miterlimit:10;stroke:#fff;fill:none" d="M0 23.402 23.402 0"/>
+    <path data-name="Line 11387" transform="translate(265.869 245.961)" style="stroke-width:.718px;stroke-miterlimit:10;stroke:#fff;fill:none" d="m0 0 26.043 26.043"/>
+    <path data-name="Line 11388" transform="translate(73.323 53.414)" style="stroke-width:.718px;stroke-miterlimit:10;stroke:#fff;fill:none" d="m0 0 24.549 24.549"/>
+    <g data-name="Group 24613">
+        <g data-name="Group 24612" style="clip-path:url(#pobn8b5fea)">
+            <path data-name="Path 23400" d="M182.619 100.065a256.033 256.033 0 0 1-71.869-10.01v122.853c0 39.526 71.869 62.273 71.869 62.273s71.866-22.747 71.866-62.273V90.055a256.022 256.022 0 0 1-71.866 10.01z" style="stroke-width:.822px;stroke-miterlimit:10;stroke:#fff;fill:none"/>
+            <path data-name="Path 23401" d="M182.619 269.123a193.079 193.079 0 0 1-33.178-15.3c-15.031-8.918-32.95-23.256-32.95-40.92V97.6a263.187 263.187 0 0 0 66.128 8.208 263.18 263.18 0 0 0 66.125-8.208v115.307c0 17.664-17.918 32-32.949 40.92a193 193 0 0 1-33.176 15.3" style="fill:#d5b876"/>
+        </g>
+    </g>
+    <text data-name="24" transform="translate(148.898 191.279)" style="font-size:61.985px;fill:#fff;font-family:Avenir-Heavy,Avenir;font-weight:800"><tspan x="0" y="0" style="letter-spacing:-.096em">2</tspan><tspan y="0">4</tspan></text>
+    <text transform="translate(164.147 222.147)" style="font-size:20.306px;fill:#fff;font-family:Avenir-Heavy,Avenir;font-weight:800"><tspan x="0" y="0" style="letter-spacing:-.061em">H</tspan><tspan y="0" style="letter-spacing:-.063em">R</tspan><tspan y="0">S</tspan></text>
+    <g data-name="Group 24615">
+        <g data-name="Group 24614" style="clip-path:url(#pobn8b5fea)">
+            <path data-name="Line 11389" transform="translate(182.617 -.001)" style="stroke:#d5b876;stroke-width:.822px;stroke-miterlimit:10;fill:none" d="M0 66.529V0"/>
+            <path data-name="Line 11390" transform="translate(182.617 298.706)" style="stroke:#d5b876;stroke-width:.822px;stroke-miterlimit:10;fill:none" d="M0 66.529V0"/>
+            <path data-name="Line 11391" transform="translate(298.707 182.617)" style="stroke:#d5b876;stroke-width:.822px;stroke-miterlimit:10;fill:none" d="M0 0h66.529"/>
+            <path data-name="Line 11392" transform="translate(0 182.617)" style="stroke:#d5b876;stroke-width:.822px;stroke-miterlimit:10;fill:none" d="M0 0h66.529"/>
+        </g>
+    </g>
+</svg>

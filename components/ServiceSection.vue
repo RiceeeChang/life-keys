@@ -19,11 +19,11 @@
         <div class="service-item dummy-item" style=""></div>
       </div>
     </div>
-    
+
   </section>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 #service-section {
   padding-top: 100px;
   padding-bottom: 170px;
@@ -77,8 +77,9 @@
     row-gap: 12px;
   }
   .service-item {
-    width: 180px;
-    height: 180px;
+    font-size: 24px;
+    flex-basis: calc((100vw - 52px) / 2);
+    height: calc((100vw - 52px) / 2);
   }
   .service-item:last-child {
     display: none;

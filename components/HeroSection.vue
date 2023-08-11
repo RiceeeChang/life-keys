@@ -14,7 +14,7 @@
         @sliding-end="onSlideEnd"
       >
         <!-- Text slides with image -->
-        <b-carousel-slide v-for="slide in slides" :key="slide.id" :style="'background-image: url(' + slide.image.url +')'"><!---->
+        <b-carousel-slide v-for="slide in slides" :key="slide.id" :style="'background-image: url(' + slide.url +')'"><!---->
           <span>{{ slide.label }}</span>
           <h1 v-html="slide.title"></h1>
           <h3>{{ slide.subtitle }}</h3>
