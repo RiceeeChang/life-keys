@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+    <g data-name="Group 25522">
+        <g data-name="Group 25502">
+            <g data-name="Group 25498">
+                <g data-name="Group 25496">
+                    <path data-name="Path 24008" d="M572.783 1163.983v-3.324a26.5 26.5 0 0 1 26.418-26.418 26.5 26.5 0 0 1 26.417 26.418v29.741H599.2a26.5 26.5 0 0 1-26.417-26.417z" style="fill:#fff" transform="translate(-532.419 -1125.241)"/>
+                </g>
+                <g data-name="Group 25497">
+                    <path data-name="Path 24009" d="M625.618 1193.495h-26.732a26.179 26.179 0 0 1-26.1-26.1" style="stroke-linecap:round;stroke-linejoin:round;stroke-width:.924px;stroke:#fff;fill:none" transform="translate(-532.419 -1125.241)"/>
+                </g>
+                <text data-name="?" transform="translate(59.024 50.994)" style="font-size:37.694px;fill:#333;font-family:Roboto-Black,Roboto Black;font-weight:800"><tspan x="0" y="0">?</tspan></text>
+            </g>
+            <g data-name="Group 25501">
+                <g data-name="Group 25499">
+                    <path data-name="Rectangle 11532" d="M26.417 0h3.325a26.417 26.417 0 0 1 26.417 26.417v26.418H26.417A26.417 26.417 0 0 1 0 26.417 26.417 26.417 0 0 1 26.417 0z" transform="rotate(90 14.479 41.356)" style="fill:#d6b977"/>
+                </g>
+                <g data-name="Group 25500">
+                    <path data-name="Path 24010" d="M535.419 1211.684h25.95a25.413 25.413 0 0 0 25.339-25.339" style="stroke:#d6b977;stroke-linecap:round;stroke-linejoin:round;stroke-width:.924px;fill:none" transform="translate(-532.419 -1125.241)"/>
+                </g>
+                <text transform="translate(17.205 65.211)" style="font-size:30.466px;fill:#333;font-family:Roboto-Black,Roboto Black;font-weight:800"><tspan x="0" y="0">A</tspan></text>
+            </g>
+        </g>
+        <path data-name="Rectangle 11539" style="fill:none" d="M0 0h96v96H0z"/>
+    </g>
+</svg>

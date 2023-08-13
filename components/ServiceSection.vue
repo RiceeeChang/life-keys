@@ -18,8 +18,10 @@
         <div class="service-item font-weight-b" style="background-image: url('/assets/images/service8.png');">智能服務</div>
         <div class="service-item dummy-item" style=""></div>
       </div>
-    </div>
 
+      <div class="scroll-down sd1">SCROLL DOWN</div>
+      <div class="scroll-down sd2">SCROLL DOWN</div>
+    </div>
   </section>
 </template>
 
@@ -27,6 +29,12 @@
 #service-section {
   padding-top: 100px;
   padding-bottom: 170px;
+
+
+}
+
+.section-content {
+  position: relative;
 }
 
 .bg-333 {
@@ -85,6 +93,30 @@
     display: none;
   }
 }
+.scroll-down {
+  position: absolute;
+
+  transform: rotate(90deg);
+  color: #caa460;
+  font-size: 16px;
+  font-family: $font-noto-serif-tc;
+  letter-spacing: 2.3px;
+
+  @include small-screen {
+    display: none;
+  }
+
+  &.sd1 {
+    top: -100px;
+    right: -120px;
+
+  }
+  &.sd2 {
+    bottom: -190px;
+    left: -120px;
+  }
+}
+
 
 </style>
 

@@ -14,7 +14,7 @@
         <h5>諮詢主題<span>*</span></h5>
 
         <div class="radio-group">
-          <FormRadio v-for="topic in formTopics" :key="topic" :radio-label="topic" />
+          <FormRadio v-for="topic in formTopics" :key="topic" :radio-label="topic.label" :radio-value="topic.value"/>
         </div>
 
         <div class="fillment-wrap">
@@ -165,7 +165,38 @@ export default {
       },
 
       formTopics: [
-        '物業管理服務', '保全服務', '代租代管代管理', '清潔服務', '餐飲服務', '其他', '溫馨服務/家園', '智能服務',
+        {
+          label: '物業管理服務',
+          value: 'property_management_service',
+        },
+        {
+          label: '保全服務',
+          value: 'security_service',
+        },
+        {
+          label: '代租代管代管理',
+          value: 'rent_service',
+        },
+        {
+          label: '清潔服務',
+          value: 'cleaning_service',
+        },
+        {
+          label: '餐飲服務',
+          value: 'food_service',
+        },
+        {
+          label: '溫馨服務/家園',
+          value: 'life_service',
+        },
+        {
+          label: '其他',
+          value: 'other',
+        },
+        {
+          label: '智能服務',
+          value: 'smart_service',
+        },
       ],
 
       contactTab: 'info'
@@ -275,6 +306,7 @@ h3 {
     border: 2px #959595 solid;
     border-radius: 6px;
 
+    color: #333;
     font-size: 16px;
   }
 
@@ -293,7 +325,9 @@ h3 {
 
   background-color: $main-color;
 
+  color: #333;
   font-size: 20px;
+  font-weight: 400;
   line-height: 20px;
 
   padding: 20px 100px;

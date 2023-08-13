@@ -25,7 +25,7 @@
             </div>
           </li>
           <li>
-            <a class="menu-item" href="#">服務項目</a>
+            <a class="menu-item">服務項目</a>
             <div class="dropdown-menu">
               <div class="dropdown-menu-content">
                 <div class="dropdown-menu-title">
@@ -56,11 +56,11 @@
                 </div>
                 <div class="dropdown-menu-divider"></div>
                 <ul class="dropdown-menu-list">
-                  <li><a href="#">- 最新消息</a></li>
-                  <li><a href="#">- 活動花絮</a></li>
-                  <li><a href="#">- 評比佳績</a></li>
-                  <li><a href="#">- 媒體報導</a></li>
-                  <li><a href="#">- 教育訓練</a></li>
+                  <li><a href="/news/lastest">- 最新消息</a></li>
+                  <li><a href="/news/event">- 活動花絮</a></li>
+                  <li><a href="/news/evaluation">- 評比佳績</a></li>
+                  <li><a href="/news/report">- 媒體報導</a></li>
+                  <li><a href="/news/education">- 教育訓練</a></li>
                 </ul>
               </div>
             </div>
@@ -82,8 +82,8 @@
               </div>
             </div>
           </li>
-          <li><a class="menu-item" href="/careers">菁英召募</a></li>
-          <li><a class="menu-item" href="/contact">聯絡我們</a></li>
+          <li :class="{on: pageTitleEn=='Careers'}"><a class="menu-item" href="/careers">菁英召募</a></li>
+          <li :class="{on: pageTitleEn=='Contact Us'}"><a class="menu-item" href="/contact">聯絡我們</a></li>
         </ul>
         <div class="navbar-toggle on">
 
@@ -169,6 +169,11 @@ export default {
         this.isMenuOpen = false;
       }
     }
+  },
+  computed: {
+    pageTitleEn() {
+      return this.$store.state.page.pageTitleEn;
+    },
   }
 }
 </script>
@@ -218,17 +223,25 @@ export default {
   box-sizing: border-box;
   border-bottom: 4px solid #ffffff00;
 }
-.navbar-menu > li:hover {
-  border-bottom: 4px solid #d5b877;
+
+.navbar-menu > li {
+  &:hover, &.on {
+    border-bottom: 4px solid #d5b877;
+    > a, > a:visited {
+      color: #d5b877;
+    }
+  }
 }
 .navbar-menu > li a:visited {
   color: #fff;
 }
-.navbar-menu > li:hover > a {
-  color: #d5b877;
-}
+
 .navbar-menu li a {
   text-decoration: none;
+
+  &:hover, &:active {
+    color: $main-color;
+  }
 }
 .navbar-menu li .dropdown-menu {
   display: none;

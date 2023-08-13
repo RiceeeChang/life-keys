@@ -1,7 +1,7 @@
 <template>
   <div class="form-radio">
-    <input type="radio" name="form-topic">
-    <label>{{ radioLabel }}</label>
+    <input type="radio" name="form-topic" :value="radioValue" :id="radioValue">
+    <label :for="radioValue">{{ radioLabel }}</label>
   </div>
 </template>
 <script>
@@ -11,6 +11,10 @@ export default {
       type: String,
       default: "選項標籤",
       required: true,
+    },
+    radioValue: {
+      type: String,
+      required: true
     }
   }
 }

@@ -87,15 +87,16 @@ export default {
     }
   }
   .photo {
-    order: -1;
+
     padding: 24px;
+
+  }
+  @include small-screen {
+    order: -1;
     img {
-      @include small-screen {
-        width: 100%;
-      }
+      width: 100%;
     }
   }
-
 }
 
 .section {
@@ -137,15 +138,16 @@ export default {
   }
 
   .p {
-    width: 536px;
     h3 {
       color: $main-color;
       font-size: 36px;
       margin-bottom: 40px;
     }
     p {
+      max-width: 480px;
       font-size: 16px;
       font-weight: 100;
+      line-height: 1.8;
 
       .fq {
         &::after {

@@ -1,0 +1,225 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="582" height="569" viewBox="0 0 582 569">
+  <defs>
+    <style>
+      .cls-1, .cls-8 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2, .cls-5 {
+        stroke: #d5b877;
+      }
+
+      .cls-1 {
+        stroke-width: 2px;
+        stroke-dasharray: 10 10;
+      }
+
+      .cls-2, .cls-6 {
+        fill: #292929;
+      }
+
+      .cls-2, .cls-5 {
+        stroke-width: 5px;
+      }
+
+      .cls-3, .cls-5 {
+        fill: #d5b876;
+      }
+
+      .cls-3, .cls-4, .cls-6 {
+        font-size: 27px;
+        font-family: SourceHanSansTW-Bold, Source Han Sans TW;
+        font-weight: 700;
+      }
+
+      .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-7 {
+        stroke: none;
+      }
+
+      .cls-9 {
+        filter: url(#設備_維養);
+      }
+
+      .cls-10 {
+        filter: url(#照明_維養);
+      }
+
+      .cls-11 {
+        filter: url(#弱電_維養);
+      }
+
+      .cls-12 {
+        filter: url(#機電_維養);
+      }
+
+      .cls-13 {
+        filter: url(#泳池_維養);
+      }
+
+      .cls-14 {
+        filter: url(#設施_維養);
+      }
+
+      .cls-15 {
+        filter: url(#建材_維養);
+      }
+    </style>
+    <filter id="建材_維養">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161" result="color"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur"/>
+      <feComposite operator="in" in="color"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+    <filter id="設施_維養">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161" result="color-2"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur-2"/>
+      <feComposite operator="in" in="color-2"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+    <filter id="泳池_維養">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-3"/>
+      <feFlood flood-opacity="0.161" result="color-3"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur-3"/>
+      <feComposite operator="in" in="color-3"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+    <filter id="機電_維養">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-4"/>
+      <feFlood flood-opacity="0.161" result="color-4"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur-4"/>
+      <feComposite operator="in" in="color-4"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+    <filter id="弱電_維養">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-5"/>
+      <feFlood flood-opacity="0.161" result="color-5"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur-5"/>
+      <feComposite operator="in" in="color-5"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+    <filter id="照明_維養">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-6"/>
+      <feFlood flood-opacity="0.161" result="color-6"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur-6"/>
+      <feComposite operator="in" in="color-6"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+    <filter id="設備_維養">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-7"/>
+      <feFlood flood-opacity="0.161" result="color-7"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur-7"/>
+      <feComposite operator="in" in="color-7"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_25489" data-name="Group 25489" transform="translate(-149.5 -1068.5)">
+    <g id="Ellipse_1595" data-name="Ellipse 1595" class="cls-1" transform="translate(194 1123)">
+      <circle class="cls-7" cx="230.5" cy="230.5" r="230.5"/>
+      <circle class="cls-8" cx="230.5" cy="230.5" r="229.5"/>
+    </g>
+    <g id="Group_25382" data-name="Group 25382" transform="translate(364.152 1070.837)">
+      <circle id="Ellipse_1587" data-name="Ellipse 1587" class="cls-2" cx="76" cy="76" r="76" transform="translate(-0.152 0.163)"/>
+    </g>
+    <g id="Group_25388" data-name="Group 25388" transform="translate(413.474 1116.781)">
+      <g data-type="innerShadowGroup">
+        <text id="建材_維養-2" data-name="建材
+維養" class="cls-3" transform="translate(-0.474 24.219)"><tspan x="0" y="0">建材</tspan><tspan x="0" y="34">維養</tspan></text>
+        <g class="cls-15" transform="matrix(1, 0, 0, 1, -263.97, -48.28)">
+          <text id="建材_維養-3" data-name="建材
+維養" class="cls-4" transform="translate(263.5 72.5)"><tspan x="0" y="0">建材</tspan><tspan x="0" y="34">維養</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g id="Group_25382-2" data-name="Group 25382" transform="translate(534.414 1152.59)">
+      <circle id="Ellipse_1587-2" data-name="Ellipse 1587" class="cls-5" cx="76" cy="76" r="76" transform="translate(-0.414 0.41)"/>
+    </g>
+    <g id="Group_25382-3" data-name="Group 25382" transform="translate(576.98 1335.69)">
+      <circle id="Ellipse_1587-3" data-name="Ellipse 1587" class="cls-2" cx="76" cy="76" r="76" transform="translate(0.02 0.31)"/>
+    </g>
+    <g id="Group_25382-4" data-name="Group 25382" transform="translate(458.742 1482.98)">
+      <circle id="Ellipse_1587-4" data-name="Ellipse 1587" class="cls-5" cx="76" cy="76" r="76" transform="translate(0.258 0.02)"/>
+    </g>
+    <g id="Group_25382-5" data-name="Group 25382" transform="translate(270.238 1482.98)">
+      <circle id="Ellipse_1587-5" data-name="Ellipse 1587" class="cls-5" cx="76" cy="76" r="76" transform="translate(-0.238 0.02)"/>
+    </g>
+    <g id="Group_25382-6" data-name="Group 25382" transform="translate(152 1335.69)">
+      <path id="Path_24007" data-name="Path 24007" class="cls-2" d="M76.01,0A76.01,76.01,0,1,1,0,76.01,76.01,76.01,0,0,1,76.01,0Z"/>
+    </g>
+    <g id="Group_25382-7" data-name="Group 25382" transform="translate(193.89 1152.59)">
+      <circle id="Ellipse_1587-6" data-name="Ellipse 1587" class="cls-5" cx="76" cy="76" r="76" transform="translate(0.11 0.41)"/>
+    </g>
+    <g id="Group_25482" data-name="Group 25482" transform="translate(583.737 1198.534)">
+      <g data-type="innerShadowGroup">
+        <text id="設施_維養-2" data-name="設施
+維養" class="cls-6" transform="translate(0.263 24.466)"><tspan x="0" y="0">設施</tspan><tspan x="0" y="34">維養</tspan></text>
+        <g class="cls-14" transform="matrix(1, 0, 0, 1, -434.24, -130.03)">
+          <text id="設施_維養-3" data-name="設施
+維養" class="cls-4" transform="translate(434.5 154.5)"><tspan x="0" y="0">設施</tspan><tspan x="0" y="34">維養</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g id="Group_25487" data-name="Group 25487" transform="translate(243.212 1198.534)">
+      <g data-type="innerShadowGroup">
+        <text id="泳池_維養-2" data-name="泳池
+維養" class="cls-6" transform="translate(-0.212 24.466)"><tspan x="0" y="0">泳池</tspan><tspan x="0" y="34">維養</tspan></text>
+        <g class="cls-13" transform="matrix(1, 0, 0, 1, -93.71, -130.03)">
+          <text id="泳池_維養-3" data-name="泳池
+維養" class="cls-4" transform="translate(93.5 154.5)"><tspan x="0" y="0">泳池</tspan><tspan x="0" y="34">維養</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g id="Group_25484" data-name="Group 25484" transform="translate(508.064 1528.924)">
+      <g data-type="innerShadowGroup">
+        <text id="機電_維養-2" data-name="機電
+維養" class="cls-6" transform="translate(-0.064 24.076)"><tspan x="0" y="0">機電</tspan><tspan x="0" y="34">維養</tspan></text>
+        <g class="cls-12" transform="matrix(1, 0, 0, 1, -358.56, -460.42)">
+          <text id="機電_維養-3" data-name="機電
+維養" class="cls-4" transform="translate(358.5 484.5)"><tspan x="0" y="0">機電</tspan><tspan x="0" y="34">維養</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g id="Group_25485" data-name="Group 25485" transform="translate(319.56 1528.924)">
+      <g data-type="innerShadowGroup">
+        <text id="弱電_維養-2" data-name="弱電
+維養" class="cls-6" transform="translate(0.44 24.076)"><tspan x="0" y="0">弱電</tspan><tspan x="0" y="34">維養</tspan></text>
+        <g class="cls-11" transform="matrix(1, 0, 0, 1, -170.06, -460.42)">
+          <text id="弱電_維養-3" data-name="弱電
+維養" class="cls-4" transform="translate(170.5 484.5)"><tspan x="0" y="0">弱電</tspan><tspan x="0" y="34">維養</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g id="Group_25483" data-name="Group 25483" transform="translate(626.302 1381.634)">
+      <g data-type="innerShadowGroup">
+        <text id="照明_維養-2" data-name="照明
+維養" class="cls-3" transform="translate(-0.302 24.366)"><tspan x="0" y="0">照明</tspan><tspan x="0" y="34">維養</tspan></text>
+        <g class="cls-10" transform="matrix(1, 0, 0, 1, -476.8, -313.13)">
+          <text id="照明_維養-3" data-name="照明
+維養" class="cls-4" transform="translate(476.5 337.5)"><tspan x="0" y="0">照明</tspan><tspan x="0" y="34">維養</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g id="Group_25486" data-name="Group 25486" transform="translate(201.322 1381.634)">
+      <g data-type="innerShadowGroup">
+        <text id="設備_維養-2" data-name="設備
+維養" class="cls-3" transform="translate(-0.322 24.366)"><tspan x="0" y="0">設備</tspan><tspan x="0" y="34">維養</tspan></text>
+        <g class="cls-9" transform="matrix(1, 0, 0, 1, -51.82, -313.13)">
+          <text id="設備_維養-3" data-name="設備
+維養" class="cls-4" transform="translate(51.5 337.5)"><tspan x="0" y="0">設備</tspan><tspan x="0" y="34">維養</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

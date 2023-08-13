@@ -15,6 +15,7 @@
 
 body {
   background-color: $main-background-color;
+  overflow-x: hidden;
 }
 p {
   margin: unset;
@@ -121,10 +122,12 @@ main {
   justify-content: flex-end;
 
   @include small-screen {
+    width: unset;
+    padding: 0;
     margin: 0;
 
-    left: 260px;
-    right: unset;
+    left: unset;
+    right: 0;
     bottom: 50px;
   }
 }

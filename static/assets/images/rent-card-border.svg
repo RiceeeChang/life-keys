@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="134.5" height="456.5" viewBox="0 0 134.5 456.5">
+    <g data-name="Group 25530">
+        <g data-name="Group 25523">
+            <path data-name="Path 24032" d="M1405.579 1088.695a11.612 11.612 0 0 0 11.612 11.612" transform="translate(-1282.941 -1088.445)" style="fill:none;stroke:#d5b876;stroke-miterlimit:10;stroke-width:.5px"/>
+            <path data-name="Path 24033" d="M1282.839 1100.307a11.612 11.612 0 0 0 11.613-11.612" transform="translate(-1282.589 -1088.445)" style="fill:none;stroke:#d5b876;stroke-miterlimit:10;stroke-width:.5px"/>
+            <path data-name="Line 11431" transform="translate(.25 19.188)" style="fill:none;stroke:#d5b876;stroke-miterlimit:10;stroke-width:.5px" d="M0 417.622V0"/>
+            <path data-name="Line 11432" transform="translate(134.25 19.188)" style="fill:none;stroke:#d5b876;stroke-miterlimit:10;stroke-width:.5px" d="M0 417.622V0"/>
+            <path data-name="Line 11433" transform="translate(18.346 .25)" style="fill:none;stroke:#d5b876;stroke-miterlimit:10;stroke-width:.5px" d="M0 0h98.306"/>
+        </g>
+        <g data-name="Group 25524">
+            <path data-name="Path 24034" d="M1405.579 1545.664a11.612 11.612 0 0 1 11.612-11.613" transform="translate(-1282.941 -1089.414)" style="fill:none;stroke:#d5b876;stroke-miterlimit:10;stroke-width:.5px"/>
+            <path data-name="Path 24035" d="M1282.839 1534.051a11.613 11.613 0 0 1 11.613 11.613" transform="translate(-1282.589 -1089.414)" style="fill:none;stroke:#d5b876;stroke-miterlimit:10;stroke-width:.5px"/>
+            <path data-name="Line 11434" transform="translate(18.346 456.25)" style="fill:none;stroke:#d5b876;stroke-miterlimit:10;stroke-width:.5px" d="M0 0h98.306"/>
+        </g>
+    </g>
+</svg>

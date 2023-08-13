@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+    <g data-name="Group 25518">
+        <g data-name="Group 25512" transform="translate(-1149.567 -1127.12)">
+            <path data-name="Path 24025" d="M1220.519 1185.121h-50.777l-15.726-39.493h74.356z" style="fill:#d6b977"/>
+            <path data-name="Line 11426" transform="translate(1171.951 1145.506)" style="stroke-linecap:round;stroke-linejoin:round;stroke-width:.924px;stroke:#333;fill:none" d="M10.454 37.015 0 0"/>
+            <path data-name="Line 11427" transform="translate(1189.795 1145.953)" style="stroke-linecap:round;stroke-linejoin:round;stroke-width:.924px;stroke:#333;fill:none" d="M5.851 36.568 0 0"/>
+            <path data-name="Line 11428" transform="translate(1208.376 1145.953)" style="stroke-linecap:round;stroke-linejoin:round;stroke-width:.924px;stroke:#333;fill:none" d="M0 36.568V0"/>
+            <path data-name="Line 11429" transform="translate(1163.947 1173.613)" style="stroke-linecap:round;stroke-linejoin:round;stroke-width:.924px;stroke:#333;fill:none" d="M0 0h56.572"/>
+            <path data-name="Line 11430" transform="translate(1169.333 1185.121)" style="stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:.924px;fill:none" d="M0 0h48.261"/>
+            <circle data-name="Ellipse 1603" cx="8.122" cy="8.122" r="8.122" transform="rotate(-80.783 1297.147 -85.133)" style="fill:#fff"/>
+            <circle data-name="Ellipse 1604" cx="8.122" cy="8.122" r="8.122" transform="rotate(-45 2055.683 -858.338)" style="fill:#fff"/>
+            <path data-name="Path 24026" d="M1228.668 1146.846h-74.76a1.344 1.344 0 0 1-1.341-1.34 1.344 1.344 0 0 1 1.341-1.341h74.76a1.344 1.344 0 0 1 1.341 1.341 1.344 1.344 0 0 1-1.341 1.34z" style="fill:#fff"/>
+            <path data-name="Path 24027" d="M1182.731 1185.121v17.065h37.788v-17.065l9.948-49h11.7" style="stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:.924px;fill:none"/>
+        </g>
+        <path data-name="Rectangle 11543" style="fill:none" d="M0 0h96v96H0z"/>
+    </g>
+</svg>

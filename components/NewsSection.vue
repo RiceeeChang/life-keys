@@ -28,7 +28,7 @@
           <div class="category-tab font-color-333333 font-weight-b" value="report" @click="changeNewsTab">媒體報導</div>
           <div class="category-tab font-color-333333 font-weight-b" value="event" @click="changeNewsTab">活動花絮</div>
           <div class="category-tab font-color-333333 font-weight-b" value="education" @click="changeNewsTab">教育訓練</div>
-          <div class="category-tab font-color-333333 font-wwight-b" value="evaluation" @click="changeNewsTab">評比佳績</div>
+          <div class="category-tab font-color-333333 font-weight-b" value="evaluation" @click="changeNewsTab">評比佳績</div>
         </div>
 
         <div v-for="item in news[newsTab]" class="news-item">
