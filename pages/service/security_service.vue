@@ -150,6 +150,7 @@ export default {
       line-height: 1.8;
 
       .fq {
+        margin: 0 4px;
         &::after {
           content: url('/assets/images/security_service3.svg');
           display: inline-block;
@@ -157,6 +158,7 @@ export default {
         }
       }
       .rq {
+        margin: 0 4px;
         &::after {
           content: url('/assets/images/security_service3.svg');
           display: inline-block;

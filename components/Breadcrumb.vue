@@ -56,6 +56,8 @@ export default {
 
   .item {
     margin: 0 8px;
+
+    font-weight: 400;
   }
   .item::before {
     content: url("/assets/images/icon-arrow.svg");

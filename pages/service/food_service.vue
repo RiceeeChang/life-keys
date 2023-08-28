@@ -51,7 +51,12 @@
           <img src="/assets/images/food_service4.webp">
         </div>
       </div>
+
+      <div class="background-circle c1"></div>
+      <div class="background-circle c2"></div>
+      <div class="background-circle c3"></div>
     </div>
+
   </section>
 </template>
 
@@ -132,6 +137,8 @@ export default {
   flex-direction: column;
   align-items: center;
   row-gap: 36px;
+
+  position: relative;
 }
 .food-card {
   background-color: #4c4c4c;
@@ -150,12 +157,12 @@ export default {
     h3 {
       color: $main-color;
       font-size: 24px;
-      font-weight: 300;
+      font-weight: 400;
 
       margin-bottom: 10px;
     }
     p {
-      font-weight: 100;
+      font-weight: 300;
       line-height: 1.8;
     }
   }
@@ -174,5 +181,32 @@ export default {
       }
     }
   }
+}
+
+.background-circle {
+  $circle-radius: 272px;
+  width: $circle-radius;
+  height: $circle-radius;
+  border: 1px $main-color solid;
+  border-radius: calc($circle-radius / 2);
+
+  position: absolute;
+  z-index: -1;
+
+  @include small-screen {
+    display: none;
+  }
+}
+.background-circle.c1 {
+  top: -24px;
+  right: -36px;
+}
+.background-circle.c2 {
+  top: 468px;
+  left: -12px;
+}
+.background-circle.c3 {
+  bottom: -72px;
+  right: -32px;
 }
 </style>

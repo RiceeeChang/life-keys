@@ -13,43 +13,47 @@
       <div v-if="contactTab=='form'" class="contact-form">
         <h5>諮詢主題<span>*</span></h5>
 
-        <div class="radio-group">
-          <FormRadio v-for="topic in formTopics" :key="topic" :radio-label="topic.label" :radio-value="topic.value"/>
-        </div>
-
-        <div class="fillment-wrap">
-          <div class="fillment-group">
-            <label>姓名<span>*</span></label>
-            <input type="text" name="name" placeholder="請輸入姓名">
-          </div>
-          <div class="fillment-group">
-            <label>信箱<span>*</span></label>
-            <input type="text" name="mail" placeholder="請輸入信箱">
-          </div>
-          <div class="fillment-group">
-            <label>電話<span>*</span></label>
-            <input type="text" name="phone" placeholder="請輸入電話">
-          </div>
-          <div class="fillment-group">
-            <label>方便聯絡時段<span>*</span></label>
-            <input type="text" name="time" placeholder="請輸入時段">
-          </div>
-          <div class="fillment-group">
-            <label>社區/公司名稱<span>*</span></label>
-            <input type="text" name="unit-name" placeholder="請輸入社區公司名稱">
-          </div>
-          <div class="fillment-group">
-            <label>社區/公司地址<span>*</span></label>
-            <input type="text" name="unit-address" placeholder="請輸入社區公司地址">
+        <form @submit="submitForm">
+          <div class="radio-group">
+            <FormRadio v-for="topic in formTopics" :key="topic" :radio-label="topic.label" :radio-value="topic.value"/>
           </div>
 
-          <div class="fillment-group">
-            <label>諮詢內容<span>*</span></label>
-            <textarea id="require-content" placeholder="請輸入社區公司地址"></textarea>
-          </div>
-        </div>
+          <div class="fillment-wrap">
+            <div class="fillment-group">
+              <label>姓名<span>*</span></label>
+              <input type="text" name="name" placeholder="請輸入姓名" v-model="formData.name" autocomplete="off" required>
+            </div>
+            <div class="fillment-group">
+              <label>信箱<span>*</span></label>
+              <input type="text" name="mail" placeholder="請輸入信箱" v-model="formData.mail" autocomplete="off" required>
+            </div>
+            <div class="fillment-group">
+              <label>電話<span>*</span></label>
+              <input type="text" name="phone" placeholder="請輸入電話" v-model="formData.phone" autocomplete="off" required>
+            </div>
+            <div class="fillment-group">
+              <label>方便聯絡時段<span>*</span></label>
+              <input type="text" name="time" placeholder="請輸入時段" v-model="formData.period" autocomplete="off" required>
+            </div>
+            <div class="fillment-group">
+              <label>社區/公司名稱<span>*</span></label>
+              <input type="text" name="unit-name" placeholder="請輸入社區公司名稱" v-model="formData.unit" autocomplete="off" required>
+            </div>
+            <div class="fillment-group">
+              <label>社區/公司地址<span>*</span></label>
+              <input type="text" name="unit-address" placeholder="請輸入社區公司地址" v-model="formData.address" autocomplete="off" required>
+            </div>
 
-        <button class="form-submit">送出</button>
+            <div class="fillment-group">
+              <label>諮詢內容<span>*</span></label>
+              <textarea id="require-content" placeholder="請輸入諮詢內容" v-model="formData.content" autocomplete="off" required></textarea>
+            </div>
+          </div>
+
+          <button class="form-submit" type="submit">送出</button>
+
+        </form>
+
       </div>
 
       <div v-if="contactTab=='info'" class="contact-form">
@@ -199,13 +203,27 @@ export default {
         },
       ],
 
-      contactTab: 'info'
+      contactTab: 'form',
+      formData: {
+        name: '',
+        mail: '',
+        phone: '',
+        period: '',
+        unit: '',
+        address: '',
+        content: '',
+      }
     }
   },
   components: {
     BigBanner,
     Breadcrumb,
     FormRadio
+  },
+  created() {
+    this.$store.commit('page/setPageTitle', this.pageTitle)
+    this.$store.commit('page/setPageTitleEn', this.pageTitleEn)
+    this.$store.commit('page/setBackgroundImage', this.backgroundImage)
   },
   computed: {
     dynamicTitle() {
@@ -215,7 +233,10 @@ export default {
   methods: {
     changeTab(val) {
       this.contactTab = val;
-    }
+    },
+    submitForm(event) {
+      event.preventDefault();
+    },
   }
 }
 </script>
@@ -245,7 +266,7 @@ h3 {
     margin-bottom: 30px;
 
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 400;
     span {
       color: $main-color;
 
@@ -293,6 +314,7 @@ h3 {
     margin-bottom: 16px;
 
     font-size: 16px;
+    font-weight: 400;
 
     span {
       color: $main-color;

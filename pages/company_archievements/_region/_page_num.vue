@@ -1,7 +1,7 @@
 <template>
   <section class="page-content">
     <ul class="form-tab">
-      <li :class="{'active': region==undefined }"><a href="/company_archievements">全部</a></li>
+      <li :class="{'active': region=='' }"><a href="/company_archievements">全部</a></li>
       <li :class="{'active': region=='north' }"><a href="/company_archievements/north">北部</a></li>
       <li :class="{'active': region=='middle' }"><a href="/company_archievements/middle">中部</a></li>
       <li :class="{'active': region=='south' }"><a href="/company_archievements/south">南部</a></li>
@@ -10,8 +10,8 @@
 
     <div class="case-wrap">
       <div v-for="c in cases" class="case">
-        <div class="thumbnail"><img :src="c.image"></div>
-        <h6>{{ c.name }}</h6>
+        <div class="thumbnail"><img :src="c.url"></div>
+        <h6>{{ c.title }}</h6>
       </div>
     </div>
 
@@ -45,8 +45,6 @@ export default {
     this.$store.commit('page/setPageTitle', this.pageTitle)
     this.$store.commit('page/setPageTitleEn', this.pageTitleEn)
     this.$store.commit('page/setBackgroundImage', this.backgroundImage)
-
-    console.log(this.region);
   },
   validate({ params }) {
     const region = params.region
@@ -65,106 +63,21 @@ export default {
     var region = params.region
     var pageNumber = params.page_num
 
+    region = (region == undefined) ? "" : region;
     pageNumber = (pageNumber == undefined) ? 1 : pageNumber;
 
     return { region, pageNumber }
   },
   async fetch() {
-    //const response = await fetch(process.env.API_URL + 'api/slides')
-    //const data = await response.json()
+    var apiUrl = process.env.API_URL + 'api/cases?limit=15&page='+this.pageNumber;
 
-    this.cases = [
-      {
-        id: 1,
-        image: "/assets/images/case.webp",
-        name: "七月沐樂",
-        region: "北部"
-      },
-      {
-        id: 1,
-        image: "/assets/images/case.webp",
-        name: "七月沐樂",
-        region: "北部"
-      },
-      {
-        id: 1,
-        image: "/assets/images/case.webp",
-        name: "七月沐樂",
-        region: "北部"
-      },
-      {
-        id: 1,
-        image: "/assets/images/case.webp",
-        name: "七月沐樂",
-        region: "北部"
-      },
-      {
-        id: 1,
-        image: "/assets/images/case.webp",
-        name: "七月沐樂",
-        region: "北部"
-      },
-      {
-        id: 1,
-        image: "/assets/images/case.webp",
-        name: "七月沐樂",
-        region: "北部"
-      },
-      {
-        id: 1,
-        image: "/assets/images/case.webp",
-        name: "七月沐樂",
-        region: "北部"
-      },
-      {
-        id: 1,
-        image: "/assets/images/case.webp",
-        name: "七月沐樂",
-        region: "北部"
-      },
-      {
-        id: 1,
-        image: "/assets/images/case.webp",
-        name: "七月沐樂",
-        region: "北部"
-      },
-      {
-        id: 1,
-        image: "/assets/images/case.webp",
-        name: "七月沐樂",
-        region: "北部"
-      },
-      {
-        id: 1,
-        image: "/assets/images/case.webp",
-        name: "七月沐樂",
-        region: "北部"
-      },
-      {
-        id: 1,
-        image: "/assets/images/case.webp",
-        name: "七月沐樂",
-        region: "北部"
-      },
-      {
-        id: 1,
-        image: "/assets/images/case.webp",
-        name: "七月沐樂",
-        region: "北部"
-      },
-      {
-        id: 1,
-        image: "/assets/images/case.webp",
-        name: "七月沐樂",
-        region: "北部"
-      },
-      {
-        id: 1,
-        image: "/assets/images/case.webp",
-        name: "七月沐樂",
-        region: "北部"
-      },
-    ]
+    if (this.region != '') {
+      apiUrl = apiUrl + '&where[region][equals]='+this.region;
+    }
+
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    this.cases = data.docs;
   },
   computed: {
     getRegion() {

@@ -176,6 +176,8 @@ export default {
         background-color: #fff;
         vertical-align: -1px;
       }
+
+      font-weight: 400;
     }
 
     @include small-screen {

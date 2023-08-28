@@ -72,7 +72,7 @@ export default {
     }
     p {
       font-size: 16px;
-      font-weight: 100;
+      font-weight: 300;
       line-height: 2;
       padding-right: 24px;
     }

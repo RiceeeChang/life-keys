@@ -19,7 +19,7 @@ export default {
   layout: 'MainPage',
   data() {
     return {
-      pageTitle: '機電設備',
+      pageTitle: '設備機電',
       pageTitleEn: 'Electrical Device',
       backgroundImage: '/assets/images/service_electrical_device_banner.webp',
     }

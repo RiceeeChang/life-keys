@@ -109,9 +109,12 @@ export default {
     }
   }
   p {
+    margin-top: 24px;
+
     letter-spacing: 1.5px;
     line-height: 2;
-    margin-top: 24px;
+    font-weight: 400;
+
   }
 }
 hr {

@@ -1,7 +1,6 @@
 <template>
   <header class="header bg-333">
     <div class="section-content padding-left-0">
-
       <nav class="navbar">
         <div class="navbar-logo">
           <a href="/"><img src="/BrandLogo.svg" alt="伯克錸物業管理"></a>
@@ -160,7 +159,7 @@ export default {
   data() {
     return {
       isMenuOpen: false,
-
+      pageTitleEn: "",
     }
   },
   methods: {
@@ -170,10 +169,8 @@ export default {
       }
     }
   },
-  computed: {
-    pageTitleEn() {
-      return this.$store.state.page.pageTitleEn;
-    },
+  mounted() {
+    this.pageTitleEn = this.$store.state.page.pageTitleEn;
   }
 }
 </script>
@@ -222,6 +219,11 @@ export default {
 .navbar-menu > li {
   box-sizing: border-box;
   border-bottom: 4px solid #ffffff00;
+
+  font-weight: 400;
+  a {
+    font-weight: inherit;
+  }
 }
 
 .navbar-menu > li {
@@ -309,7 +311,7 @@ export default {
   display: flex;
   align-items: center;
 
-  font-weight: 100;
+  font-weight: 300;
 }
 
 

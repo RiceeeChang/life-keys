@@ -92,7 +92,7 @@
         <span class="number">04</span>
         <h6>房屋固定開銷透明化</h6>
         <ul>
-          <li>每月租金及開銷報表製作及客閱</li>
+          <li>每月租金及開銷報表<br>製作及客閱</li>
         </ul>
       </div>
     </div>
@@ -101,20 +101,20 @@
     <div class="rent-section">
       <div class="rent-card">
         <span class="number">05</span>
-        <h6>定期租金調整及管理</h6>
+        <h6>定期租金<br>調整及管理</h6>
       </div>
       <div class="rent-card">
         <span class="number">06</span>
         <h6>代理催繳租金</h6>
         <ul>
-          <li>每月交費前提醒及逾期不繳催促</li>
+          <li>每月交費前提醒<br>及逾期不繳催促</li>
         </ul>
       </div>
       <div class="rent-card">
         <span class="number">07</span>
         <h6>定期建築物巡迴檢查</h6>
         <ul>
-          <li>每月定期巡視房屋硬體狀況及周遭環境安全</li>
+          <li>每月定期巡視房屋硬體狀況<br>及周遭環境安全</li>
           <li>代理抄電及瓦斯度數</li>
         </ul>
       </div>
@@ -122,8 +122,8 @@
         <span class="number">08</span>
         <h6>全年專人管理</h6>
         <ul>
-          <li>即時狀況處理(房客反鎖/失訊不聯)</li>
-          <li>硬體水電設備損壞代理維修(房東/房客支付)</li>
+          <li>即時狀況處理<br>(房客反鎖/失訊不聯)</li>
+          <li>硬體水電設備損壞代理維修<br>(房東/房客支付)</li>
         </ul>
       </div>
       <div class="rent-card">
@@ -213,7 +213,7 @@ h2 {
   }
 }
 .d {
-  font-weight: 100;
+  font-weight: 300;
   line-height: 1.8;
   max-width: 880px;
   margin: 0 auto 54px;
@@ -246,13 +246,13 @@ h2 {
     }
     h6 {
       font-size: 20px;
-      font-weight: 300;
+      font-weight: 400;
       margin-bottom: 24px;
     }
     p {
       width: 20px;
       line-height: 17px;
-      font-weight: 100;
+      font-weight: 300;
     }
   }
 
@@ -323,7 +323,7 @@ h2 {
 
       li {
         font-size: 16px;
-        font-weight: 100;
+        font-weight: 300;
         &::before {
           content: ">";
           margin-right: 4px;

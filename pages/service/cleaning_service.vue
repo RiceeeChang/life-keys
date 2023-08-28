@@ -95,7 +95,7 @@ export default {
   }
   p {
     font-size: 16px;
-    font-weight: 100;
+    font-weight: 300;
     line-height: 1.8;
 
     box-sizing: border-box;
@@ -158,6 +158,8 @@ export default {
         border-bottom: 2px #d5b87790 solid;
         margin-bottom: -2px;
         margin-right: 12px;
+
+        font-weight: 400;
 
         &::before {
           content: url('/assets/images/check_mark.svg');

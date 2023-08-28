@@ -46,7 +46,7 @@ export default {
   layout: 'MainPage',
   data() {
     return {
-      pageTitle: '品質管理',
+      pageTitle: '管理品質',
       pageTitleEn: 'Management Quality',
       backgroundImage: '/assets/images/about_us_management_quality_banner.webp',
     }

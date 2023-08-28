@@ -1,6 +1,6 @@
 <template>
   <div class="form-radio">
-    <input type="radio" name="form-topic" :value="radioValue" :id="radioValue">
+    <input type="radio" name="form-topic" :value="radioValue" :id="radioValue" required>
     <label :for="radioValue">{{ radioLabel }}</label>
   </div>
 </template>
@@ -34,7 +34,7 @@ export default {
   }
 
   label {
-    font-weight: 300;
+    font-weight: 400;
     margin: 0;
     line-height: 16px;
     margin-bottom: 2px;

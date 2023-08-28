@@ -171,6 +171,11 @@ main {
   }
 }
 
+.carousel-item:nth-child(even) {
+  .carousel-caption {
+    text-align: end;
+  }
+}
 .carousel-caption {
   z-index: 0;
   left: 50%;
@@ -278,6 +283,10 @@ main {
     color: $main-color;
     border-bottom: 5px $main-color solid;
     height: 47px;
+
+    a {
+      color: inherit;
+    }
   }
 }
 
@@ -287,35 +296,39 @@ main {
   justify-content: center;
 }
 
+
+
 .pagination {
-  margin: 0 auto;
   margin-top: 100px;
+  justify-content: center;
+  column-gap: 8px;
+}
+.page-link {
+  background-color: transparent;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px #fff solid;
 
-  @include small-screen {
-    margin-top: 40px;
-  }
-  ol {
-    list-style-type: none;
-    display: flex;
-    column-gap: 8px;
-
-    li {
-
-      width: 32px;
-      height: 32px;
-      line-height: 28px;
-      text-align: center;
-      vertical-align: middle;
-      border: 1px #fff solid;
-
-      a {
-        font-size: 16px;
-      }
-    }
-    .active {
-      color: #333;
-      background-color: $main-color;
-      border-color: $main-color;
-    }
-  }
+  color: #fff;
+  line-height: 28px;
+  text-align: center;
+  vertical-align: middle;
+}
+.page-item.disabled .page-link {
+  background-color: transparent;
+  color: #fff;
+}
+.page-item.active .page-link {
+  background-color: $main-color;
+  border-color: $main-color;
+  color: #333;
+}
+.pagination .page-item:first-child .page-link {
+  border-color: #333;
+  margin-right: 16px;
+}
+.pagination .page-item:last-child .page-link {
+  border-color: #333;
+  margin-left: 16px;
 }

@@ -2,14 +2,12 @@
   <section class="page-content">
 
     <ul class="form-tab">
-      <li :class="{'active': cat=='lastest' }"><a href="/news/lastest">最新消息</a></li>
-      <li :class="{'active': cat=='report' }"><a href="/news/report">媒體報導</a></li>
-      <li :class="{'active': cat=='event' }"><a href="/news/event">活動花絮</a></li>
-      <li :class="{'active': cat=='education' }"><a href="/news/education">教育訓練</a></li>
-      <li :class="{'active': cat=='evaluation' }"><a href="/news/evaluation">評比佳績</a></li>
+
+      <li v-for="(item, key) in categoryList" :key="key" :class="{'active': category==item.value }"><a :href="item.url">{{ item.text }}</a></li>
+
     </ul>
 
-    <select class="category-select" v-model="cat">
+    <select class="category-select" v-model="category">
       <option value="all">全部</option>
       <option value="lastest">最新消息</option>
       <option value="report">媒體報導</option>
@@ -24,29 +22,41 @@
       <div v-for="news in newsList" class="news">
         <span class="tag">{{ news.tag }}</span>
         <h3><a :href="news.url">{{ news.title }}</a></h3>
-        <span class="date">{{ news.date }}</span>
+        <span class="date">{{ news.dateString }}</span>
       </div>
     </div>
 
-    <div class="pagination">
-      <a class="prev"></a>
+    <b-pagination-nav
+      v-model="currentPage"
+      :link-gen="linkGen"
+      :number-of-pages="10"
 
-      <ol>
-        <li class="active"><a>1</a></li>
-        <li><a>2</a></li>
-        <li><a>3</a></li>
-        <li><a>4</a></li>
-        <li><a>...</a></li>
-        <li><a>16</a></li>
-      </ol>
+      :hide-goto-end-buttons="true"
+      :last-number="true"
 
-      <a class="next"></a>
-    </div>
+      class="my-pagination"
+      use-router
+    >
+      <template #prev-text>
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path d="M24 0H0v24h24z" style="fill:none"/>
+          <path d="m15 6 -6 6 6 6" style="stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;fill:none"/>
+        </svg>
+      </template>
+      <template #next-text>
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path d="M24 0H0v24h24z" style="fill:none"/>
+          <path d="m9 6 6 6-6 6" style="stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;fill:none"/>
+        </svg>
+      </template>
+    </b-pagination-nav>
 
   </section>
 </template>
 
 <script>
+import { format } from 'date-fns';
+
 export default {
   layout: 'MainPage',
   data() {
@@ -54,27 +64,61 @@ export default {
       pageTitle: '最新消息',
       pageTitleEn: 'News',
       backgroundImage: '/assets/images/news_banner.webp',
-      cat: 'lastest',
-      newsList: [
-        {
-          tag: '最新消息',
-          title: '2021國家卓越建設獎-上揚天聚社區',
-          url: "",
-          date: '2022.4.3',
+      category: '',
+      categoryList: {
+        all: {
+          value: '',
+          url: '/news',
+          text: '全部'
         },
-        {
-          tag: '最新消息',
-          title: '2021國家卓越建設獎-上揚天聚社區2021國家卓越建設獎-上揚天聚社區2021國家卓越建設獎-上揚天聚社區2021國家卓越建設獎-上揚天聚社區2021國家卓越建設獎-上揚天聚社區',
-          url: "",
-          date: '2022.4.3',
+        lastest: {
+          value: 'lastest',
+          url: '/news/lastest',
+          text: '最新消息'
         },
-        {
-          tag: '最新消息',
-          title: '2021國家卓越建設獎-上揚天聚社區',
-          url: "",
-          date: '2022.12.25',
-        }
-      ]
+        report: {
+          value: 'report',
+          url: '/news/report',
+          text: '媒體報導'
+        },
+        event: {
+          value: 'event',
+          url: '/news/event',
+          text: '活動花絮'
+        },
+        education: {
+          value: 'education',
+          url: '/news/education',
+          text: '教育訓練'
+        },
+        evaluation: {
+          value: 'evaluation',
+          url: '/news/evaluation',
+          text: '評比佳績'
+        },
+      },
+      newsList: [],
+
+      currentPage: 1,
+      rows: 64,
+      perPage: 10,
+      lastPage: 7,
+
+      pageUrl: "/news/",
+      pageUrlPrev: "",
+      pageUrlNext: "",
+    }
+  },
+  mounted() {
+    this.pageUrl = this.pageUrl+this.category+"/";
+    this.pageUrlPrev = this.currentPage>1 ?  this.pageUrl+this.category+"/"+(this.currentPage-1) : '';
+    this.pageUrlNext = this.currentPage<this.lastPage ?  this.pageUrl+this.category+"/"+(this.currentPage+1) : '';
+  },
+  methods: {
+    linkGen(pageNum) {
+      var url = this.pageUrl;
+      var url = pageNum === 1 ? url : url+pageNum;
+      return url;
     }
   },
   components: {},
@@ -82,7 +126,48 @@ export default {
     this.$store.commit('page/setPageTitle', this.pageTitle)
     this.$store.commit('page/setPageTitleEn', this.pageTitleEn)
     this.$store.commit('page/setBackgroundImage', this.backgroundImage)
-  }
+  },
+  validate({ params }) {
+    const category = params.cat;
+
+    var valid_value = [
+      undefined, 'lastest', 'report', 'event', 'education', 'evaluation'
+    ];
+
+    if (valid_value.includes(category)) {
+      return true
+    } else {
+      return false
+    }
+  },
+  async asyncData({ params }) {
+    var category = params.cat
+    var pageNumber = params.page_num
+
+    category = (category == undefined) ? "" : category;
+    pageNumber = (pageNumber == undefined) ? 1 : pageNumber;
+
+    return { category, pageNumber }
+  },
+  async fetch() {
+    var apiUrl = process.env.API_URL + 'api/posts?limit=10&page='+this.pageNumber;
+
+    if (this.category != '') {
+      apiUrl = apiUrl + '&where[category][equals]='+this.category;
+    }
+
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    this.newsList = data.docs;
+
+    for(var i=0; i<this.newsList.length; i++) {
+      var item = this.newsList[i];
+      this.newsList[i]['tag'] = this.categoryList[item.category].text;
+
+      var d = new Date(item.createdAt);
+      this.newsList[i]['dateString'] = format(d, 'yyyy/MM/dd');
+    }
+  },
 }
 </script>
 
@@ -120,19 +205,19 @@ export default {
 
     }
     h3 {
-      /* 72+20+80+32=204 */
       width: calc(100% - 204px);
       margin: 0;
       font-size: 16px;
-      font-weight: 100;
+      font-weight: 300;
 
       a {
         font-size: inherit;
         font-weight: inherit;
+        line-height: 1.8;
       }
     }
     .date {
-      width: 80px;
+      width: 84px;
       margin-left: auto;
 
       font-size: 16px;
@@ -158,10 +243,6 @@ export default {
 
   }
 }
-.pagination {
-  margin-top: 56px;
-}
-
 
 .category-select {
   display: none;
@@ -198,4 +279,5 @@ export default {
   color: #d5b877;
   border: none;
 }
+
 </style>

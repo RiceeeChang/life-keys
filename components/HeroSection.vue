@@ -43,7 +43,8 @@
       }
     },
     async fetch() {
-      const response = await fetch(process.env.API_URL + 'api/slides')
+
+      const response = await fetch(process.env.API_URL + 'api/slides?sort=createdAt')
       const data = await response.json()
 
       for (var i=0; i<data.docs.length; i++) {

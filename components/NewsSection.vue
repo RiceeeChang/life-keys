@@ -32,8 +32,8 @@
         </div>
 
         <div v-for="item in news[newsTab]" class="news-item">
-          <div class="news-category font-color-333333 font-weight-r">{{ item.cat }}</div>
-          <div class="news-title font-color-333333 font-weight-r">{{ item.title }}</div>
+          <div class="news-category font-color-333333">{{ item.cat }}</div>
+          <div class="news-title font-color-333333">{{ item.title }}</div>
           <div class="news-date font-color-959595">{{ item.date }}</div>
         </div>
       </div>
@@ -43,109 +43,111 @@
 </template>
 
 <script>
-  export default {
-    head() {
-      return {
+import { format } from 'date-fns';
 
-      }
-    },
-    data() {
-      return {
-        selectedOption: 'lastest',
-        newsTab: "all",
-        news: {
-          'all': [
-            {
-              "cat": "最新消息",
-              "title": "2021國家卓越建設獎-上暘天聚社區",
-              "date": "2022.4.3"
-            },
-            {
-              "cat": "最新消息",
-              "title": "2021國家卓越建設獎-上暘天聚社區",
-              "date": "2022.4.3"
-            },
-            {
-              "cat": "最新消息",
-              "title": "2021國家卓越建設獎-上暘天聚社區",
-              "date": "2022.4.3"
-            },
-            {
-              "cat": "最新消息",
-              "title": "2021國家卓越建設獎-上暘天聚社區",
-              "date": "2022.4.3"
-            },
-            {
-              "cat": "最新消息",
-              "title": "2021國家卓越建設獎-上暘天聚社區",
-              "date": "2022.4.3"
-            },
-          ],
-          "lastest": [
-            {
-              "cat": "最新消息",
-              "title": "2021國家卓越建設獎-上暘天聚社區",
-              "date": "2022.4.3"
-            },
-          ],
-          "report": [
-          {
-              "cat": "媒體報導",
-              "title": "2021國家卓越建設獎-上暘天聚社區",
-              "date": "2022.4.3"
-            },
-          ],
-          "event": [
-          {
-              "cat": "活動花絮",
-              "title": "2021國家卓越建設獎-上暘天聚社區",
-              "date": "2022.4.3"
-            },
-          ],
-          "education": [
-          {
-              "cat": "教育訓練",
-              "title": "2021國家卓越建設獎-上暘天聚社區",
-              "date": "2022.4.3"
-            },
-          ],
-          "evaluation": [
-          {
-              "cat": "評比佳績",
-              "title": "2021國家卓越建設獎-上暘天聚社區",
-              "date": "2022.4.3"
-            },
-          ]
-        }
-      }
-    },
-    mounted() {
-      this.updateNewsBackground(); // 初始化時設定元素寬度
-      window.addEventListener('resize', this.updateNewsBackground); // 監聽窗口寬度變化
-    },
-    methods: {
-      updateNewsBackground() {
-        var bodyWidth = document.body.clientWidth;
-        var element = document.getElementById('news-title');
-        if (element) {
-          var left = element.offsetLeft;
-          console.log('left:', left, ' body width: ', bodyWidth);
-          var element = this.$refs.newsBackground;
-          element.style.width = (bodyWidth-left) + 'px';
-        }
-      },
-      changeNewsTab(event) {
-        this.newsTab = event.target.getAttribute('value');
+export default {
+  head() {
+    return {
 
-        var elements = document.getElementsByClassName("tab-active");
-        for (var i = 0; i < elements.length; i++) {
-          elements[i].classList.remove("tab-active");
-        }
-
-        event.target.classList.add('tab-active');
+    }
+  },
+  data() {
+    return {
+      selectedOption: 'lastest',
+      newsTab: "all",
+      news: {
+        "all"       : [],
+        "lastest"   : [],
+        "report"    : [],
+        "event"     : [],
+        "education" : [],
+        "evaluation": []
       }
     }
+  },
+  async fetch() {
+    var apiUrl = process.env.API_URL + 'api/posts?limit=5';
+
+    var newsCategories = Object.keys(this.news);
+    var categoryList = {
+      all: {
+        value: '',
+        url: '/news',
+        text: '全部'
+      },
+      lastest: {
+        value: 'lastest',
+        url: '/news/lastest',
+        text: '最新消息'
+      },
+      report: {
+        value: 'report',
+        url: '/news/report',
+        text: '媒體報導'
+      },
+      event: {
+        value: 'event',
+        url: '/news/event',
+        text: '活動花絮'
+      },
+      education: {
+        value: 'education',
+        url: '/news/education',
+        text: '教育訓練'
+      },
+      evaluation: {
+        value: 'evaluation',
+        url: '/news/evaluation',
+        text: '評比佳績'
+      },
+    };
+
+    for(var i=0; i<newsCategories.length; i++) {
+      var catApiUrl = (newsCategories[i] == 'all') ? apiUrl : apiUrl + '&where[category][equals]='+newsCategories[i];
+      var response = await fetch(catApiUrl);
+      var data = await response.json();
+      var newsList = data.docs;
+
+      if (newsList === undefined) continue;
+
+      for(var j=0; j<newsList.length; j++) {
+        var item = newsList[j];
+        newsList[j]['tag'] = categoryList[item.category].text;
+
+        var d = new Date(item.createdAt);
+        newsList[j]['dateString'] = format(d, 'yyyy/MM/dd');
+      }
+
+      this.news[newsCategories[i]] = newsList;
+    }
+  },
+  mounted() {
+    this.updateNewsBackground(); // 初始化時設定元素寬度
+    window.addEventListener('resize', this.updateNewsBackground); // 監聽窗口寬度變化
+  },
+  methods: {
+    updateNewsBackground() {
+      var bodyWidth = document.body.clientWidth;
+      var element = document.getElementById('news-title');
+      if (element) {
+        var left = element.offsetLeft;
+        console.log('left:', left, ' body width: ', bodyWidth);
+        var element = this.$refs.newsBackground;
+        element.style.width = (bodyWidth-left) + 'px';
+      }
+    },
+    changeNewsTab(event) {
+      this.newsTab = event.target.getAttribute('value');
+
+      var elements = document.getElementsByClassName("tab-active");
+      for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.remove("tab-active");
+      }
+
+      event.target.classList.add('tab-active');
+    }
   }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -219,8 +221,6 @@
   flex-direction: row;
 }
 .news-category {
-  /*width: 72px;*/
-  /*height: 30px;*/
   padding: 8px;
   background-color: #d5b877;
 
@@ -230,16 +230,17 @@
   white-space: nowrap;
 }
 .news-title {
-  font-size: 16px;
-  line-height: 30px;
   margin-left: 20px;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 30px;
 }
 .news-date {
   margin-left: auto;
 }
 
 .news-background {
-  /*width: calc(504px + 50vw);*/
   height: 500px;
   background-image: url('/assets/images/news_background.png');
 

@@ -134,7 +134,7 @@ export default {
   layout: 'MainPage',
   data() {
     return {
-      pageTitle: '溫馨服務',
+      pageTitle: '生活服務',
       pageTitleEn: 'Life Service',
       backgroundImage: '/assets/images/service_life_service_banner.webp',
     }
@@ -183,6 +183,8 @@ export default {
   div {
     margin-top: 60px;
     margin-bottom: 20px;
+
+    font-weight: 400;
   }
   ul {
     list-style-type: none;

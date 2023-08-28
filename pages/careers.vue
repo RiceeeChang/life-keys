@@ -10,24 +10,14 @@
     <h3>全職</h3>
 
     <div class="careers-wrap">
-      <div class="career">
-        <b-button class="career-title" v-b-toggle="'performance-menu'">總幹事<span class="cross"></span></b-button>
-        <b-collapse id="performance-menu">
-          <div class="career-content">
-            <div>工作內容</div>
-            <div><p>1. 召開會議並執行會議決議事項 <br>2. 指揮監督所屬員工推行會務與業務 <br>3. 規畫財務、安全、環境、設備等管理事項</p></div>
-            <a class="readmore">查看更多</a>
-          </div>
-        </b-collapse>
-      </div>
 
-      <div class="career">
-        <b-button class="career-title" v-b-toggle="''">保全人員/警衛<span class="cross"></span></b-button>
-        <b-collapse id="">
+      <div v-for="c in careers.fullTime" class="career">
+        <b-button class="career-title" v-b-toggle="c.id">{{ c.title }}<span class="cross"></span></b-button>
+        <b-collapse :id="c.id">
           <div class="career-content">
             <div>工作內容</div>
-            <div><p>1. 召開會議並執行會議決議事項 <br>2. 指揮監督所屬員工推行會務與業務 <br>3. 規畫財務、安全、環境、設備等管理事項</p></div>
-            <a class="readmore">查看更多</a>
+            <div><p v-html="c.content"></p></div>
+            <a class="readmore" target="_blank" :href="c.detail_url">查看更多</a>
           </div>
         </b-collapse>
       </div>
@@ -37,27 +27,25 @@
     <h3>兼職</h3>
 
     <div class="careers-wrap">
-      <div class="career">
-        <b-button class="career-title" v-b-toggle="''">櫃台接待人員<span class="cross"></span></b-button>
-        <b-collapse id="">
+
+      <div v-for="c in careers.partTime" class="career">
+        <b-button class="career-title" v-b-toggle="c.id">{{ c.title }}<span class="cross"></span></b-button>
+        <b-collapse :id="c.id">
           <div class="career-content">
             <div>工作內容</div>
-            <div><p>1. 召開會議並執行會議決議事項 <br>2. 指揮監督所屬員工推行會務與業務 <br>3. 規畫財務、安全、環境、設備等管理事項</p></div>
-            <a class="readmore">查看更多</a>
+            <div><p v-html="c.content"></p></div>
+            <a class="readmore" target="_blank" :href="c.detail_url">查看更多</a>
           </div>
         </b-collapse>
       </div>
 
-      <div class="career">
-        <b-button class="career-title" v-b-toggle="''">秘書<span class="cross"></span></b-button>
-        <b-collapse id="">
-          <div class="career-content">
-            <div>工作內容</div>
-            <div><p>1. 召開會議並執行會議決議事項 <br>2. 指揮監督所屬員工推行會務與業務 <br>3. 規畫財務、安全、環境、設備等管理事項</p></div>
-            <a class="readmore">查看更多</a>
-          </div>
-        </b-collapse>
-      </div>
+    </div>
+
+
+    <div class="join104">
+      <h4>加入我們</h4>
+      <p>我們重視每一位員工，除了有良好工作環境、也提供學習及成長的空間，歡迎優秀的朋友一起加入伯克錸公寓大廈管理維護</p>
+      <a>前往<img src="/assets/images/104logo_200x200.webp">查看更多</a>
     </div>
 
   </section>
@@ -71,8 +59,11 @@ export default {
       pageTitle: '菁英召募',
       pageTitleEn: 'Careers',
       backgroundImage: '/assets/images/careers_banner.webp',
-
       careerTab: 'all',
+      careers: {
+        fullTime: [],
+        partTime: [],
+      }
     }
   },
   components: {},
@@ -80,7 +71,31 @@ export default {
     this.$store.commit('page/setPageTitle', this.pageTitle)
     this.$store.commit('page/setPageTitleEn', this.pageTitleEn)
     this.$store.commit('page/setBackgroundImage', this.backgroundImage)
-  }
+  },
+  async fetch() {
+    var apiUrl = process.env.API_URL + 'api/offers?limit=30&sort=order&where[offer_type][equals]=full-time';
+    var response = await fetch(apiUrl);
+    var data = await response.json();
+
+    for(var i=0 ; i< data.docs.length; i++) {
+      let content = data.docs[i].content;
+      if (content != undefined)
+        data.docs[i].content = content.replace(/(?:\r\n|\r|\n)/g, '<br>');
+    }
+    this.careers.fullTime = data.docs;
+
+
+    apiUrl = process.env.API_URL + 'api/offers?limit=30&sort=order&where[offer_type][equals]=part-time';
+    response = await fetch(apiUrl);
+    data = await response.json();
+
+    for(var i=0 ; i< data.docs.length; i++) {
+      let content = data.docs[i].content;
+      if (content != undefined)
+        data.docs[i].content = content.replace(/(?:\r\n|\r|\n)/g, '<br>');
+    }
+    this.careers.partTime = data.docs;
+  },
 }
 </script>
 
@@ -143,7 +158,6 @@ h3 {
 
   }
 }
-
 
 span.cross {
   $cross-color: #fff;
@@ -228,6 +242,7 @@ span.cross {
     width: 85%;
     p {
       font-weight: 100;
+      line-height: 1.8;
     }
   }
 
@@ -260,6 +275,99 @@ span.cross {
 
   @include small-screen {
     margin-top: 20px;
+  }
+}
+
+.join104 {
+  margin-top: 160px;
+
+  position: relative;
+  left: calc(50% - 50vw);
+
+  width: 100vw;
+  height: 530px;
+
+  &::before {
+    content: "";
+    background-color: #f2f2f2;
+    background-image: url('/assets/images/join104_background.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    opacity: 1;
+    z-index: -2;
+  }
+
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 100px;
+
+  h4 {
+    color: #333;
+    font-size: 32px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 32px;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 72px;
+      border-bottom: 1px $main-color solid;
+      margin-top: 12px;
+    }
+  }
+  p {
+    max-width: 640px;
+
+    color: #333;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.8;
+
+    margin-bottom: 48px;
+  }
+  a {
+    background-color: #fff;
+
+    width: 336px;
+    height: 80px;
+    border: 0;
+    border-radius: 4px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #333;
+    font-size: 24px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+
+    &:hover, &:visited {
+      color: #333;
+    }
+  }
+
+  @include small-screen {
+    margin-top: 40px;
+    padding: 80px 40px;
+    a {
+      font-size: 20px;
+    }
   }
 }
 </style>

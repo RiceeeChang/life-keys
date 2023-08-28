@@ -17,11 +17,6 @@
 
 <script>
   export default {
-    head() {
-      return {
-        //link: [{ rel: 'stylesheet', href: 'assets/css/custom.css'}]
-      }
-    },
     data() {
       return {
 
@@ -60,7 +55,7 @@
 .joinus-text {
   font-size: 16px;
   line-height: 24px;
-  /*letter-spacing: 1.5px;*/
+  font-weight: 400;
   width: 310px;
 
   margin-bottom: 50px;

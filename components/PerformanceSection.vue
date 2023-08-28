@@ -48,7 +48,7 @@
   </section>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .performance-content {
   position: relative;
 
@@ -59,6 +59,7 @@
 }
 .title-row .slogan {
   font-size: 28px;
+  font-weight: 400;
   color: #d5b877;
 
   display: flex;
@@ -80,6 +81,9 @@
 .performance-content .region {
   position: absolute;
   left: 0;
+  div {
+    font-weight: 400;
+  }
 }
 img.mobile {
   display: none;

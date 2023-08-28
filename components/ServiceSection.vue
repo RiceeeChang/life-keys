@@ -25,7 +25,22 @@
   </section>
 </template>
 
+<script>
+  export default {
+    head() {
+      return {}
+    },
+    data() {
+      return {}
+    },
+    methods: {}
+  }
+</script>
+
 <style lang="scss" scoped>
+p {
+  font-weight: 400;
+}
 #service-section {
   padding-top: 100px;
   padding-bottom: 170px;
@@ -94,6 +109,7 @@
   }
 }
 .scroll-down {
+  display: none;
   position: absolute;
 
   transform: rotate(90deg);
@@ -102,8 +118,8 @@
   font-family: $font-noto-serif-tc;
   letter-spacing: 2.3px;
 
-  @include small-screen {
-    display: none;
+  @include large-screen {
+    display: block;
   }
 
   &.sd1 {
@@ -116,24 +132,4 @@
     left: -120px;
   }
 }
-
-
 </style>
-
-<script>
-  export default {
-    head() {
-      return {
-        //link: [{ rel: 'stylesheet', href: 'assets/css/custom.css'}]
-      }
-    },
-    data() {
-      return {
-
-      }
-    },
-    methods: {
-
-    }
-  }
-</script>
