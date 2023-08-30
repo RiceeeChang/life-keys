@@ -3,10 +3,10 @@
     <div class="section-content padding-left-0">
       <nav class="navbar">
         <div class="navbar-logo">
-          <a href="/"><img src="/BrandLogo.svg" alt="伯克錸物業管理"></a>
+          <b-link :to="'/'"><img src="/BrandLogo.svg" alt="伯克錸物業管理"></b-link>
         </div>
         <ul class="navbar-menu">
-          <li>
+          <li :class="{on: tabIsActive('about_us')}">
             <a class="menu-item" >公司簡介</a>
             <div class="dropdown-menu">
               <div class="dropdown-menu-content">
@@ -16,14 +16,14 @@
                 </div>
                 <div class="dropdown-menu-divider"></div>
                 <ul class="dropdown-menu-list">
-                  <li><a href="/about_us/community_planning">- 社區規劃</a></li>
-                  <li><a href="/about_us/business_philosophy">- 經營理念</a></li>
-                  <li><a href="/about_us/management_quality">- 管理品質</a></li>
+                  <li><b-link :to="'/about_us/community_planning'"> - 社區規劃</b-link></li>
+                  <li><b-link :to="'/about_us/business_philosophy'">- 經營理念</b-link></li>
+                  <li><b-link :to="'/about_us/management_quality'"> - 管理品質</b-link></li>
                 </ul>
               </div>
             </div>
           </li>
-          <li>
+          <li :class="{on: tabIsActive('service')}">
             <a class="menu-item">服務項目</a>
             <div class="dropdown-menu">
               <div class="dropdown-menu-content">
@@ -33,20 +33,20 @@
                 </div>
                 <div class="dropdown-menu-divider"></div>
                 <ul class="dropdown-menu-list">
-                  <li><a href="/service/property_management">- 物業管理</a></li>
-                  <li><a href="/service/security_service">- 保全服務</a></li>
-                  <li><a href="/service/cleaning_service">- 清潔服務</a></li>
-                  <li><a href="/service/food_service">- 餐飲服務</a></li>
-                  <li><a href="/service/electrical_device">- 設備機電</a></li>
-                  <li><a href="/service/rent_service">- 代租代管</a></li>
-                  <li><a href="/service/life_service">- 生活服務</a></li>
-                  <li><a href="/service/smart_service">- 智能服務</a></li>
+                  <li><b-link :to="'/service/property_management'">- 物業管理</b-link></li>
+                  <li><b-link :to="'/service/security_service'">   - 保全服務</b-link></li>
+                  <li><b-link :to="'/service/cleaning_service'">   - 清潔服務</b-link></li>
+                  <li><b-link :to="'/service/food_service'">       - 餐飲服務</b-link></li>
+                  <li><b-link :to="'/service/electrical_device'">  - 設備機電</b-link></li>
+                  <li><b-link :to="'/service/rent_service'">       - 代租代管</b-link></li>
+                  <li><b-link :to="'/service/life_service'">       - 生活服務</b-link></li>
+                  <li><b-link :to="'/service/smart_service'">      - 智能服務</b-link></li>
                 </ul>
               </div>
             </div>
           </li>
-          <li>
-            <a class="menu-item" href="/news">最新消息</a>
+          <li :class="{on: tabIsActive('news')}">
+            <b-link class="menu-item" :to="'/news'">最新消息</b-link>
             <div class="dropdown-menu">
               <div class="dropdown-menu-content">
                 <div class="dropdown-menu-title">
@@ -55,17 +55,17 @@
                 </div>
                 <div class="dropdown-menu-divider"></div>
                 <ul class="dropdown-menu-list">
-                  <li><a href="/news/lastest">- 最新消息</a></li>
-                  <li><a href="/news/event">- 活動花絮</a></li>
-                  <li><a href="/news/evaluation">- 評比佳績</a></li>
-                  <li><a href="/news/report">- 媒體報導</a></li>
-                  <li><a href="/news/education">- 教育訓練</a></li>
+                  <li><b-link :to="'/news/lastest'">   - 最新消息</b-link></li>
+                  <li><b-link :to="'/news/event'">     - 活動花絮</b-link></li>
+                  <li><b-link :to="'/news/evaluation'">- 評比佳績</b-link></li>
+                  <li><b-link :to="'/news/report'">    - 媒體報導</b-link></li>
+                  <li><b-link :to="'/news/education'"> - 教育訓練</b-link></li>
                 </ul>
               </div>
             </div>
           </li>
-          <li>
-            <a class="menu-item" href="/company_archievements">社區實踐</a>
+          <li :class="{on: tabIsActive('company_archievements')}">
+            <b-link class="menu-item" :to="'/company_archievements'">社區實踐</b-link>
             <div class="dropdown-menu">
               <div class="dropdown-menu-content">
                 <div class="dropdown-menu-title">
@@ -74,15 +74,15 @@
                 </div>
                 <div class="dropdown-menu-divider"></div>
                 <ul class="dropdown-menu-list">
-                  <li><a href="/company_archievements/north">- 北區</a></li>
-                  <li><a href="/company_archievements/middle">- 中區</a></li>
-                  <li><a href="/company_archievements/south">- 南區</a></li>
+                  <li><b-link :to="'/company_archievements/north'"> - 北區</b-link></li>
+                  <li><b-link :to="'/company_archievements/middle'">- 中區</b-link></li>
+                  <li><b-link :to="'/company_archievements/south'"> - 南區</b-link></li>
                 </ul>
               </div>
             </div>
           </li>
-          <li :class="{on: pageTitleEn=='Careers'}"><a class="menu-item" href="/careers">菁英召募</a></li>
-          <li :class="{on: pageTitleEn=='Contact Us'}"><a class="menu-item" href="/contact">聯絡我們</a></li>
+          <li :class="{on: tabIsActive('careers')}"><b-link class="menu-item" :to="'/careers'">菁英召募</b-link></li>
+          <li :class="{on: tabIsActive('contact')}"><b-link class="menu-item" :to="'/contact'">聯絡我們</b-link></li>
         </ul>
         <div class="navbar-toggle on">
 
@@ -95,13 +95,12 @@
           <ul class="mobile-menu" @click="closeMobileMenuOutside">
             <li>
               <b-button class="menu-collapse-button" v-b-toggle="'introduce-menu'">公司簡介<span class="cross"></span></b-button>
-
             </li>
             <b-collapse id="introduce-menu">
               <ul class="mobile-submenu">
-                <li><a href="/about_us/community_planning">社區規劃</a></li>
-                <li><a href="/about_us/business_philosophy">經營理念</a></li>
-                <li><a>管理品質</a></li>
+                <li><b-link :to="'/about_us/community_planning'"> - 社區規劃</b-link></li>
+                <li><b-link :to="'/about_us/business_philosophy'">- 經營理念</b-link></li>
+                <li><b-link :to="'/about_us/management_quality'"> - 管理品質</b-link></li>
               </ul>
             </b-collapse>
             <li>
@@ -109,14 +108,14 @@
             </li>
             <b-collapse id="service-menu">
               <ul class="mobile-submenu">
-                <li>物業管理</li>
-                <li>保全服務</li>
-                <li>清潔服務</li>
-                <li>餐飲服務</li>
-                <li>設備機電</li>
-                <li>代租代管</li>
-                <li>生活服務</li>
-                <li>智能服務</li>
+                <li><b-link :to="'/service/property_management'">- 物業管理</b-link></li>
+                <li><b-link :to="'/service/security_service'">   - 保全服務</b-link></li>
+                <li><b-link :to="'/service/cleaning_service'">   - 清潔服務</b-link></li>
+                <li><b-link :to="'/service/food_service'">       - 餐飲服務</b-link></li>
+                <li><b-link :to="'/service/electrical_device'">  - 設備機電</b-link></li>
+                <li><b-link :to="'/service/rent_service'">       - 代租代管</b-link></li>
+                <li><b-link :to="'/service/life_service'">       - 生活服務</b-link></li>
+                <li><b-link :to="'/service/smart_service'">      - 智能服務</b-link></li>
               </ul>
             </b-collapse>
             <li>
@@ -124,11 +123,11 @@
             </li>
             <b-collapse id="news-menu">
               <ul class="mobile-submenu">
-                <li>最新消息</li>
-                <li>活動花絮</li>
-                <li>評比佳績</li>
-                <li>媒體報導</li>
-                <li>教育訓練</li>
+                <li><b-link :to="'/news/lastest'">   - 最新消息</b-link></li>
+                <li><b-link :to="'/news/event'">     - 活動花絮</b-link></li>
+                <li><b-link :to="'/news/evaluation'">- 評比佳績</b-link></li>
+                <li><b-link :to="'/news/report'">    - 媒體報導</b-link></li>
+                <li><b-link :to="'/news/education'"> - 教育訓練</b-link></li>
               </ul>
             </b-collapse>
             <li>
@@ -136,14 +135,14 @@
             </li>
             <b-collapse id="performance-menu">
               <ul class="mobile-submenu">
-                <li><a href="/company_archievements">全部</a></li>
-                <li><a href="/company_archievements/north">北區</a></li>
-                <li><a href="/company_archievements/middle">中區</a></li>
-                <li><a href="/company_archievements/south">南區</a></li>
+                <li><b-link :to="'/company_archievements'">      全部</b-link></li>
+                <li><b-link :to="'/company_archievements/north'"> - 北區</b-link></li>
+                <li><b-link :to="'/company_archievements/middle'">- 中區</b-link></li>
+                <li><b-link :to="'/company_archievements/south'"> - 南區</b-link></li>
               </ul>
             </b-collapse>
-            <li><a href="/careers">菁英召募</a></li>
-            <li><a href="/contact">聯絡我們</a></li>
+            <li><b-link :to="'/careers'">菁英召募</b-link></li>
+            <li><b-link :to="'/contact'">聯絡我們</b-link></li>
           </ul>
 
         </div>
@@ -159,7 +158,6 @@ export default {
   data() {
     return {
       isMenuOpen: false,
-      pageTitleEn: "",
     }
   },
   methods: {
@@ -167,11 +165,21 @@ export default {
       if (event.target.classList.contains('mobile-menu')) {
         this.isMenuOpen = false;
       }
+    },
+    tabIsActive(tabName) {
+      var pageName = this.$route.name;
+      pageName = pageName.split('-')[0];
+
+      if (pageName == tabName) {
+        return true;
+      }
+      return false;
     }
   },
   mounted() {
     this.pageTitleEn = this.$store.state.page.pageTitleEn;
-  }
+  },
+
 }
 </script>
 
@@ -311,11 +319,8 @@ export default {
   display: flex;
   align-items: center;
 
-  font-weight: 300;
+  font-weight: 400;
 }
-
-
-
 .navbar-toggle {
   width: 50px;
   height: 50px;
@@ -333,7 +338,6 @@ export default {
   -webkit-user-select: none;
   user-select: none;
 }
-
 .navbar-toggle input {
   display: block;
   width: 40px;

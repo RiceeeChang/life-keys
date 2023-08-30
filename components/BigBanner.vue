@@ -10,12 +10,12 @@ export default {
   props: {
     pageTitle: {
       type: String,
-      default: '頁面標題',
+      default: '',
       required: true,
     },
     pageTitleEn: {
       type: String,
-      default: 'page title',
+      default: '',
       required: true,
     },
     backgroundImage: {

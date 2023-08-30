@@ -252,7 +252,7 @@ h2 {
     p {
       width: 20px;
       line-height: 17px;
-      font-weight: 300;
+      font-weight: 400;
     }
   }
 
@@ -323,7 +323,7 @@ h2 {
 
       li {
         font-size: 16px;
-        font-weight: 300;
+        font-weight: 400;
         &::before {
           content: ">";
           margin-right: 4px;

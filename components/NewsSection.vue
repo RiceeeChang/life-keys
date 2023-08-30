@@ -46,11 +46,6 @@
 import { format } from 'date-fns';
 
 export default {
-  head() {
-    return {
-
-    }
-  },
   data() {
     return {
       selectedOption: 'lastest',
@@ -70,11 +65,6 @@ export default {
 
     var newsCategories = Object.keys(this.news);
     var categoryList = {
-      all: {
-        value: '',
-        url: '/news',
-        text: '全部'
-      },
       lastest: {
         value: 'lastest',
         url: '/news/lastest',
@@ -112,7 +102,7 @@ export default {
 
       for(var j=0; j<newsList.length; j++) {
         var item = newsList[j];
-        newsList[j]['tag'] = categoryList[item.category].text;
+        newsList[j]['cat'] = categoryList[item.category].text;
 
         var d = new Date(item.createdAt);
         newsList[j]['dateString'] = format(d, 'yyyy/MM/dd');
@@ -131,7 +121,6 @@ export default {
       var element = document.getElementById('news-title');
       if (element) {
         var left = element.offsetLeft;
-        console.log('left:', left, ' body width: ', bodyWidth);
         var element = this.$refs.newsBackground;
         element.style.width = (bodyWidth-left) + 'px';
       }

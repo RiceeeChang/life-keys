@@ -13,44 +13,44 @@
       <div v-if="contactTab=='form'" class="contact-form">
         <h5>諮詢主題<span>*</span></h5>
 
-        <form @submit="submitForm">
+        <form>
           <div class="radio-group">
-            <FormRadio v-for="topic in formTopics" :key="topic" :radio-label="topic.label" :radio-value="topic.value"/>
+            <FormRadio v-for="topic in formTopics" :key="topic.value" :radio-label="topic.label" :radio-value="topic.value"/>
           </div>
 
           <div class="fillment-wrap">
             <div class="fillment-group">
               <label>姓名<span>*</span></label>
-              <input type="text" name="name" placeholder="請輸入姓名" v-model="formData.name" autocomplete="off" required>
+              <input type="text" name="name" placeholder="請輸入姓名" v-model="contactFormData.name" autocomplete="off" required>
             </div>
             <div class="fillment-group">
               <label>信箱<span>*</span></label>
-              <input type="text" name="mail" placeholder="請輸入信箱" v-model="formData.mail" autocomplete="off" required>
+              <input type="text" name="mail" placeholder="請輸入信箱" v-model="contactFormData.mail" autocomplete="off" required>
             </div>
             <div class="fillment-group">
               <label>電話<span>*</span></label>
-              <input type="text" name="phone" placeholder="請輸入電話" v-model="formData.phone" autocomplete="off" required>
+              <input type="text" name="phone" placeholder="請輸入電話" v-model="contactFormData.phone" autocomplete="off" required>
             </div>
             <div class="fillment-group">
               <label>方便聯絡時段<span>*</span></label>
-              <input type="text" name="time" placeholder="請輸入時段" v-model="formData.period" autocomplete="off" required>
+              <input type="text" name="time" placeholder="請輸入時段" v-model="contactFormData.period" autocomplete="off" required>
             </div>
             <div class="fillment-group">
               <label>社區/公司名稱<span>*</span></label>
-              <input type="text" name="unit-name" placeholder="請輸入社區公司名稱" v-model="formData.unit" autocomplete="off" required>
+              <input type="text" name="unit-name" placeholder="請輸入社區公司名稱" v-model="contactFormData.unit" autocomplete="off" required>
             </div>
             <div class="fillment-group">
               <label>社區/公司地址<span>*</span></label>
-              <input type="text" name="unit-address" placeholder="請輸入社區公司地址" v-model="formData.address" autocomplete="off" required>
+              <input type="text" name="unit-address" placeholder="請輸入社區公司地址" v-model="contactFormData.address" autocomplete="off" required>
             </div>
 
             <div class="fillment-group">
               <label>諮詢內容<span>*</span></label>
-              <textarea id="require-content" placeholder="請輸入諮詢內容" v-model="formData.content" autocomplete="off" required></textarea>
+              <textarea id="require-content" placeholder="請輸入諮詢內容" v-model="contactFormData.content" autocomplete="off" required></textarea>
             </div>
           </div>
 
-          <button class="form-submit" type="submit">送出</button>
+          <button class="form-submit" type="submit" @click="submitForm">送出</button>
 
         </form>
 
@@ -204,7 +204,7 @@ export default {
       ],
 
       contactTab: 'form',
-      formData: {
+      contactFormData: {
         name: '',
         mail: '',
         phone: '',
@@ -225,6 +225,7 @@ export default {
     this.$store.commit('page/setPageTitleEn', this.pageTitleEn)
     this.$store.commit('page/setBackgroundImage', this.backgroundImage)
   },
+  mounted() {},
   computed: {
     dynamicTitle() {
       return this.pageTitle + " - " + process.env.SITE_TITLE;
@@ -234,8 +235,25 @@ export default {
     changeTab(val) {
       this.contactTab = val;
     },
-    submitForm(event) {
+    async submitForm(event) {
       event.preventDefault();
+      console.log(this.contactFormData)
+      var apiUrl = process.env.API_URL + 'api/contact';
+
+      try {
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(this.contactFormData),
+        });
+
+        const result = await response.json();
+        alert('發送成功！');
+      } catch (error) {
+        console.error("Error:", error);
+      }
     },
   }
 }

@@ -67,12 +67,14 @@ export default {
     }
   },
   components: {},
-  created() {
-    this.$store.commit('page/setPageTitle', this.pageTitle)
-    this.$store.commit('page/setPageTitleEn', this.pageTitleEn)
-    this.$store.commit('page/setBackgroundImage', this.backgroundImage)
+  asyncData({store}) {
+    store.commit('page/setPageTitle', '菁英招募')
+    store.commit('page/setPageTitleEn', 'Careers')
+    store.commit('page/setBackgroundImage', '/assets/images/careers_banner.webp')
   },
+  created() {},
   async fetch() {
+    console.log('page fetch');
     var apiUrl = process.env.API_URL + 'api/offers?limit=30&sort=order&where[offer_type][equals]=full-time';
     var response = await fetch(apiUrl);
     var data = await response.json();

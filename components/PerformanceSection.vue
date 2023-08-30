@@ -1,5 +1,5 @@
 <template>
-  <section id="performance-section" class="bg-272727">
+  <section id="performance-section" class="bg-272727" ref="elementToObserve">
     <div class="section-content">
 
       <div class="title-row">
@@ -8,7 +8,7 @@
           <h2 class="section-title font-color-main">社區實績</h2>
         </div>
         <div class="line" style="margin-left: 70px; margin-right: 40px;"></div>
-        <div class="slogan">全台灣北中南共有 <span class="big-number">247</span> 處辦公室</div>
+        <div class="slogan">全台灣北中南共有 <span :class="{'big-number': true, 'number-counter-animation': isNumberAnimation}"></span> 處辦公室</div>
         <div class="line" style="margin-left: 24px; margin-right: 80px;"></div>
         <a class="more">More <span class="link_arrow"></span></a>
       </div>
@@ -19,34 +19,162 @@
           <img class="desktop" src="/assets/images/taiwan_desktop.svg">
         </div>
         <div class="region north">
-          <div class="title1">北區辦公室 <span class="photo-icon"></span> <span class="dotted-line"></span><span class="regional-point"></span></div>
+          <div class="title1">
+            北區辦公室 <span class="photo-icon"></span>
+            <span class="dotted-line"></span>
+            <svg v-show="!isShowNorth" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('north')" @mouseleave="leaveRegion('north')">
+              <circle cx="25" cy="25" r="8" fill="#d5b877" />
+              <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="2" fill="none" >
+              </circle>
+            </svg>
+            <svg v-show="isShowNorth" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('north')" @mouseleave="leaveRegion('north')">
+              <circle cx="25" cy="25" r="8" fill="#d5b877" />
+              <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="4" fill="none" >
+                <animate attributeName="r" from="8" to="24" dur="2s"  repeatCount="indefinite" />
+                <animate attributeName="opacity" from="0.7" to="0.0" dur="2s"  repeatCount="indefinite" />
+              </circle>
+            </svg>
+          </div>
           <div class="title2">台北辦事室  共有<span class="number">98</span>處</div>
         </div>
         <div class="region middle">
-          <div class="title1">中區辦公室 <span class="photo-icon"></span> <span class="dotted-line"></span><span class="regional-point"></span></div>
+          <div class="title1">
+            中區辦公室 <span class="photo-icon"></span>
+            <span class="dotted-line"></span>
+            <svg v-show="!isShowMiddle" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('middle')" @mouseleave="leaveRegion('middle')">
+              <circle cx="25" cy="25" r="8" fill="#d5b877" />
+              <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="2" fill="none" >
+              </circle>
+            </svg>
+            <svg v-show="isShowMiddle" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('middle')" @mouseleave="leaveRegion('middle')">
+              <circle cx="25" cy="25" r="8" fill="#d5b877" />
+              <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="4" fill="none" >
+                <animate attributeName="r" from="8" to="24" dur="2s"  repeatCount="indefinite" />
+                <animate attributeName="opacity" from="0.7" to="0.0" dur="2s"  repeatCount="indefinite" />
+              </circle>
+            </svg>
+          </div>
           <div class="title2">台中辦事室  共有<span class="number">91</span>處</div>
         </div>
         <div class="region south">
-          <div class="title1">南區辦公室 <span class="photo-icon"></span> <span class="dotted-line"></span><span class="regional-point"></span></div>
+          <div class="title1">
+            南區辦公室 <span class="photo-icon"></span>
+            <span class="dotted-line"></span>
+            <svg v-show="!isShowSouth" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('south')" @mouseleave="leaveRegion('south')">
+              <circle cx="25" cy="25" r="8" fill="#d5b877" />
+              <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="2" fill="none" >
+              </circle>
+            </svg>
+            <svg v-show="isShowSouth" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('south')" @mouseleave="leaveRegion('south')">
+              <circle cx="25" cy="25" r="8" fill="#d5b877" />
+              <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="4" fill="none" >
+                <animate attributeName="r" from="8" to="24" dur="2s"  repeatCount="indefinite" />
+                <animate attributeName="opacity" from="0.7" to="0.0" dur="2s"  repeatCount="indefinite" />
+              </circle>
+            </svg>
+          </div>
           <div class="title2">台南&高雄辦事室  共有<span class="number">58</span>處</div>
         </div>
 
-        <div class="performance-photo-wrap">
-          <div class="performance-photo" style="background-image: url('');"></div>
-          <div class="performance-photo" style="background-image: url('/assets/images/performance.webp');"></div>
-          <div class="performance-photo" style="background-image: url('/assets/images/performance.webp');"></div>
-          <div class="performance-photo" style="background-image: url('/assets/images/performance.webp');"></div>
-          <div class="performance-photo" style="background-image: url('/assets/images/performance.webp');"></div>
-          <div class="performance-photo" style="background-image: url('/assets/images/performance.webp');"></div>
-          <div class="performance-photo" style="background-image: url('');"></div>
-          <div class="performance-photo" style="background-image: url('/assets/images/performance.webp');"></div>
-          <div class="performance-photo" style="background-image: url('/assets/images/performance.webp');"></div>
+        <div v-show="isShowNorth" class="performance-photo-wrap north">
+          <div v-for="p in photos.north" class="performance-photo" :style="setbackgroundImage(p)"></div>
+        </div>
+        <div v-show="isShowMiddle" class="performance-photo-wrap middle">
+          <div v-for="p in photos.middle" class="performance-photo" :style="setbackgroundImage(p)"></div>
+        </div>
+        <div v-show="isShowSouth" class="performance-photo-wrap south">
+          <div v-for="p in photos.south" class="performance-photo" :style="setbackgroundImage(p)"></div>
         </div>
       </div>
 
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      isNumberShow: false,
+      isNumberAnimation: false,
+
+      showPhotoRegion: 'north',
+      isShowNorth: false,
+      isShowMiddle: false,
+      isShowSouth: false,
+
+      photos: {
+        north: [],
+        middle: [],
+        south: [],
+      }
+    }
+  },
+  methods: {
+    changeShowPhotoRegion(region) {
+      this.showPhotoRegion = region;
+    },
+    enterRegion(region) {
+      if (region == 'north') {
+        this.isShowNorth = true;
+      } else if (region == 'middle') {
+        this.isShowMiddle = true;
+      } else if (region == 'south') {
+        this.isShowSouth = true;
+      }
+    },
+    leaveRegion(region) {
+      if (region == 'north') {
+        this.isShowNorth = false;
+      } else if (region == 'middle') {
+        this.isShowMiddle = false;
+      } else if (region == 'south') {
+        this.isShowSouth = false;
+      }
+    },
+    setbackgroundImage(bk) {
+      return "background-image: url('" + bk + "')";
+    }
+  },
+  async fetch() {
+    var apiUrl = process.env.API_URL + 'api/cases?limit=7';
+
+    var regions = ['north', 'middle', 'south'];
+
+    for(var i=0; i<regions.length; i++) {
+      var catApiUrl = apiUrl + '&where[region][equals]='+regions[i];
+      var response = await fetch(catApiUrl);
+      var data = await response.json();
+      var newsList = data.docs;
+
+      if (newsList === undefined) continue;
+
+
+      for(var j=0; j<7; j++) {
+        if (newsList[j] != undefined) {
+          this.photos[regions[i]].push(newsList[j].url);
+        } else {
+          this.photos[regions[i]].push('/assets/images/performance.webp');
+        }
+      }
+    }
+
+    this.photos.north.unshift('');
+    this.photos.north.splice(6, 0, '')
+  },
+  mounted() {
+    const elementToObserve = this.$refs.elementToObserve;
+
+    const observer = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        this.isNumberAnimation = true;
+        observer.unobserve(elementToObserve);
+      }
+    });
+    observer.observe(elementToObserve);
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 .performance-content {
@@ -66,6 +194,13 @@
   align-items: center;
 }
 
+
+@property --num {
+  syntax: '<integer>';
+  inherits: true;
+  initial-value: 0;
+}
+
 .title-row .slogan .big-number {
   display: inline-block;
   color: #d5b877;
@@ -73,10 +208,22 @@
   line-height: 64px;
   font-weight: 500;
 
+  width: 110px;
   margin-left: 8px;
   margin-right: 40px;
   margin-bottom: 10px;
+
+  text-align: end;
 }
+.number-counter-animation::before {
+  counter-reset: my-counter var(--num);
+  content: counter(my-counter);
+  animation: count 5s ease-in-out forwards;
+}
+@keyframes count {
+  to { --num: 247; }
+}
+
 
 .performance-content .region {
   position: absolute;
@@ -117,28 +264,37 @@ img.mobile {
   display: inline-block;
   height: 1px;
   border-bottom: 1px dashed #fff;
-  margin: 0 20px;
+  margin-left: 20px;
 }
 .regional-point {
-  width: 16px;
-  height: 16px;
+  $radius: 16px;
+
+  position: relative;
+
+  width: $radius;
+  height: $radius;
   border-radius: 50%;
   background-color: #d5b877;
 
-  position: relative;
-}
-.regional-point::after {
-  content: "";
-  display: inline-block;
-  width: 32px;
-  height: 32px;
-  border: 2px #d5b877 solid;
-  border-radius: 50%;
+  cursor: pointer;
 
-  position: absolute;
-  top: -8px;
-  left: -8px;
+  &::before {
+    content: "";
+  }
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border: 2px #d5b877 solid;
+    border-radius: 50%;
+
+    position: absolute;
+    top: -8px;
+    left: -8px;
+  }
 }
+
 .region.north {
   top: 116px;
 }
@@ -169,6 +325,14 @@ img.mobile {
   gap: 20px;
   row-gap: 20px;
   width: 430px;
+}
+.performance-content .performance-photo-wrap.middle {
+  width: 580px;
+  top: 350px;
+}
+.performance-content .performance-photo-wrap.south {
+  width: 580px;
+  top: 540px;
 }
 .performance-photo {
   width: 130px;
@@ -285,21 +449,3 @@ img.mobile {
   }
 }
 </style>
-
-<script>
-  export default {
-    head() {
-      return {
-        //link: [{ rel: 'stylesheet', href: 'assets/css/custom.css'}]
-      }
-    },
-    data() {
-      return {
-
-      }
-    },
-    methods: {
-
-    }
-  }
-</script>

@@ -21,7 +21,10 @@ import Breadcrumb from '@/components/Breadcrumb.vue';
 export default {
   head() {
     return {
-      title: this.headTitle
+      title: this.headTitle,
+      pageTitle: '',
+      pageTitleEn: '',
+      backgroundImage: ''
     }
   },
   data() {
@@ -51,6 +54,7 @@ export default {
         text: this.pageTitle
       }
     }
-  }
+  },
+  created() {}
 }
 </script>

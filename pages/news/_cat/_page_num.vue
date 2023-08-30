@@ -2,20 +2,17 @@
   <section class="page-content">
 
     <ul class="form-tab">
-
-      <li v-for="(item, key) in categoryList" :key="key" :class="{'active': category==item.value }"><a :href="item.url">{{ item.text }}</a></li>
-
+      <li v-for="(item, key) in categoryList" :key="key" :class="{'active': category==item.value }"><b-link :to="item.url" :no-prefetch="true">{{ item.text }}</b-link></li>
     </ul>
 
-    <select class="category-select" v-model="category">
-      <option value="all">全部</option>
+    <select class="category-select" v-model="category" @change="selectCategory">
+      <option value="">全部</option>
       <option value="lastest">最新消息</option>
       <option value="report">媒體報導</option>
       <option value="event">活動花絮</option>
       <option value="education">教育訓練</option>
       <option value="evaluation">評比佳績</option>
     </select>
-
 
     <div class="news-list">
 
@@ -29,13 +26,16 @@
     <b-pagination-nav
       v-model="currentPage"
       :link-gen="linkGen"
-      :number-of-pages="10"
+      :number-of-pages="totalPages"
 
       :hide-goto-end-buttons="true"
       :last-number="true"
 
+      :active="true"
       class="my-pagination"
-      use-router
+      @input="fetchPage"
+      @page-click="pageClick"
+      :use-router="true"
     >
       <template #prev-text>
         <svg width="24" height="24" viewBox="0 0 24 24">
@@ -59,12 +59,13 @@ import { format } from 'date-fns';
 
 export default {
   layout: 'MainPage',
+  scrollToTop: false,
   data() {
     return {
       pageTitle: '最新消息',
       pageTitleEn: 'News',
       backgroundImage: '/assets/images/news_banner.webp',
-      category: '',
+      category: 'all',
       categoryList: {
         all: {
           value: '',
@@ -100,35 +101,34 @@ export default {
       newsList: [],
 
       currentPage: 1,
-      rows: 64,
-      perPage: 10,
-      lastPage: 7,
+      totalPages: 1,
 
       pageUrl: "/news/",
       pageUrlPrev: "",
       pageUrlNext: "",
     }
   },
-  mounted() {
-    this.pageUrl = this.pageUrl+this.category+"/";
-    this.pageUrlPrev = this.currentPage>1 ?  this.pageUrl+this.category+"/"+(this.currentPage-1) : '';
-    this.pageUrlNext = this.currentPage<this.lastPage ?  this.pageUrl+this.category+"/"+(this.currentPage+1) : '';
-  },
+
   methods: {
     linkGen(pageNum) {
       var url = this.pageUrl;
       var url = pageNum === 1 ? url : url+pageNum;
       return url;
+    },
+    selectCategory() {
+      console.log(this.category)
+      this.$router.push('/news/'+this.category);
     }
   },
   components: {},
-  created() {
-    this.$store.commit('page/setPageTitle', this.pageTitle)
-    this.$store.commit('page/setPageTitleEn', this.pageTitleEn)
-    this.$store.commit('page/setBackgroundImage', this.backgroundImage)
-  },
+
   validate({ params }) {
     const category = params.cat;
+
+    // 如果cat是數字表示是頁碼
+    if (!isNaN(parseInt(category))) {
+      return true;
+    }
 
     var valid_value = [
       undefined, 'lastest', 'report', 'event', 'education', 'evaluation'
@@ -136,21 +136,32 @@ export default {
 
     if (valid_value.includes(category)) {
       return true
-    } else {
-      return false
     }
+    return false
   },
-  async asyncData({ params }) {
+  // 瀏覽器渲染之前的生命週期
+  async asyncData({ params, store }) {
+    store.commit('page/setPageTitle', '最新消息')
+    store.commit('page/setPageTitleEn', 'News')
+    store.commit('page/setBackgroundImage', '/assets/images/news_banner.webp')
+
     var category = params.cat
     var pageNumber = params.page_num
 
-    category = (category == undefined) ? "" : category;
-    pageNumber = (pageNumber == undefined) ? 1 : pageNumber;
+    if (!isNaN(parseInt(category))) {
+      pageNumber = category
+      category = "";
+    } else {
+      category = (category == undefined) ? "" : category;
+      pageNumber = (pageNumber == undefined) ? 1 : pageNumber;
+    }
 
     return { category, pageNumber }
   },
+  created() {},
   async fetch() {
-    var apiUrl = process.env.API_URL + 'api/posts?limit=10&page='+this.pageNumber;
+    var limit = 10;
+    var apiUrl = process.env.API_URL + 'api/posts?where[status][equals]=published&limit='+limit+'&page='+this.pageNumber;
 
     if (this.category != '') {
       apiUrl = apiUrl + '&where[category][equals]='+this.category;
@@ -166,7 +177,16 @@ export default {
 
       var d = new Date(item.createdAt);
       this.newsList[i]['dateString'] = format(d, 'yyyy/MM/dd');
+      this.newsList[i]['url'] = "news/post/"+item.id;
     }
+
+    this.totalPages = data.totalPages;
+    this.currentPage = data.page;
+  },
+  mounted() {
+    this.pageUrl     = (this.category=='') ? this.pageUrl : this.pageUrl+this.category+"/";
+    this.pageUrlPrev = this.currentPage>1 ?  this.pageUrl+this.category+"/"+(this.currentPage-1) : '';
+    this.pageUrlNext = this.currentPage<this.lastPage ?  this.pageUrl+this.category+"/"+(this.currentPage+1) : '';
   },
 }
 </script>
@@ -208,7 +228,7 @@ export default {
       width: calc(100% - 204px);
       margin: 0;
       font-size: 16px;
-      font-weight: 300;
+      font-weight: 400;
 
       a {
         font-size: inherit;

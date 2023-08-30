@@ -2,6 +2,9 @@ export const state = () => ({
   pageTitle: '頁面標題',
   pageTitleEn: 'Page Title',
   backgroundImage: '',
+
+
+
 })
 
 export const mutations = {
@@ -14,12 +17,4 @@ export const mutations = {
   setBackgroundImage(state, backgroundImage) {
     state.backgroundImage = backgroundImage
   }
-}
-
-export const actions = {
-
-}
-
-export const getters = {
-
 }

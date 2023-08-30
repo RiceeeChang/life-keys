@@ -1,12 +1,11 @@
 <template>
   <section class="page-content">
     <ul class="form-tab">
-      <li :class="{'active': region=='' }"><a href="/company_archievements">全部</a></li>
-      <li :class="{'active': region=='north' }"><a href="/company_archievements/north">北部</a></li>
-      <li :class="{'active': region=='middle' }"><a href="/company_archievements/middle">中部</a></li>
-      <li :class="{'active': region=='south' }"><a href="/company_archievements/south">南部</a></li>
+      <li :class="{'active': region=='' }">      <b-link :to="'/company_archievements'">       全部</b-link></li>
+      <li :class="{'active': region=='north' }"> <b-link :to="'/company_archievements/north'"> 北部</b-link></li>
+      <li :class="{'active': region=='middle' }"><b-link :to="'/company_archievements/middle'">中部</b-link></li>
+      <li :class="{'active': region=='south' }"> <b-link :to="'/company_archievements/south'"> 南部</b-link></li>
     </ul>
-
 
     <div class="case-wrap">
       <div v-for="c in cases" class="case">
@@ -15,16 +14,33 @@
       </div>
     </div>
 
-    <div class="pagination">
-      <ol>
-        <li class="active"><a>1</a></li>
-        <li><a>2</a></li>
-        <li><a>3</a></li>
-        <li><a>4</a></li>
-        <li><a>...</a></li>
-        <li><a>16</a></li>
-      </ol>
-    </div>
+    <b-pagination-nav
+      v-model="currentPage"
+      :link-gen="linkGen"
+      :number-of-pages="totalPages"
+
+      :hide-goto-end-buttons="true"
+      :last-number="true"
+
+      :active="true"
+      class="my-pagination"
+      @input="fetchPage"
+      @page-click="pageClick"
+      :use-router="true"
+    >
+      <template #prev-text>
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path d="M24 0H0v24h24z" style="fill:none"/>
+          <path d="m15 6 -6 6 6 6" style="stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;fill:none"/>
+        </svg>
+      </template>
+      <template #next-text>
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path d="M24 0H0v24h24z" style="fill:none"/>
+          <path d="m9 6 6 6-6 6" style="stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;fill:none"/>
+        </svg>
+      </template>
+    </b-pagination-nav>
 
   </section>
 </template>
@@ -32,22 +48,33 @@
 <script>
 export default {
   layout: 'MainPage',
+  scrollToTop: false,
   data() {
     return {
       pageTitle: '社區實踐',
       pageTitleEn: 'Company Archievements',
       backgroundImage: '/assets/images/company_archievements_banner.webp',
-      cases: []
+      cases: [],
+
+      currentPage: 1,
+      totalPages: 1,
+      pageUrl: "/company_archievements/",
     }
   },
-  components: {},
-  created() {
-    this.$store.commit('page/setPageTitle', this.pageTitle)
-    this.$store.commit('page/setPageTitleEn', this.pageTitleEn)
-    this.$store.commit('page/setBackgroundImage', this.backgroundImage)
+  methods: {
+    linkGen(pageNum) {
+      var url = this.pageUrl;
+      var url = pageNum === 1 ? url : url+pageNum;
+      return url;
+    },
   },
+  components: {},
   validate({ params }) {
     const region = params.region
+
+    if (!isNaN(parseInt(region))) {
+      return true;
+    }
 
     var valid_regions = [
       undefined, 'north', 'middle', 'south'
@@ -59,12 +86,21 @@ export default {
       return false
     }
   },
-  async asyncData({ params }) {
+  async asyncData({ params, store }) {
+    store.commit('page/setPageTitle', '社區實踐')
+    store.commit('page/setPageTitleEn', 'Company Archievements')
+    store.commit('page/setBackgroundImage', '/assets/images/company_archievements_banner.webp')
+
     var region = params.region
     var pageNumber = params.page_num
 
-    region = (region == undefined) ? "" : region;
-    pageNumber = (pageNumber == undefined) ? 1 : pageNumber;
+    if (!isNaN(parseInt(region))) {
+      pageNumber = region
+      region = ""
+    } else {
+      region = (region == undefined) ? "" : region;
+      pageNumber = (pageNumber == undefined) ? 1 : pageNumber;
+    }
 
     return { region, pageNumber }
   },
@@ -78,6 +114,12 @@ export default {
     const response = await fetch(apiUrl);
     const data = await response.json();
     this.cases = data.docs;
+
+    this.totalPages = data.totalPages;
+    this.currentPage = data.page;
+  },
+  mounted() {
+    this.pageUrl = (this.region=='') ? this.pageUrl : this.pageUrl+this.region+"/";
   },
   computed: {
     getRegion() {

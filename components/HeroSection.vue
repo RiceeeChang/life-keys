@@ -26,34 +26,37 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        slide: 0,
-        sliding: null,
-        slides: []
-      }
-    },
-    methods: {
-      onSlideStart(slide) {
-        this.sliding = true
-      },
-      onSlideEnd(slide) {
-        this.sliding = false
-      }
-    },
-    async fetch() {
-
-      const response = await fetch(process.env.API_URL + 'api/slides?sort=createdAt')
-      const data = await response.json()
-
-      for (var i=0; i<data.docs.length; i++) {
-        data.docs[i].title = data.docs[i].title.replace(" ", "<br>");
-      }
-
-      this.slides = data.docs
+export default {
+  data() {
+    return {
+      slide: 0,
+      sliding: null,
+      slides: []
     }
+  },
+  methods: {
+    onSlideStart(slide) {
+      this.sliding = true
+    },
+    onSlideEnd(slide) {
+      this.sliding = false
+    }
+  },
+  async fetch() {
+
+    const response = await fetch(process.env.API_URL + 'api/slides?sort=createdAt')
+    const data = await response.json()
+
+    for (var i=0; i<data.docs.length; i++) {
+      data.docs[i].title = data.docs[i].title.replace(" ", "<br>");
+    }
+
+    this.slides = data.docs
+  },
+  mounted() {
+    console.log('herosection');
   }
+}
 </script>
 
 <style lang="scss" scoped>

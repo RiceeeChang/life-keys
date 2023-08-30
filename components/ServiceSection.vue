@@ -25,18 +25,6 @@
   </section>
 </template>
 
-<script>
-  export default {
-    head() {
-      return {}
-    },
-    data() {
-      return {}
-    },
-    methods: {}
-  }
-</script>
-
 <style lang="scss" scoped>
 p {
   font-weight: 400;
