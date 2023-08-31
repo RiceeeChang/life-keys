@@ -4,7 +4,7 @@ export const state = () => ({
   backgroundImage: '',
 
 
-
+  showLightboxt: false,
 })
 
 export const mutations = {
@@ -16,5 +16,8 @@ export const mutations = {
   },
   setBackgroundImage(state, backgroundImage) {
     state.backgroundImage = backgroundImage
+  },
+  setShowLightbox(state, b) {
+    state.showLightboxt = b
   }
 }

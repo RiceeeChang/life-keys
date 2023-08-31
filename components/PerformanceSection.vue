@@ -20,9 +20,10 @@
         </div>
         <div class="region north">
           <div class="title1">
-            北區辦公室 <span class="photo-icon"></span>
+            北區辦公室 <span class="photo-icon" @click="openLightbox('north', '北區辦公室')"></span>
+
             <span class="dotted-line"></span>
-            <svg v-show="!isShowNorth" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('north')" @mouseleave="leaveRegion('north')">
+            <svg class="regional-point" v-show="!isShowNorth" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('north')" @mouseleave="leaveRegion('north')">
               <circle cx="25" cy="25" r="8" fill="#d5b877" />
               <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="2" fill="none" >
               </circle>
@@ -39,9 +40,9 @@
         </div>
         <div class="region middle">
           <div class="title1">
-            中區辦公室 <span class="photo-icon"></span>
+            中區辦公室 <span class="photo-icon" @click="openLightbox('middle', '中區辦公室')"></span>
             <span class="dotted-line"></span>
-            <svg v-show="!isShowMiddle" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('middle')" @mouseleave="leaveRegion('middle')">
+            <svg class="regional-point" v-show="!isShowMiddle" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('middle')" @mouseleave="leaveRegion('middle')">
               <circle cx="25" cy="25" r="8" fill="#d5b877" />
               <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="2" fill="none" >
               </circle>
@@ -58,9 +59,9 @@
         </div>
         <div class="region south">
           <div class="title1">
-            南區辦公室 <span class="photo-icon"></span>
+            南區辦公室 <span class="photo-icon" @click="openLightbox('south', '南區辦公室')"></span>
             <span class="dotted-line"></span>
-            <svg v-show="!isShowSouth" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('south')" @mouseleave="leaveRegion('south')">
+            <svg class="regional-point" v-show="!isShowSouth" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('south')" @mouseleave="leaveRegion('south')">
               <circle cx="25" cy="25" r="8" fill="#d5b877" />
               <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="2" fill="none" >
               </circle>
@@ -85,6 +86,7 @@
         <div v-show="isShowSouth" class="performance-photo-wrap south">
           <div v-for="p in photos.south" class="performance-photo" :style="setbackgroundImage(p)"></div>
         </div>
+        <lightbox :title="lightboxTitle" :images="lightboxPhotes" :index="lightboxIndex"/>
       </div>
 
     </div>
@@ -92,6 +94,7 @@
 </template>
 
 <script>
+import Lightbox from '~/components/Lightbox.vue';
 export default {
   data() {
     return {
@@ -107,7 +110,12 @@ export default {
         north: [],
         middle: [],
         south: [],
-      }
+      },
+
+      lightboxTitle: '',
+      lightboxIndex: 0,
+      isShowLightbox: false,
+      lightboxPhotes: [],
     }
   },
   methods: {
@@ -134,7 +142,19 @@ export default {
     },
     setbackgroundImage(bk) {
       return "background-image: url('" + bk + "')";
-    }
+    },
+    openLightbox(region, title) {
+      this.$store.commit('page/setShowLightbox', true)
+      this.lightboxIndex = 0
+      this.lightboxTitle = title
+      this.lightboxPhotes = this.photos[region]
+
+      console.log('open lightbox');
+    },
+  },
+
+  components: {
+    Lightbox
   },
   async fetch() {
     var apiUrl = process.env.API_URL + 'api/cases?limit=7';
@@ -158,9 +178,6 @@ export default {
         }
       }
     }
-
-    this.photos.north.unshift('');
-    this.photos.north.splice(6, 0, '')
   },
   mounted() {
     const elementToObserve = this.$refs.elementToObserve;
@@ -266,34 +283,6 @@ img.mobile {
   border-bottom: 1px dashed #fff;
   margin-left: 20px;
 }
-.regional-point {
-  $radius: 16px;
-
-  position: relative;
-
-  width: $radius;
-  height: $radius;
-  border-radius: 50%;
-  background-color: #d5b877;
-
-  cursor: pointer;
-
-  &::before {
-    content: "";
-  }
-  &::after {
-    content: "";
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    border: 2px #d5b877 solid;
-    border-radius: 50%;
-
-    position: absolute;
-    top: -8px;
-    left: -8px;
-  }
-}
 
 .region.north {
   top: 116px;
@@ -325,6 +314,14 @@ img.mobile {
   gap: 20px;
   row-gap: 20px;
   width: 430px;
+}
+.performance-content .performance-photo-wrap.north {
+  .performance-photo:first-child {
+    margin-left: 150px;
+  }
+  .performance-photo:nth-child(6) {
+    margin-left: 150px;
+  }
 }
 .performance-content .performance-photo-wrap.middle {
   width: 580px;
@@ -436,8 +433,6 @@ img.mobile {
   .title1 .dotted-line,  .title1 .regional-point {
     display: none;
   }
-
-
   .performance-content .performance-photo-wrap {
     display: none;
   }
