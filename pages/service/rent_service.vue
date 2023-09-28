@@ -68,7 +68,7 @@
         <ul>
           <li>租賃條件提案</li>
           <li>內部空間診斷</li>
-          <li>公寓介紹準備工作<br>(攝影、文案撰寫、廣告上線及維護)</li>
+          <li><p>公寓介紹準備工作<br>(攝影、文案撰寫、廣告上線及維護)</p></li>
         </ul>
       </div>
       <div class="rent-card">
@@ -92,7 +92,7 @@
         <span class="number">04</span>
         <h6>房屋固定開銷透明化</h6>
         <ul>
-          <li>每月租金及開銷報表<br>製作及客閱</li>
+          <li><p>每月租金及開銷報表<br>製作及客閱</p></li>
         </ul>
       </div>
     </div>
@@ -101,20 +101,20 @@
     <div class="rent-section">
       <div class="rent-card">
         <span class="number">05</span>
-        <h6>定期租金<br>調整及管理</h6>
+        <h6><p>定期租金<br>調整及管理</p></h6>
       </div>
       <div class="rent-card">
         <span class="number">06</span>
         <h6>代理催繳租金</h6>
         <ul>
-          <li>每月交費前提醒<br>及逾期不繳催促</li>
+          <li><p>每月交費前提醒<br>及逾期不繳催促</p></li>
         </ul>
       </div>
       <div class="rent-card">
         <span class="number">07</span>
         <h6>定期建築物巡迴檢查</h6>
         <ul>
-          <li>每月定期巡視房屋硬體狀況<br>及周遭環境安全</li>
+          <li><p>每月定期巡視房屋硬體狀況<br>及周遭環境安全</p></li>
           <li>代理抄電及瓦斯度數</li>
         </ul>
       </div>
@@ -122,8 +122,8 @@
         <span class="number">08</span>
         <h6>全年專人管理</h6>
         <ul>
-          <li>即時狀況處理<br>(房客反鎖/失訊不聯)</li>
-          <li>硬體水電設備損壞代理維修<br>(房東/房客支付)</li>
+          <li><p>即時狀況處理<br>(房客反鎖/失訊不聯)</p></li>
+          <li><p>硬體水電設備損壞代理維修<br>(房東/房客支付)</p></li>
         </ul>
       </div>
       <div class="rent-card">
@@ -322,6 +322,7 @@ h2 {
       row-gap: 12px;
 
       li {
+        display: flex;
         font-size: 16px;
         font-weight: 400;
         &::before {
@@ -334,6 +335,7 @@ h2 {
 
   @include small-screen {
     .rent-card {
+      min-width: 300px;
       padding-left: 20px;
       margin-left: 21px;
       border-left: 2px #d5b87699 solid;

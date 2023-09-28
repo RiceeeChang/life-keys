@@ -39,6 +39,12 @@ $font-noto-serif-tc: 'Noto Serif TC', serif;
   font-weight: 500;
 }
 
+@mixin noto-serif-tc-regular {
+  font-family: $font-noto-serif-tc;
+  font-weight: 400;
+}
+
+
 @mixin noto-serif-tc-bold {
   font-family: $font-noto-serif-tc;
   font-weight: 700;

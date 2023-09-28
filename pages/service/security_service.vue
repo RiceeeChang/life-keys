@@ -67,7 +67,7 @@ export default {
   }
 
   .slogan {
-    width: 380px;
+    max-width: 380px;
     h2 {
       color: $main-color;
       font-size: 36px;
@@ -75,7 +75,7 @@ export default {
     }
     p {
       font-size: 16px;
-      font-weight: 100;
+      font-weight: 400;
     }
 
     @include small-screen {
@@ -146,7 +146,7 @@ export default {
     p {
       max-width: 480px;
       font-size: 16px;
-      font-weight: 100;
+      font-weight: 400;
       line-height: 1.8;
 
       .fq {

@@ -184,6 +184,23 @@ export default {
         margin-right: 32px;
       }
     }
+
+    @include small-screen {
+      width: 100%;
+      padding: 0 8px;
+      margin: unset;
+
+      .item {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        img {
+          margin: unset;
+        }
+      }
+    }
   }
 }
 </style>

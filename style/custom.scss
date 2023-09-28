@@ -8,7 +8,7 @@
 
 * {
   font-family: 'Noto Sans TC', sans-serif;
-  font-weight: $font-weight-r;
+  font-weight: $font-weight-b;
 
   color: #fff;
 }
@@ -126,9 +126,10 @@ main {
     padding: 0;
     margin: 0;
 
+    transform: unset;
     left: unset;
-    right: 0;
-    bottom: 50px;
+    right: 24px;
+    bottom: 15px;
   }
 }
 
@@ -174,6 +175,10 @@ main {
 .carousel-item:nth-child(even) {
   .carousel-caption {
     text-align: end;
+
+    left: unset;
+    padding-left: 0;
+    padding-right: 24px;
   }
 }
 .carousel-caption {
@@ -188,8 +193,11 @@ main {
   text-align: start;
 
   span {
+    @include noto-serif-tc-regular;
     font-size: 26px;
+    letter-spacing: 6px;
     text-shadow: none;
+
     margin-bottom: 28px;
   }
   h1 {
@@ -243,7 +251,7 @@ main {
 
   @include small-screen {
     padding: 24px;
-    padding-bottom: 160px;
+    padding-bottom: 60px;
   }
 }
 
@@ -269,13 +277,14 @@ main {
     padding: 24px 48px;
     padding-top: 0;
 
-    border-bottom: 1px #fff solid;
+    border-bottom: 1px #707070 solid;
 
     cursor: pointer;
 
     @include small-screen {
-      padding-left: 24px;
-      padding-right: 24px;
+      width: 25%;
+      padding: unset;
+      text-align: center;
     }
   }
 
@@ -287,6 +296,10 @@ main {
     a {
       color: inherit;
     }
+  }
+
+  @include small-screen {
+    width: 100%;
   }
 }
 

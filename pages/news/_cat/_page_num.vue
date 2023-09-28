@@ -33,8 +33,6 @@
 
       :active="true"
       class="my-pagination"
-      @input="fetchPage"
-      @page-click="pageClick"
       :use-router="true"
     >
       <template #prev-text>
@@ -161,7 +159,7 @@ export default {
   created() {},
   async fetch() {
     var limit = 10;
-    var apiUrl = process.env.API_URL + 'api/posts?where[status][equals]=published&limit='+limit+'&page='+this.pageNumber;
+    var apiUrl = process.env.API_URL + 'api/posts?limit='+limit+'&page='+this.pageNumber;
 
     if (this.category != '') {
       apiUrl = apiUrl + '&where[category][equals]='+this.category;
@@ -177,7 +175,7 @@ export default {
 
       var d = new Date(item.createdAt);
       this.newsList[i]['dateString'] = format(d, 'yyyy/MM/dd');
-      this.newsList[i]['url'] = "news/post/"+item.id;
+      this.newsList[i]['url'] = "/news/post/"+item.id;
     }
 
     this.totalPages = data.totalPages;
@@ -220,7 +218,7 @@ export default {
       color: #333;
       font-size: 14px;
       line-height: 30px;
-      font-weight: 400;
+      font-weight: 500;
       text-align: center;
 
     }

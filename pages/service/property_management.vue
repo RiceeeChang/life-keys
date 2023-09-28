@@ -203,26 +203,25 @@ export default {
   }
   li {
     display: flex;
+    justify-content: center;
+    align-items: center;
+
     width: 295px;
     height: 136px;
     background-image: url('/assets/images/property_management1.svg');
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 
     color: #292929;
     font-size: 36px;
     font-weight: 500;
-    padding-top: 38px;
-    padding-left: 84px;
 
     @include small-screen {
       width: 33%;
       height: 56px;
 
       font-size: 14px;
-      padding-top: 20px;
-      padding-left: 10%;
 
     }
   }
@@ -258,7 +257,7 @@ export default {
   }
   p {
     font-size: 16px;
-    font-weight: 100;
+    font-weight: 400;
     line-height: 1.8;
 
     box-sizing: border-box;

@@ -24,8 +24,6 @@
 
       :active="true"
       class="my-pagination"
-      @input="fetchPage"
-      @page-click="pageClick"
       :use-router="true"
     >
       <template #prev-text>

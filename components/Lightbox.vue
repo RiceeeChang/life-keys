@@ -96,7 +96,7 @@ export default {
 
 .lightbox-content {
   width: 100%;
-  padding: 24px;
+  padding: 8px 24px;
   margin-top: 100px;
   text-align: center;
 

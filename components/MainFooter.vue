@@ -1,6 +1,6 @@
 <template>
   <footer class="bg-1a1a1a font-color-fff">
-    
+
     <div class="section-content">
       <img class="margin-right-50 footer-logo-large" src="/assets/images/footer_logo.png"/>
       <img class="margin-right-50 footer-logo-small" src="/assets/images/footer_logo_207x53.png"/>
@@ -20,7 +20,7 @@
 
         <div class="font-color-d5b877 ">服務時間 09：00 - 18：00  歡迎與我們聯繫</div>
       </div>
-      
+
     </div>
     <!-- <p class="bg-000 text-align-center">&copy; 2023 My Website</p> -->
   </footer>
@@ -98,5 +98,12 @@ footer .section-content {
   .phone-wrap {
     margin-bottom: 54px;
   }
+}
+
+.main-phone p {
+  font-weight: 400;
+}
+.phone-wrap div {
+  font-weight: 400;
 }
 </style>

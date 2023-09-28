@@ -1,13 +1,13 @@
 <template>
   <section class="page-content">
     <ul class="careers-tab">
-      <li :class="{'active': careerTab=='all' }"><a href="">全部</a></li>
-      <li :class="{'active': careerTab=='full-time' }"><a href="">全職</a></li>
-      <li :class="{'active': careerTab=='part-time' }"><a href="">兼職</a></li>
+      <li :class="{'active': careerTab=='all' }"><a>全部</a></li>
+      <li :class="{'active': careerTab=='full-time' }"><a @click="scrollToFulltime">全職</a></li>
+      <li :class="{'active': careerTab=='part-time' }"><a @click="scrollToParttime">兼職</a></li>
     </ul>
 
 
-    <h3>全職</h3>
+    <h3 ref="fulltime">全職</h3>
 
     <div class="careers-wrap">
 
@@ -24,7 +24,7 @@
 
     </div>
 
-    <h3>兼職</h3>
+    <h3 ref="parttime">兼職</h3>
 
     <div class="careers-wrap">
 
@@ -67,6 +67,14 @@ export default {
     }
   },
   components: {},
+  methods: {
+    scrollToFulltime() {
+      this.$refs.fulltime.scrollIntoView({ behavior: 'smooth' });
+    },
+    scrollToParttime() {
+      this.$refs.parttime.scrollIntoView({ behavior: 'smooth' });
+    }
+  },
   asyncData({store}) {
     store.commit('page/setPageTitle', '菁英招募')
     store.commit('page/setPageTitleEn', 'Careers')
@@ -125,10 +133,11 @@ export default {
   li a {
     display: block;
     font-size: 20px;
-    font-weight: 300;
+    font-weight: 400;
     color: $main-color;
     padding: 16px 0;
     border: 1px $main-color solid;
+    cursor: pointer;
 
     @include small-screen {
       font-size: 16px;
@@ -236,14 +245,14 @@ span.cross {
   border-top: 1px #707070 solid;
 
   div:first-child {
-    font-weight: 100;
+    font-weight: 400;
     width: 15%;
   }
   div:nth-child(2) {
 
     width: 85%;
     p {
-      font-weight: 100;
+      font-weight: 400;
       line-height: 1.8;
     }
   }
@@ -282,6 +291,7 @@ span.cross {
 
 .join104 {
   margin-top: 160px;
+  margin-bottom: -200px;
 
   position: relative;
   left: calc(50% - 50vw);
@@ -366,6 +376,8 @@ span.cross {
 
   @include small-screen {
     margin-top: 40px;
+    margin-bottom: -62px;
+
     padding: 80px 40px;
     a {
       font-size: 20px;

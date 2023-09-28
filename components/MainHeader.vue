@@ -98,7 +98,7 @@
             </li>
             <b-collapse id="introduce-menu">
               <ul class="mobile-submenu">
-                <li><b-link :to="'/about_us/community_planning'"> - 社區規劃</b-link></li>
+                <li @click="closeMobileMenuOutside"><b-link :to="'/about_us/community_planning'"> - 社區規劃</b-link></li>
                 <li><b-link :to="'/about_us/business_philosophy'">- 經營理念</b-link></li>
                 <li><b-link :to="'/about_us/management_quality'"> - 管理品質</b-link></li>
               </ul>
@@ -162,7 +162,7 @@ export default {
   },
   methods: {
     closeMobileMenuOutside(event) {
-      if (event.target.classList.contains('mobile-menu')) {
+      if (event.target.classList.contains('mobile-menu') || event.target.tagName.toLowerCase() === 'a') {
         this.isMenuOpen = false;
       }
     },
@@ -179,7 +179,6 @@ export default {
   mounted() {
     this.pageTitleEn = this.$store.state.page.pageTitleEn;
   },
-
 }
 </script>
 
@@ -420,6 +419,8 @@ export default {
 
   width: 100vw;
   height: calc(100vh - 100px);
+  padding-left: 24px;
+  padding-right: 24px;
 
   background-color: #292929;
 
@@ -431,10 +432,12 @@ export default {
   /*transform: translate(75%, 0);*/
 
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+
+  overflow-y: scroll;
 }
 
 .mobile-menu li {
-  padding: 20px 24px;
+  padding: 20px 0;
   font-size: 16px;
   border-bottom: 1px #333 solid;
 
@@ -442,6 +445,8 @@ export default {
     background-color: $black-button-hover-color;
   }
 }
+
+
 
 /*
  * And let's slide it in from the left
@@ -510,14 +515,21 @@ span.cross {
 
 .mobile-submenu {
   list-style-type: none;
-  padding-left: 24px;
+
+
+  li {
+    padding-left: 24px;
+    padding-right: 24px;
+    background-color: #333;
+    border-bottom: 1px solid #292929;
+  }
 }
 
 @media (max-width: 768px) {
   .header {
     position: fixed;
     top: 0;
-    z-index: 9999;
+    z-index: 99;
     width: 100vw;
   }
 

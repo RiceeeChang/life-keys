@@ -95,7 +95,7 @@ export default {
     this.article['tag'] = categoryList[this.article.category].text;
 
     // prev
-    apiUrl = process.env.API_URL + 'api/posts?where[status][equals]=published&limit=1&where[createdAt][less_than]='+this.article.createdAt;
+    apiUrl = process.env.API_URL + 'api/posts?limit=1&where[createdAt][less_than]='+this.article.createdAt;
     response = await fetch(apiUrl);
     var data = await response.json();
     if (data !== undefined && data.docs.length != 0) {
@@ -103,7 +103,7 @@ export default {
     }
 
     // next
-    apiUrl = process.env.API_URL + 'api/posts?where[status][equals]=published&limit=1&where[createdAt][greater_than]='+this.article.createdAt;
+    apiUrl = process.env.API_URL + 'api/posts?limit=1&where[createdAt][greater_than]='+this.article.createdAt;
     response = await fetch(apiUrl);
     data = await response.json();
     if (data !== undefined && data.docs.length != 0) {

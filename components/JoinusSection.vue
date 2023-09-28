@@ -41,7 +41,7 @@
 }
 .joinus-text {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 32px;
   font-weight: 400;
   width: 310px;
 

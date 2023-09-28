@@ -7,10 +7,10 @@
       <div id="news-title" class="section-title-wrap bg-e5e5e5">
         <h4 class="section-label font-color-333333">NEWS&EVENTS</h4>
         <h2 class="section-title font-color-333333">最新消息</h2>
-        <a class="more font-color-333333">More <span class="link_arrow"></span></a>
+        <a class="more font-color-333333" href="/news">More <span class="link_arrow"></span></a>
       </div>
       <div class="news-wrap bg-e5e5e5">
-        <div class="more font-color-333333">More <span class="link_arrow"></span></div>
+        <div class="more font-color-333333" href="/news">More <span class="link_arrow"></span></div>
         <div>
           <select class="category-select" v-model="newsTab">
             <option value="all">全部</option>
@@ -33,8 +33,8 @@
 
         <div v-for="item in news[newsTab]" class="news-item">
           <div class="news-category font-color-333333">{{ item.cat }}</div>
-          <div class="news-title font-color-333333">{{ item.title }}</div>
-          <div class="news-date font-color-959595">{{ item.date }}</div>
+          <a :href="'/news/post/' + item.id"><div class="news-title font-color-333333">{{ item.title }}</div></a>
+          <div class="news-date font-color-959595">{{ item.dateString }}</div>
         </div>
       </div>
     </div>
@@ -102,14 +102,17 @@ export default {
 
       for(var j=0; j<newsList.length; j++) {
         var item = newsList[j];
+
         newsList[j]['cat'] = categoryList[item.category].text;
 
         var d = new Date(item.createdAt);
+
         newsList[j]['dateString'] = format(d, 'yyyy/MM/dd');
       }
 
       this.news[newsCategories[i]] = newsList;
     }
+    console.log(this.news);
   },
   mounted() {
     this.updateNewsBackground(); // 初始化時設定元素寬度
@@ -214,6 +217,7 @@ export default {
   background-color: #d5b877;
 
   font-size: 14px;
+  font-weight: 500;
   text-align: center;
   line-height: 1.2;
   white-space: nowrap;
@@ -290,6 +294,10 @@ export default {
   display: flex;
   align-items: center;
   text-decoration: none;
+
+  @include noto-serif-tc-regular;
+  font-weight: 200;
+  letter-spacing: 1px;
 }
 .link_arrow {
   display: inline-block;
