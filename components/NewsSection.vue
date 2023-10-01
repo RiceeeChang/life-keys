@@ -112,7 +112,6 @@ export default {
 
       this.news[newsCategories[i]] = newsList;
     }
-    console.log(this.news);
   },
   mounted() {
     this.updateNewsBackground(); // 初始化時設定元素寬度

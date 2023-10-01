@@ -9,7 +9,7 @@
         <a class="joinus-button" href="/joinus">加入我們</a>
       </div>
 
-      <img class="desktop" src="/assets/images/joinus.png">
+      <img class="desktop" src="/assets/images/joinus.jpg">
       <img class="mobile" src="/assets/images/joinus_mobile.jpg">
     </div>
   </section>

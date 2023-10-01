@@ -213,7 +213,7 @@ h2 {
   }
 }
 .d {
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.8;
   max-width: 880px;
   margin: 0 auto 54px;

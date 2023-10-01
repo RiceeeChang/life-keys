@@ -176,9 +176,13 @@ main {
   .carousel-caption {
     text-align: end;
 
-    left: unset;
-    padding-left: 0;
-    padding-right: 24px;
+    left: initial;
+    transform: none;
+
+    @include small-screen {
+      padding-left: 0;
+      padding-right: 24px;
+    }
   }
 }
 .carousel-caption {

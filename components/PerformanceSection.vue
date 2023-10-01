@@ -10,7 +10,7 @@
         <div class="line" style="margin-left: 70px; margin-right: 40px;"></div>
         <div class="slogan">全台灣北中南共有 <span :class="{'big-number': true, 'number-total-counter-animation': isNumberAnimation}"></span> 處辦公室</div>
         <div class="line" style="margin-left: 24px; margin-right: 80px;"></div>
-        <a class="more">More <span class="link_arrow"></span></a>
+        <b-link class="more" href="/company_archievements">More <span class="link_arrow"></span></b-link>
       </div>
 
       <div class="performance-content">
@@ -222,8 +222,8 @@ export default {
   font-weight: 500;
 
   width: 110px;
-  margin-left: 8px;
-  margin-right: 40px;
+  margin-left: 24px;
+  margin-right: 24px;
   margin-bottom: 10px;
 
   text-align: end;
