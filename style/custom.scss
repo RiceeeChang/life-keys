@@ -188,13 +188,18 @@ main {
 .carousel-caption {
   z-index: 0;
   left: 50%;
-  bottom: 128px;
+
+  /* bottom: 128px; */
+  bottom: -100%;
+
   transform: translateX(-50%);
 
   width: 100%;
   max-width: 1230px;
   padding: 0 100px;
   text-align: start;
+
+  animation: carousel-caption-slide-up-desktop 1s ease-in-out forwards;
 
   span {
     @include noto-serif-tc-regular;
@@ -221,12 +226,18 @@ main {
   @include small-screen {
     left: 0;
     right: 0;
-    bottom: 50px;
+    /* bottom: 50px; */
     transform: none;
 
     max-width: 236px;
     padding-left: 24px;
     padding-right: 0;
+
+    animation-name: carousel-caption-slide-up-mobile;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 
     span {
       font-size: 12px;
@@ -243,7 +254,22 @@ main {
 }
 
 
-
+@keyframes carousel-caption-slide-up-desktop {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 128px;
+  }
+}
+@keyframes carousel-caption-slide-up-mobile {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 50px;
+  }
+}
 .content {
   max-width: 1140px;
   padding-top: 40px;

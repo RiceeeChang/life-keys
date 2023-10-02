@@ -3,13 +3,15 @@
     <div class="news-background-color bg-d5b877"></div>
     <div ref="newsBackground" class="news-background"></div>
 
-    <div class="section-content">
-      <div id="news-title" class="section-title-wrap bg-e5e5e5">
+    <div class="section-content" ref="sectionContent">
+
+      <div v-show="isTitleSlideIn" id="news-title" :class="{'section-title-wrap': true, 'bg-e5e5e5': true, 'animation-slide-in': isTitleSlideIn}">
         <h4 class="section-label font-color-333333">NEWS&EVENTS</h4>
         <h2 class="section-title font-color-333333">最新消息</h2>
         <a class="more font-color-333333" href="/news">More <span class="link_arrow"></span></a>
       </div>
-      <div class="news-wrap bg-e5e5e5">
+
+      <div v-show="isTitleSlideIn" :class="{'news-wrap': true, 'bg-e5e5e5': true, 'animation-slide-in': isTitleSlideIn}">
         <div class="more font-color-333333" href="/news">More <span class="link_arrow"></span></div>
         <div>
           <select class="category-select" v-model="newsTab">
@@ -57,7 +59,9 @@ export default {
         "event"     : [],
         "education" : [],
         "evaluation": []
-      }
+      },
+
+      isTitleSlideIn: false,
     }
   },
   async fetch() {
@@ -114,18 +118,31 @@ export default {
     }
   },
   mounted() {
-    this.updateNewsBackground(); // 初始化時設定元素寬度
+    this.$nextTick(() => {
+      this.updateNewsBackground();
+    })
+
     window.addEventListener('resize', this.updateNewsBackground); // 監聽窗口寬度變化
+    this.animateOnScroll();
   },
   methods: {
     updateNewsBackground() {
-      var bodyWidth = document.body.clientWidth;
+      /*var bodyWidth = document.body.clientWidth;
       var element = document.getElementById('news-title');
       if (element) {
         var left = element.offsetLeft;
         var element = this.$refs.newsBackground;
         element.style.width = (bodyWidth-left) + 'px';
-      }
+      }*/
+      var bodyWidth = document.body.clientWidth;
+      var container = this.$refs.sectionContent;
+      var style = window.getComputedStyle(container);
+      var left = parseInt(style.marginLeft, 10) + parseInt(style.paddingLeft, 10)+1;
+      var element = this.$refs.newsBackground;
+      element.style.width = (bodyWidth-left) + 'px';
+
+      console.log(bodyWidth, left);
+
     },
     changeNewsTab(event) {
       this.newsTab = event.target.getAttribute('value');
@@ -136,6 +153,18 @@ export default {
       }
 
       event.target.classList.add('tab-active');
+    },
+    animateOnScroll() {
+      this.$gsap.to('#news-section', {
+        scrollTrigger: {
+          trigger: '#news-section',
+          start: 'top 30%',
+          end: 'bottom',
+          onEnter: ()=> {
+            this.isTitleSlideIn = true;
+          }
+        }
+      })
     }
   }
 }
@@ -248,6 +277,10 @@ export default {
   z-index: 0;
   right: 0;
   bottom: 0;
+
+  @include small-screen {
+    display: none;
+  }
 }
 .bg-e5e5e5 {
   background-color: #e5e5e5;
@@ -337,6 +370,21 @@ export default {
   .news-item {
     padding-left: 0;
     padding-right: 0;
+  }
+}
+
+.animation-slide-in {
+  animation: slide-in 1.5s ease-in-out forwards;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0.7;
+    transform: translateX(-100vw);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>

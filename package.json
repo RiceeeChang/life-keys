@@ -15,8 +15,10 @@
     "bootstrap-vue": "^2.22.0",
     "core-js": "^3.25.3",
     "date-fns": "^2.30.0",
+    "gsap": "^3.12.2",
     "intersection-observer": "^0.12.2",
     "nuxt": "^2.15.8",
+    "nuxt-gsap-module": "^2.0.0",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
     "vue-template-compiler": "^2.7.10"

@@ -1,6 +1,6 @@
 <template>
   <section id="joinus-section" class="bg-d5b877">
-    <div class="section-content">
+    <div v-show="isSlideUp" :class="{'section-content': true, 'animation-slide-up': isSlideUp}">
 
       <div class="section-title-wrap color-black">
         <h4 class="section-label font-color-333333">JOIN US</h4>
@@ -14,6 +14,36 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      isSlideUp: false,
+    }
+  },
+  mounted() {
+    this.animateOnScroll()
+  },
+
+  methods: {
+    animateOnScroll() {
+
+      this.$gsap.to('#joinus-section', {
+        scrollTrigger: {
+          trigger: '#joinus-section',
+          start: 'top 75%',
+          end: 'bottom',
+          onEnter: ()=> {
+            this.isSlideUp = true;
+          }
+        }
+      })
+    }
+
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 #joinus-section {
@@ -116,6 +146,22 @@ img.mobile {
   .joinus-button {
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+
+.animation-slide-up {
+  animation: slide-up 1.5s ease-in-out forwards;
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0.7;
+    transform: translateY(100vh);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>

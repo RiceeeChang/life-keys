@@ -2,7 +2,7 @@
   <section id="performance-section" class="bg-272727" ref="elementToObserve">
     <div class="section-content">
 
-      <div class="title-row">
+      <div v-show="isTitleRowSlideUp" :class="{'title-row': true, 'animation-slide-up': isTitleRowSlideUp}">
         <div class="section-title-wrap">
           <h4 class="section-label font-color-main">PERFORMACE</h4>
           <h2 class="section-title font-color-main">社區實績</h2>
@@ -13,7 +13,7 @@
         <b-link class="more" href="/company_archievements">More <span class="link_arrow"></span></b-link>
       </div>
 
-      <div class="performance-content">
+      <div v-show="isPerformanceContentSlideUp" :class="{'performance-content': true, 'animation-slide-up': isPerformanceContentSlideUp}">
         <div class="taiwan">
           <img class="mobile" src="/assets/images/taiwan_mobile.svg">
           <img class="desktop" src="/assets/images/taiwan_desktop.svg">
@@ -100,6 +100,8 @@ export default {
     return {
       isNumberShow: false,
       isNumberAnimation: false,
+      isTitleRowSlideUp: false,
+      isPerformanceContentSlideUp: false,
 
       showPhotoRegion: 'north',
       isShowNorth: false,
@@ -151,6 +153,25 @@ export default {
 
       console.log('open lightbox');
     },
+    animateOnScroll() {
+
+      this.$gsap.to('#performance-section', {
+        scrollTrigger: {
+          trigger: '#performance-section',
+          start: 'top 50%',
+          end: 'bottom',
+          onEnter: ()=> {
+            this.isNumberAnimation = true;
+
+            this.isTitleRowSlideUp = true;
+
+            setTimeout(()=> {
+              this.isPerformanceContentSlideUp = true;
+            }, 500)
+          }
+        }
+      })
+    }
   },
 
   components: {
@@ -180,15 +201,7 @@ export default {
     }
   },
   mounted() {
-    const elementToObserve = this.$refs.elementToObserve;
-
-    const observer = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) {
-        this.isNumberAnimation = true;
-        observer.unobserve(elementToObserve);
-      }
-    });
-    observer.observe(elementToObserve);
+    this.animateOnScroll()
   },
 };
 </script>
@@ -323,7 +336,7 @@ img.mobile {
   font-weight: 800;
 
   margin-left: 20px;
-  margin-right: 4px;
+  margin-right: 16px;
 }
 .dotted-line {
   display: inline-block;
@@ -410,6 +423,7 @@ img.mobile {
 }
 #performance-section {
   padding: 170px 0;
+  min-height: 100vh;
 }
 #performance-section .section-title{
   margin-bottom: 0;
@@ -493,6 +507,22 @@ img.mobile {
   }
   img.desktop{
     display: none;
+  }
+}
+
+
+.animation-slide-up {
+  animation: slide-up 1s ease-in-out forwards;
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0.7;
+    transform: translateY(100vh);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
