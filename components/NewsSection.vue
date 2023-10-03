@@ -35,7 +35,7 @@
 
         <div v-for="item in news[newsTab]" class="news-item">
           <div class="news-category font-color-333333">{{ item.cat }}</div>
-          <a :href="'/news/post/' + item.id"><div class="news-title font-color-333333">{{ item.title }}</div></a>
+          <a :href="'/news/post/' + item.id" class="news-title font-color-333333">{{ item.title }}</a>
           <div class="news-date font-color-959595">{{ item.dateString }}</div>
         </div>
       </div>
@@ -234,20 +234,31 @@ export default {
 }
 .news-item {
   width: 100%;
-  height: 78px;
   padding: 24px 20px;
 
   display: flex;
   flex-direction: row;
+
+  @include small-screen {
+
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px #d5b877 solid;
+
+    flex-wrap: wrap;
+  }
+}
+.news-item:last-child {
+  border-bottom: none;
 }
 .news-category {
-  padding: 8px;
+  padding: 0 8px;
   background-color: #d5b877;
 
   font-size: 14px;
   font-weight: 500;
   text-align: center;
-  line-height: 1.2;
+  line-height: 30px;
   white-space: nowrap;
 }
 .news-title {
@@ -256,9 +267,34 @@ export default {
   font-size: 16px;
   font-weight: 400;
   line-height: 30px;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  @include small-screen {
+    margin-top: 8px;
+    margin-left: 0px;
+    line-height: 30px;
+
+    overflow: hidden;
+
+    order:3;
+  }
+}
+.news-title:hover {
+  color: #333333cd;
 }
 .news-date {
+  padding-left: 8px;
   margin-left: auto;
+
+  line-height: 30px;
+
+  @include small-screen {
+    font-size: 12px;
+    line-height: 30px;
+  }
 }
 
 .news-background {
@@ -330,6 +366,9 @@ export default {
   @include noto-serif-tc-regular;
   font-weight: 200;
   letter-spacing: 1px;
+}
+.more:visited {
+  color: #333;
 }
 .link_arrow {
   display: inline-block;

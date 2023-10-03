@@ -333,7 +333,7 @@ img.mobile {
 .region .number {
   color: #d5b877;
   font-size: 36px;
-  font-weight: 800;
+  font-weight: 500;
 
   margin-left: 20px;
   margin-right: 16px;
