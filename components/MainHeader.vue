@@ -222,6 +222,8 @@ export default {
   line-height: 96px;
 
   box-sizing: border-box;
+
+  cursor: pointer;
 }
 .navbar-menu > li {
   box-sizing: border-box;

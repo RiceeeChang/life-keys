@@ -49,7 +49,7 @@ export default {
   &::before {
     content: "";
     width: 100vw;
-    height: 350px;
+    height: 200px;
     mix-blend-mode: darken;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 28%, #000 110%);
 
