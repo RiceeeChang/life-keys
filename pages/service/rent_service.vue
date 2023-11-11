@@ -101,7 +101,7 @@
     <div class="rent-section">
       <div class="rent-card">
         <span class="number">05</span>
-        <h6><p>定期租金<br>調整及管理</p></h6>
+        <h6>定期租金<br>調整及管理</h6>
       </div>
       <div class="rent-card">
         <span class="number">06</span>

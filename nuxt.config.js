@@ -18,8 +18,7 @@ export default {
 
   env: {
     SITE_URL: 'http://35.236.181.91:4000/',
-    //API_URL: 'http://35.236.181.91:3000/',
-    API_URL: 'https://dashboard.br-everyday.com/',
+    API_URL: 'https://dashboard.life-keys.com.tw/',
     SITE_TITLE: '伯克錸物業管理顧問有限公司',
   },
 
