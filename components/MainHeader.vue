@@ -45,7 +45,7 @@
               </div>
             </div>
           </li>
-          <li :class="{on: tabIsActive('news')}">
+          <!--<li :class="{on: tabIsActive('news')}">
             <b-link class="menu-item" :to="'/news'">最新消息</b-link>
             <div class="dropdown-menu">
               <div class="dropdown-menu-content">
@@ -63,7 +63,7 @@
                 </ul>
               </div>
             </div>
-          </li>
+          </li>-->
           <li :class="{on: tabIsActive('company_archievements')}">
             <b-link class="menu-item" :to="'/company_archievements'">社區實踐</b-link>
             <div class="dropdown-menu">
@@ -118,7 +118,7 @@
                 <li><b-link :to="'/service/smart_service'">      - 智能服務</b-link></li>
               </ul>
             </b-collapse>
-            <li>
+            <!--<li>
               <b-button class="menu-collapse-button" v-b-toggle="'news-menu'">最新消息<span class="cross"></span></b-button>
             </li>
             <b-collapse id="news-menu">
@@ -129,7 +129,7 @@
                 <li><b-link :to="'/news/report'">    - 媒體報導</b-link></li>
                 <li><b-link :to="'/news/education'"> - 教育訓練</b-link></li>
               </ul>
-            </b-collapse>
+            </b-collapse>-->
             <li>
               <b-button class="menu-collapse-button" v-b-toggle="'performance-menu'">社區實踐<span class="cross"></span></b-button>
             </li>
