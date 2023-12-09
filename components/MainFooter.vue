@@ -14,7 +14,7 @@
         <div class="phone-wrap margin-bottom-16">
           <div>臺中 04-2472-8880</div>
           <div>臺南 06-297-1878</div>
-          <div>臺北 02-2550-5000</div>
+          <div>臺北 02-8522-9229</div>
           <div>高雄 07-225-7999</div>
         </div>
 

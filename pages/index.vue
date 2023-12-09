@@ -3,7 +3,7 @@
     <HeroSection />
     <ServiceSection />
     <PerformanceSection />
-    <!--<NewsSection />-->
+    <NewsSection />
     <JoinusSection />
   </main>
 </template>
