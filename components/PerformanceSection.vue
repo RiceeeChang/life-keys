@@ -137,6 +137,14 @@ export default {
       lightboxIndex: 0,
       isShowLightbox: false,
       lightboxPhotes: [],
+
+      numbers: {
+        total: 0,
+        north: 0,
+        middle: 0,
+        south: 0,
+        kao: 0,
+      }
     }
   },
   methods: {
@@ -199,7 +207,13 @@ export default {
   async fetch() {
     var apiUrl = process.env.API_URL + 'api/cases?limit=7';
 
-    var regions = ['north', 'middle', 'south'];
+    var regions = ['north', 'middle', 'south', 'kao'];
+
+    var catApiUrl = apiUrl
+    var response = await fetch(catApiUrl);
+    var data = await response.json();
+    this.numbers['total'] = data.totalDocs;
+
 
     for(var i=0; i<regions.length; i++) {
       var catApiUrl = apiUrl + '&where[region][equals]='+regions[i];
@@ -207,8 +221,9 @@ export default {
       var data = await response.json();
       var newsList = data.docs;
 
-      if (newsList === undefined) continue;
+      this.numbers[regions[i]] = data.totalDocs;
 
+      if (newsList === undefined) continue;
 
       for(var j=0; j<7; j++) {
         if (newsList[j] != undefined) {
@@ -309,19 +324,19 @@ export default {
   animation: count-south 5s ease-in-out forwards;
 }
 @keyframes count-total {
-  to { --num-total: 247; }
+  to { --num-total: v-bind(numbers['total']); }
 }
 @keyframes count-north {
-  to { --num-north: 98; }
+  to { --num-north: v-bind(numbers['north']); }
 }
 @keyframes count-middle {
-  to { --num-middle: 91; }
+  to { --num-middle: v-bind(numbers['middle']); }
 }
 @keyframes count-south {
-  to { --num-south: 31; }
+  to { --num-south: v-bind(numbers['south']); }
 }
 @keyframes count-kao {
-  to { --num-south: 27; }
+  to { --num-kao: v-bind(numbers['kao']); }
 }
 
 
