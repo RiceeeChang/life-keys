@@ -45,7 +45,7 @@
     <div class="join104">
       <h4>加入我們</h4>
       <p>我們重視每一位員工，除了有良好工作環境、也提供學習及成長的空間，歡迎優秀的朋友一起加入伯克錸公寓大廈管理維護</p>
-      <a>前往<img src="/assets/images/104logo_200x200.webp">查看更多</a>
+      <a target="_blank" href="https://www.104.com.tw/company/b7bk9e8">前往<img src="/assets/images/104logo_200x200.webp">查看更多</a>
     </div>
 
   </section>

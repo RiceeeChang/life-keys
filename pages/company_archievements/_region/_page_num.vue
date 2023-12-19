@@ -9,7 +9,7 @@
 
     <div class="case-wrap">
       <div v-for="c in cases" class="case">
-        <div class="thumbnail"><img :src="c.url"></div>
+        <div class="thumbnail" :style="'background-image: url(' + c.url +')'"><!--<img :src="c.url">--></div>
         <h6>{{ c.title }}</h6>
       </div>
     </div>
@@ -49,7 +49,7 @@ export default {
   scrollToTop: false,
   data() {
     return {
-      pageTitle: '社區實踐',
+      pageTitle: '社區實績',
       pageTitleEn: 'Company Archievements',
       backgroundImage: '/assets/images/company_archievements_banner.webp',
       cases: [],
@@ -85,7 +85,7 @@ export default {
     }
   },
   async asyncData({ params, store }) {
-    store.commit('page/setPageTitle', '社區實踐')
+    store.commit('page/setPageTitle', '社區實績')
     store.commit('page/setPageTitleEn', 'Company Archievements')
     store.commit('page/setBackgroundImage', '/assets/images/company_archievements_banner.webp')
 
@@ -103,7 +103,7 @@ export default {
     return { region, pageNumber }
   },
   async fetch() {
-    var apiUrl = process.env.API_URL + 'api/cases?limit=15&page='+this.pageNumber;
+    var apiUrl = process.env.API_URL + 'api/cases?limit=16&page='+this.pageNumber;
 
     if (this.region != '') {
       apiUrl = apiUrl + '&where[region][equals]='+this.region;
@@ -140,14 +140,19 @@ export default {
 }
 .case-wrap {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-content: space-around;
   row-gap: 80px;
 
   .case {
     .thumbnail {
-      width: 335px;
-      height: 250px;
+      //width: 335px;
+      //height: 250px;
+      width: 250px;
+      height: 335px;
+
+      background-size: cover;
+      background-position: center;
 
       img {
         width: 100%;
@@ -155,7 +160,7 @@ export default {
       }
       @include small-screen {
         width: 175px;
-        height: 133px;
+        height: 232px;
       }
     }
     h6 {

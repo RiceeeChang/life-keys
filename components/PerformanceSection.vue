@@ -8,7 +8,7 @@
           <h2 class="section-title font-color-main">社區實績</h2>
         </div>
         <div class="line" style="margin-left: 70px; margin-right: 40px;"></div>
-        <div class="slogan">全台灣北中南共有 <span :class="{'big-number': true, 'number-total-counter-animation': isNumberAnimation}"></span> 處辦公室</div>
+        <div class="slogan">全台灣北中南共有 <span :class="{'big-number': true, 'number-total-counter-animation': isNumberAnimation}"></span> 個服務社區</div>
         <div class="line" style="margin-left: 24px; margin-right: 80px;"></div>
         <b-link class="more" href="/company_archievements">More <span class="link_arrow"></span></b-link>
       </div>
@@ -20,7 +20,7 @@
         </div>
         <div class="region north">
           <div class="title1">
-            北區辦公室 <span class="photo-icon" @click="openLightbox('north', '北區辦公室')"></span>
+            台北辦公室 <span class="photo-icon" @click="openLightbox('north', '台北辦公室')"></span>
 
             <span class="dotted-line"></span>
             <svg v-show="!isShowNorth" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('north')" @mouseleave="leaveRegion('north')">
@@ -36,11 +36,11 @@
               </circle>
             </svg></a>
           </div>
-          <div class="title2">台北辦事室  共有<span :class="{'number': true, 'number-north-counter-animation': isNumberAnimation}"></span>處</div>
+          <div class="title2">服務社區  共有<span :class="{'number': true, 'number-north-counter-animation': isNumberAnimation}"></span>個</div>
         </div>
         <div class="region middle">
           <div class="title1">
-            中區辦公室 <span class="photo-icon" @click="openLightbox('middle', '中區辦公室')"></span>
+            台中辦公室 <span class="photo-icon" @click="openLightbox('middle', '中區辦公室')"></span>
             <span class="dotted-line"></span>
             <svg class="regional-point" v-show="!isShowMiddle" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('middle')" @mouseleave="leaveRegion('middle')">
               <circle cx="25" cy="25" r="8" fill="#d5b877" />
@@ -55,11 +55,11 @@
               </circle>
             </svg></a>
           </div>
-          <div class="title2">台中辦事室  共有<span :class="{'number': true, 'number-middle-counter-animation': isNumberAnimation}"></span>處</div>
+          <div class="title2">服務社區  共有<span :class="{'number': true, 'number-middle-counter-animation': isNumberAnimation}"></span>個</div>
         </div>
         <div class="region south">
           <div class="title1">
-            南區辦公室 <span class="photo-icon" @click="openLightbox('south', '南區辦公室')"></span>
+            台南辦公室 <span class="photo-icon" @click="openLightbox('south', '南區辦公室')"></span>
             <span class="dotted-line"></span>
             <svg class="regional-point" v-show="!isShowSouth" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('south')" @mouseleave="leaveRegion('south')">
               <circle cx="25" cy="25" r="8" fill="#d5b877" />
@@ -74,7 +74,26 @@
               </circle>
             </svg></a>
           </div>
-          <div class="title2">台南&高雄辦事室  共有<span :class="{'number': true, 'number-south-counter-animation': isNumberAnimation}"></span>處</div>
+          <div class="title2">服務社區  共有<span :class="{'number': true, 'number-south-counter-animation': isNumberAnimation}"></span>個</div>
+        </div>
+        <div class="region kao">
+          <div class="title1">
+            高雄辦公室 <span class="photo-icon" @click="openLightbox('kao', '高雄辦公室')"></span>
+            <span class="dotted-line"></span>
+            <svg class="regional-point" v-show="!isShowSouth" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('south')" @mouseleave="leaveRegion('south')">
+              <circle cx="25" cy="25" r="8" fill="#d5b877" />
+              <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="2" fill="none" >
+              </circle>
+            </svg>
+            <a href="/company_archievements/south"><svg v-show="isShowSouth" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('south')" @mouseleave="leaveRegion('south')">
+              <circle cx="25" cy="25" r="8" fill="#d5b877" />
+              <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="4" fill="none" >
+                <animate attributeName="r" from="8" to="24" dur="2s"  repeatCount="indefinite" />
+                <animate attributeName="opacity" from="0.7" to="0.0" dur="2s"  repeatCount="indefinite" />
+              </circle>
+            </svg></a>
+          </div>
+          <div class="title2">服務社區  共有<span :class="{'number': true, 'number-kao-counter-animation': isNumberAnimation}"></span>個</div>
         </div>
 
         <div v-show="isShowNorth" class="performance-photo-wrap north">
@@ -282,6 +301,11 @@ export default {
   content: counter(my-counter);
   animation: count-south 5s ease-in-out forwards;
 }
+.number-kao-counter-animation::before {
+  counter-reset: my-counter var(--num-kao);
+  content: counter(my-counter);
+  animation: count-south 5s ease-in-out forwards;
+}
 @keyframes count-total {
   to { --num-total: 247; }
 }
@@ -292,7 +316,10 @@ export default {
   to { --num-middle: 91; }
 }
 @keyframes count-south {
-  to { --num-south: 58; }
+  to { --num-south: 31; }
+}
+@keyframes count-kao {
+  to { --num-south: 27; }
 }
 
 
@@ -333,6 +360,7 @@ img.mobile {
 .region .number {
   color: #d5b877;
   font-size: 36px;
+  line-height: 36px;
   font-weight: 500;
 
   margin-left: 20px;
@@ -357,11 +385,18 @@ img.mobile {
 .region.south .dotted-line {
   width: 160px;
 }
+.region.kao .dotted-line {
+  width: 115px;
+}
 .region.middle {
   top: 370px;
 }
 .region.south {
   top: 550px;
+}
+
+.region.kao {
+  top: 660px;
 }
 
 

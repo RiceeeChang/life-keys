@@ -115,7 +115,7 @@
           </div>
 
           <div class="address">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.3955643432573!2d121.4426174753772!3d25.05457867780304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a62aac660ead%3A0xdcb04453e9e608a8!2zMjQy5Y-w54Gj5paw5YyX5biC5paw6I6K5Y2A5Lit5Y6f6LevNTUy6JmfMTA!5e0!3m2!1szh-TW!2suk!4v1702079960334!5m2!1szh-TW!2suk" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.3955643432573!2d121.4426174753772!3d25.05457867780304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a62aac660ead%3A0xdcb04453e9e608a8!2zMjQy5Y-w54Gj5paw5YyX5biC5paw6I6K5Y2A5Lit5Y6f6LevNTUy6JmfMTA!5e0!3m2!1szh-TW!2suk!4v1702079960334!5m2!1szh-TW!2suk" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <h5>臺北辦事處地址</h5>
             <div><span class="address-point-icon"></span>台北市新莊區中原路552號10樓</div>
             <div><span class="phone-icon"></span>02-8522-9229</div>

@@ -6,7 +6,7 @@
         <h4 class="section-label font-color-333333">JOIN US</h4>
         <h2 class="section-title font-color-333333">菁英招募</h2>
         <p class="joinus-text color-black">我們重視每一位員工，除了有良好工作環境、也提供學習及成長的空間，歡迎優秀的朋友一起加入伯克錸公寓大廈管理維護。</p>
-        <a class="joinus-button" href="/joinus">加入我們</a>
+        <a class="joinus-button" href="/careers">加入我們</a>
       </div>
 
       <img class="desktop" src="/assets/images/joinus.jpg">

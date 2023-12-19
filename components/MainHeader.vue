@@ -65,7 +65,7 @@
             </div>
           </li>
           <li :class="{on: tabIsActive('company_archievements')}">
-            <b-link class="menu-item" :to="'/company_archievements'">社區實踐</b-link>
+            <b-link class="menu-item" :to="'/company_archievements'">社區實績</b-link>
             <div class="dropdown-menu">
               <div class="dropdown-menu-content">
                 <div class="dropdown-menu-title">
@@ -131,7 +131,7 @@
               </ul>
             </b-collapse>
             <li>
-              <b-button class="menu-collapse-button" v-b-toggle="'performance-menu'">社區實踐<span class="cross"></span></b-button>
+              <b-button class="menu-collapse-button" v-b-toggle="'performance-menu'">社區實績<span class="cross"></span></b-button>
             </li>
             <b-collapse id="performance-menu">
               <ul class="mobile-submenu">
