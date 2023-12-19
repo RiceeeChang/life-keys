@@ -243,9 +243,6 @@ export default {
   align-items: center;
 }
 
-
-
-
 .title-row .slogan .big-number {
   display: inline-block;
   color: #d5b877;
@@ -277,6 +274,11 @@ export default {
   initial-value: 0;
 }
 @property --num-south {
+  syntax: '<integer>';
+  inherits: true;
+  initial-value: 0;
+}
+@property --num-kao {
   syntax: '<integer>';
   inherits: true;
   initial-value: 0;
