@@ -74,9 +74,10 @@
                 </div>
                 <div class="dropdown-menu-divider"></div>
                 <ul class="dropdown-menu-list">
-                  <li><b-link :to="'/company_archievements/north'"> - 北區</b-link></li>
-                  <li><b-link :to="'/company_archievements/middle'">- 中區</b-link></li>
-                  <li><b-link :to="'/company_archievements/south'"> - 南區</b-link></li>
+                  <li><b-link :to="'/company_archievements/north'"> - 台北</b-link></li>
+                  <li><b-link :to="'/company_archievements/middle'">- 台中</b-link></li>
+                  <li><b-link :to="'/company_archievements/south'"> - 台南</b-link></li>
+                  <li><b-link :to="'/company_archievements/kao'"> - 高雄</b-link></li>
                 </ul>
               </div>
             </div>
@@ -136,9 +137,10 @@
             <b-collapse id="performance-menu">
               <ul class="mobile-submenu">
                 <li><b-link :to="'/company_archievements'">      全部</b-link></li>
-                <li><b-link :to="'/company_archievements/north'"> - 北區</b-link></li>
-                <li><b-link :to="'/company_archievements/middle'">- 中區</b-link></li>
-                <li><b-link :to="'/company_archievements/south'"> - 南區</b-link></li>
+                <li><b-link :to="'/company_archievements/north'"> - 台北</b-link></li>
+                <li><b-link :to="'/company_archievements/middle'">- 台中</b-link></li>
+                <li><b-link :to="'/company_archievements/south'"> - 台南</b-link></li>
+                <li><b-link :to="'/company_archievements/kao'"> - 高雄</b-link></li>
               </ul>
             </b-collapse>
             <li><b-link :to="'/careers'">菁英召募</b-link></li>

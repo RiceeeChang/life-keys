@@ -80,12 +80,12 @@
           <div class="title1">
             高雄辦公室 <span class="photo-icon" @click="openLightbox('kao', '高雄辦公室')"></span>
             <span class="dotted-line"></span>
-            <svg class="regional-point" v-show="!isShowSouth" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('south')" @mouseleave="leaveRegion('south')">
+            <svg class="regional-point" v-show="!isShowKao" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('kao')" @mouseleave="leaveRegion('kao')">
               <circle cx="25" cy="25" r="8" fill="#d5b877" />
               <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="2" fill="none" >
               </circle>
             </svg>
-            <a href="/company_archievements/south"><svg v-show="isShowSouth" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('south')" @mouseleave="leaveRegion('south')">
+            <a href="/company_archievements/kao"><svg v-show="isShowKao" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('kao')" @mouseleave="leaveRegion('kao')">
               <circle cx="25" cy="25" r="8" fill="#d5b877" />
               <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="4" fill="none" >
                 <animate attributeName="r" from="8" to="24" dur="2s"  repeatCount="indefinite" />
@@ -104,6 +104,9 @@
         </div>
         <div v-show="isShowSouth" class="performance-photo-wrap south">
           <div v-for="p in photos.south" class="performance-photo" :style="setbackgroundImage(p)"></div>
+        </div>
+        <div v-show="isShowKao" class="performance-photo-wrap kao">
+          <div v-for="p in photos.kao" class="performance-photo" :style="setbackgroundImage(p)"></div>
         </div>
         <lightbox :title="lightboxTitle" :images="lightboxPhotes" :index="lightboxIndex"/>
       </div>
@@ -126,11 +129,13 @@ export default {
       isShowNorth: false,
       isShowMiddle: false,
       isShowSouth: false,
+      isShowKao: false,
 
       photos: {
         north: [],
         middle: [],
         south: [],
+        kao: [],
       },
 
       lightboxTitle: '',
@@ -158,6 +163,8 @@ export default {
         this.isShowMiddle = true;
       } else if (region == 'south') {
         this.isShowSouth = true;
+      } else if (region == 'kao') {
+        this.isShowKao = true;
       }
     },
     leaveRegion(region) {
@@ -167,6 +174,8 @@ export default {
         this.isShowMiddle = false;
       } else if (region == 'south') {
         this.isShowSouth = false;
+      } else if (region == 'kao') {
+        this.isShowKao = false;
       }
     },
     setbackgroundImage(bk) {
@@ -205,7 +214,7 @@ export default {
     Lightbox
   },
   async fetch() {
-    var apiUrl = process.env.API_URL + 'api/cases?limit=7';
+    var apiUrl = process.env.API_URL + 'api/cases?limit=7' + '&where[show][equals]=show';
 
     var regions = ['north', 'middle', 'south', 'kao'];
 
@@ -223,7 +232,7 @@ export default {
 
       this.numbers[regions[i]] = data.totalDocs;
 
-      if (newsList === undefined) continue;
+      //if (newsList === undefined) continue;
 
       for(var j=0; j<7; j++) {
         if (newsList[j] != undefined) {
@@ -441,6 +450,10 @@ img.mobile {
   top: 350px;
 }
 .performance-content .performance-photo-wrap.south {
+  width: 580px;
+  top: 540px;
+}
+.performance-content .performance-photo-wrap.kao {
   width: 580px;
   top: 540px;
 }

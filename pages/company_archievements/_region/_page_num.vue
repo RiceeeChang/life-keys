@@ -2,14 +2,15 @@
   <section class="page-content">
     <ul class="form-tab">
       <li :class="{'active': region=='' }">      <b-link :to="'/company_archievements'">       全部</b-link></li>
-      <li :class="{'active': region=='north' }"> <b-link :to="'/company_archievements/north'"> 北部</b-link></li>
-      <li :class="{'active': region=='middle' }"><b-link :to="'/company_archievements/middle'">中部</b-link></li>
-      <li :class="{'active': region=='south' }"> <b-link :to="'/company_archievements/south'"> 南部</b-link></li>
+      <li :class="{'active': region=='north' }"> <b-link :to="'/company_archievements/north'"> 台北</b-link></li>
+      <li :class="{'active': region=='middle' }"><b-link :to="'/company_archievements/middle'">台中</b-link></li>
+      <li :class="{'active': region=='south' }"> <b-link :to="'/company_archievements/south'"> 台南</b-link></li>
+      <li :class="{'active': region=='kao' }"> <b-link :to="'/company_archievements/kao'">   高雄</b-link></li>
     </ul>
 
     <div class="case-wrap">
       <div v-for="c in cases" class="case">
-        <div class="thumbnail" :style="'background-image: url(' + c.url +')'"><!--<img :src="c.url">--></div>
+        <div class="thumbnail" :style="setbackgroundImage(c.url)"><!--<img :src="c.url">--></div>
         <h6>{{ c.title }}</h6>
       </div>
     </div>
@@ -65,6 +66,9 @@ export default {
       var url = pageNum === 1 ? url : url+pageNum;
       return url;
     },
+    setbackgroundImage(bk) {
+      return "background-image: url('" + encodeURI(bk) + "')";
+    },
   },
   components: {},
   validate({ params }) {
@@ -75,7 +79,7 @@ export default {
     }
 
     var valid_regions = [
-      undefined, 'north', 'middle', 'south'
+      undefined, 'north', 'middle', 'south', 'kao'
     ];
 
     if (valid_regions.includes(region)) {
@@ -103,7 +107,7 @@ export default {
     return { region, pageNumber }
   },
   async fetch() {
-    var apiUrl = process.env.API_URL + 'api/cases?limit=16&page='+this.pageNumber;
+    var apiUrl = process.env.API_URL + 'api/cases?limit=16&page='+this.pageNumber + '&where[show][equals]=show';
 
     if (this.region != '') {
       apiUrl = apiUrl + '&where[region][equals]='+this.region;

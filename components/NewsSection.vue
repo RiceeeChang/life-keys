@@ -65,7 +65,7 @@ export default {
     }
   },
   async fetch() {
-    var apiUrl = process.env.API_URL + 'api/posts?limit=5';
+    var apiUrl = process.env.API_URL + 'api/posts?limit=5' + '&where[show][equals]=show';
 
     var newsCategories = Object.keys(this.news);
     var categoryList = {
@@ -127,13 +127,6 @@ export default {
   },
   methods: {
     updateNewsBackground() {
-      /*var bodyWidth = document.body.clientWidth;
-      var element = document.getElementById('news-title');
-      if (element) {
-        var left = element.offsetLeft;
-        var element = this.$refs.newsBackground;
-        element.style.width = (bodyWidth-left) + 'px';
-      }*/
       var bodyWidth = document.body.clientWidth;
       var container = this.$refs.sectionContent;
       var style = window.getComputedStyle(container);

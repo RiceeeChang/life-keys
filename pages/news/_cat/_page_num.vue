@@ -159,7 +159,7 @@ export default {
   created() {},
   async fetch() {
     var limit = 10;
-    var apiUrl = process.env.API_URL + 'api/posts?limit='+limit+'&page='+this.pageNumber;
+    var apiUrl = process.env.API_URL + 'api/posts?limit=' + limit+'&page=' + this.pageNumber + '&where[show][equals]=show';
 
     if (this.category != '') {
       apiUrl = apiUrl + '&where[category][equals]='+this.category;
