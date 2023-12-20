@@ -170,11 +170,15 @@ export default {
     },
     tabIsActive(tabName) {
       var pageName = this.$route.name;
-      pageName = pageName.split('-')[0];
 
-      if (pageName == tabName) {
-        return true;
+      if (pageName) {
+        pageName = pageName.split('-')[0];
+
+        if (pageName == tabName) {
+          return true;
+        }
       }
+      
       return false;
     }
   },

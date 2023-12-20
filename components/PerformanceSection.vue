@@ -179,7 +179,10 @@ export default {
       }
     },
     setbackgroundImage(bk) {
-      return "background-image: url('" + bk + "')";
+      return {
+        "background-image": "url('" + bk + "')",
+    
+      }
     },
     openLightbox(region, title) {
       this.$store.commit('page/setShowLightbox', true)
@@ -330,7 +333,7 @@ export default {
 .number-kao-counter-animation::before {
   counter-reset: my-counter var(--num-kao);
   content: counter(my-counter);
-  animation: count-south 5s ease-in-out forwards;
+  animation: count-kao 5s ease-in-out forwards;
 }
 @keyframes count-total {
   to { --num-total: v-bind(numbers['total']); }
