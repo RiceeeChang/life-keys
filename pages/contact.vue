@@ -123,18 +123,17 @@
           </div>
 
           <div class="address">
-            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.71107718022!2d120.16731001195559!3d22.997649579104415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e761aacdf0d59%3A0x209c446de0d2300!2zNzA45Y-w5Y2X5biC5a6J5bmz5Y2A5oW25bmz6LevNTcx6Jmf!5e0!3m2!1szh-TW!2stw!4v1691511509919!5m2!1szh-TW!2stw" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d918.1783273315822!2d120.1692137696392!3d22.997567533215285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e76054d9f45d9%3A0xa667885f9949c449!2zNzA45Y-w54Gj5Y-w5Y2X5biC5a6J5bmz5Y2A5oW25bmz6LevNTcz6JmfMTc!5e0!3m2!1szh-TW!2suk!4v1703520018448!5m2!1szh-TW!2suk" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <h5>臺南辦事處地址</h5>
-            <div><span class="address-point-icon"></span>台南市安平區慶平路571號11樓</div>
+            <div><span class="address-point-icon"></span>台南市安平區慶平路573號17樓</div>
             <div><span class="phone-icon"></span>06-297-1878</div>
             <div><span class="fax-icon"></span>06-297-1877</div>
           </div>
 
           <div class="address">
-            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.7148197405627!2d120.30767841194735!3d22.627122179367216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e05edb55c81bd%3A0xe258b8a38ac5114!2zODAw6auY6ZuE5biC5paw6IiI5Y2A5rCR5qyK5LiA6LevMjUx6Jmf!5e0!3m2!1szh-TW!2stw!4v1691511722499!5m2!1szh-TW!2stw" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.57710577551!2d120.31172907618341!3d22.63226193077941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e0493793b2a0f%3A0x7a8bf5ea4315b8b7!2zODAw5Y-w54Gj6auY6ZuE5biC5paw6IiI5Y2A5YWt5ZCI6LevMTgy6JmfMTc!5e0!3m2!1szh-TW!2suk!4v1703521350050!5m2!1szh-TW!2suk" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <h5>高雄辦事處地址</h5>
-            <div><span class="address-point-icon"></span>高雄市新興區民權一路251號4樓之2</div>
+            <div><span class="address-point-icon"></span>高雄市新興區六合路182號17樓</div>
             <div><span class="phone-icon"></span>07-225-7999</div>
             <div><span class="fax-icon"></span>02-224-3388</div>
           </div>
