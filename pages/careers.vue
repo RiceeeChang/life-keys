@@ -1,59 +1,72 @@
 <template>
-  <section class="page-content">
-    <ul class="careers-tab">
-      <li :class="{'active': careerTab=='all' }"><a>全部</a></li>
-      <li :class="{'active': careerTab=='full-time' }"><a @click="scrollToFulltime">全職</a></li>
-      <li :class="{'active': careerTab=='part-time' }"><a @click="scrollToParttime">兼職</a></li>
-    </ul>
-
-
-    <h3 ref="fulltime">全職</h3>
-
-    <div class="careers-wrap">
-
-      <div v-for="c in careers.fullTime" class="career">
-        <b-button class="career-title" v-b-toggle="c.id">{{ c.title }}<span class="cross"></span></b-button>
-        <b-collapse :id="c.id">
-          <div class="career-content">
-            <div>工作內容</div>
-            <div><p v-html="c.content"></p></div>
-            <a class="readmore" target="_blank" :href="c.detail_url">查看更多</a>
-          </div>
-        </b-collapse>
-      </div>
-
-    </div>
-
-    <h3 ref="parttime">兼職</h3>
-
-    <div class="careers-wrap">
-
-      <div v-for="c in careers.partTime" class="career">
-        <b-button class="career-title" v-b-toggle="c.id">{{ c.title }}<span class="cross"></span></b-button>
-        <b-collapse :id="c.id">
-          <div class="career-content">
-            <div>工作內容</div>
-            <div><p v-html="c.content"></p></div>
-            <a class="readmore" target="_blank" :href="c.detail_url">查看更多</a>
-          </div>
-        </b-collapse>
-      </div>
-
-    </div>
-
-
-    <div class="join104">
-      <h4>加入我們</h4>
-      <p>我們重視每一位員工，除了有良好工作環境、也提供學習及成長的空間，歡迎優秀的朋友一起加入伯克錸公寓大廈管理維護</p>
-      <a target="_blank" href="https://www.104.com.tw/company/b7bk9e8">前往<img src="/assets/images/104logo_200x200.webp">查看更多</a>
-    </div>
-
-  </section>
+  
 </template>
+
+<template>
+  <main>
+    <BigBanner :page-title="pageTitle" :page-title-en="pageTitleEn" :background-image="backgroundImage"/>
+    <section class="content">
+      <Breadcrumb :breadcrumb-item="breadcrumbItem"/>
+      
+      <section class="page-content">
+        <ul class="careers-tab">
+          <li :class="{'active': careerTab=='all' }"><a>全部</a></li>
+          <li :class="{'active': careerTab=='full-time' }"><a @click="scrollToFulltime">全職</a></li>
+          <li :class="{'active': careerTab=='part-time' }"><a @click="scrollToParttime">兼職</a></li>
+        </ul>
+
+
+        <h3 ref="fulltime">全職</h3>
+
+        <div class="careers-wrap">
+
+          <div v-for="c in careers.fullTime" class="career">
+            <b-button class="career-title" v-b-toggle="c.id">{{ c.title }}<span class="cross"></span></b-button>
+            <b-collapse :id="c.id">
+              <div class="career-content">
+                <div>工作內容</div>
+                <div><p v-html="c.content"></p></div>
+                <a class="readmore" target="_blank" :href="c.detail_url">查看更多</a>
+              </div>
+            </b-collapse>
+          </div>
+
+        </div>
+
+        <h3 ref="parttime">兼職</h3>
+
+        <div class="careers-wrap">
+
+          <div v-for="c in careers.partTime" class="career">
+            <b-button class="career-title" v-b-toggle="c.id">{{ c.title }}<span class="cross"></span></b-button>
+            <b-collapse :id="c.id">
+              <div class="career-content">
+                <div>工作內容</div>
+                <div><p v-html="c.content"></p></div>
+                <a class="readmore" target="_blank" :href="c.detail_url">查看更多</a>
+              </div>
+            </b-collapse>
+          </div>
+
+        </div>
+
+
+        <div class="join104">
+          <h4>加入我們</h4>
+          <p>我們重視每一位員工，除了有良好工作環境、也提供學習及成長的空間，歡迎優秀的朋友一起加入伯克錸公寓大廈管理維護</p>
+          <a target="_blank" href="https://www.104.com.tw/company/b7bk9e8">前往<img src="/assets/images/104logo_200x200.webp">查看更多</a>
+        </div>
+
+      </section>
+
+    </section>
+  </main>
+</template>
+
 
 <script>
 export default {
-  layout: 'MainPage',
+  layout: 'default',
   data() {
     return {
       pageTitle: '菁英召募',

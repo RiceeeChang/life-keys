@@ -8,7 +8,7 @@
           <h2 class="section-title font-color-main">社區實績</h2>
         </div>
         <div class="line" style="margin-left: 70px; margin-right: 40px;"></div>
-        <div class="slogan">全台灣北中南共有 <span :class="{'big-number': true, 'number-total-counter-animation': isNumberAnimation}"></span> 個服務社區</div>
+        <div class="slogan">全台灣北中南共有 <span :class="{'big-number': true, 'number-total-counter-animation': isNumberAnimation}" :style="inlineVarNumber('total')"></span> 個服務社區</div>
         <div class="line" style="margin-left: 24px; margin-right: 80px;"></div>
         <b-link class="more" href="/company_archievements">More <span class="link_arrow"></span></b-link>
       </div>
@@ -36,7 +36,7 @@
               </circle>
             </svg></a>
           </div>
-          <div class="title2">服務社區  共有<span :class="{'number': true, 'number-north-counter-animation': isNumberAnimation}"></span>個</div>
+          <div class="title2">服務社區  共有<span :class="{'number': true, 'number-north-counter-animation': isNumberAnimation}" :style="inlineVarNumber('north')"></span>個</div>
         </div>
         <div class="region middle">
           <div class="title1">
@@ -55,7 +55,7 @@
               </circle>
             </svg></a>
           </div>
-          <div class="title2">服務社區  共有<span :class="{'number': true, 'number-middle-counter-animation': isNumberAnimation}"></span>個</div>
+          <div class="title2">服務社區  共有<span :class="{'number': true, 'number-middle-counter-animation': isNumberAnimation}" :style="inlineVarNumber('middle')"></span>個</div>
         </div>
         <div class="region south">
           <div class="title1">
@@ -74,7 +74,7 @@
               </circle>
             </svg></a>
           </div>
-          <div class="title2">服務社區  共有<span :class="{'number': true, 'number-south-counter-animation': isNumberAnimation}"></span>個</div>
+          <div class="title2">服務社區  共有<span :class="{'number': true, 'number-south-counter-animation': isNumberAnimation}" :style="inlineVarNumber('south')"></span>個</div>
         </div>
         <div class="region kao">
           <div class="title1">
@@ -93,7 +93,7 @@
               </circle>
             </svg></a>
           </div>
-          <div class="title2">服務社區  共有<span :class="{'number': true, 'number-kao-counter-animation': isNumberAnimation}"></span>個</div>
+          <div class="title2">服務社區  共有<span :class="{'number': true, 'number-kao-counter-animation': isNumberAnimation}" :style="inlineVarNumber('kao')"></span>個</div>
         </div>
 
         <div v-show="isShowNorth" class="performance-photo-wrap north">
@@ -153,6 +153,9 @@ export default {
     }
   },
   methods: {
+    inlineVarNumber(region) {
+      return "--number-" + region + ": " + this.numbers[region];
+    },
     changeShowPhotoRegion(region) {
       this.showPhotoRegion = region;
     },
@@ -249,10 +252,15 @@ export default {
   mounted() {
     this.animateOnScroll()
   },
+  computed: {
+    
+  }
 };
 </script>
 
 <style lang="scss" scoped>
+
+
 .performance-content {
   position: relative;
 
@@ -271,6 +279,7 @@ export default {
 }
 
 .title-row .slogan .big-number {
+
   display: inline-block;
   color: #d5b877;
   font-size: 64px;
@@ -336,19 +345,20 @@ export default {
   animation: count-kao 5s ease-in-out forwards;
 }
 @keyframes count-total {
-  to { --num-total: v-bind(numbers['total']); }
+  //to { --num-total: v-bind(numbers['total']); }
+  to { --num-total: var(--number-total); }
 }
 @keyframes count-north {
-  to { --num-north: v-bind(numbers['north']); }
+  to { --num-north: var(--number-north); }
 }
 @keyframes count-middle {
-  to { --num-middle: v-bind(numbers['middle']); }
+  to { --num-middle: var(--number-middle); }
 }
 @keyframes count-south {
-  to { --num-south: v-bind(numbers['south']); }
+  to { --num-south: var(--number-south); }
 }
 @keyframes count-kao {
-  to { --num-kao: v-bind(numbers['kao']); }
+  to { --num-kao: var(--number-kao); }
 }
 
 

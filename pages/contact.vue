@@ -11,14 +11,21 @@
       </ul>
 
       <div v-if="contactTab=='form'" class="contact-form">
-        <h5>諮詢主題<span>*</span></h5>
 
         <form>
+          <h5>聯絡地區<span>*</span></h5>
+          <div class="radio-group">
+            <FormRadio v-for="region in regions" :key="region.value" :radio-label="region.label" :radio-value="region.value"/>
+          </div>
+
+
+          <h5>諮詢主題<span>*</span></h5>
           <div class="radio-group">
             <FormRadio v-for="topic in formTopics" :key="topic.value" :radio-label="topic.label" :radio-value="topic.value"/>
           </div>
 
           <div class="fillment-wrap">
+
             <div class="fillment-group">
               <label>姓名<span>*</span></label>
               <input type="text" name="name" placeholder="請輸入姓名" v-model="contactFormData.name" autocomplete="off" required>
@@ -167,6 +174,25 @@ export default {
         text: '聯絡我們'
       },
 
+      regions: [
+        {
+          label: '台北',
+          value: 'north',
+        },
+        {
+          label: '台中',
+          value: 'middle',
+        },
+        {
+          label: '台南',
+          value: 'south',
+        },
+        {
+          label: '高雄',
+          value: 'kao',
+        },
+      ],
+
       formTopics: [
         {
           label: '物業管理服務',
@@ -280,6 +306,7 @@ h3 {
   padding: 100px 110px;
 
   h5 {
+    margin-top: 30px;
     margin-bottom: 30px;
 
     font-size: 16px;

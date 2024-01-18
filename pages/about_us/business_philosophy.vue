@@ -1,38 +1,50 @@
 <template>
-  <section class="page-content">
-    <div class="slogan-wrap">
-      <div class="slogan">
-        <h3>伯克錸物業服務團隊</h3>
-        <h2>心則</h2>
-      </div>
-      <div class="spirit">
-        <ul>
-          <li>發自內心的服務即是唯美。</li>
-          <li>誠信的精神、關懷的心意。</li>
-          <li>創新的動力、服務的熱忱。</li>
-        </ul>
-        <ul>
-          <li>親切、尊重、委婉是溝通的良方。</li>
-          <li>住戶滿意、我勝任愉快。</li>
-          <li>工作勝任愉快是我生活之成就。</li>
-        </ul>
-      </div>
+  <main>
+    <BigBanner :page-title="pageTitle" :page-title-en="pageTitleEn" :background-image="backgroundImage"/>
+    <section class="content">
+      <Breadcrumb :breadcrumb-item="breadcrumbItem"/>
+      
+      <section class="page-content">
+        <div class="slogan-wrap">
+          <div class="slogan">
+            <h3>伯克錸物業服務團隊</h3>
+            <h2>心則</h2>
+          </div>
+          <div class="spirit">
+            <ul>
+              <li>發自內心的服務即是唯美。</li>
+              <li>誠信的精神、關懷的心意。</li>
+              <li>創新的動力、服務的熱忱。</li>
+            </ul>
+            <ul>
+              <li>親切、尊重、委婉是溝通的良方。</li>
+              <li>住戶滿意、我勝任愉快。</li>
+              <li>工作勝任愉快是我生活之成就。</li>
+            </ul>
+          </div>
 
-    </div>
+        </div>
 
-    <div class="photo">
-      <div><img src="/assets/images/business_philosophy1.webp"></div>
-      <div><img src="/assets/images/business_philosophy2.webp"></div>
-      <div><img src="/assets/images/business_philosophy3.webp"></div>
-      <div><img src="/assets/images/business_philosophy4.webp"></div>
-    </div>
+        <div class="photo">
+          <div><img src="/assets/images/business_philosophy1.webp"></div>
+          <div><img src="/assets/images/business_philosophy2.webp"></div>
+          <div><img src="/assets/images/business_philosophy3.webp"></div>
+          <div><img src="/assets/images/business_philosophy4.webp"></div>
+        </div>
 
-  </section>
+      </section>
+
+      
+
+    </section>
+  </main>
 </template>
+
+
 
 <script>
 export default {
-  layout: 'MainPage',
+  layout: 'default',
   data() {
     return {
       pageTitle: '經營理念',
@@ -41,11 +53,12 @@ export default {
     }
   },
   components: {},
-  created() {
-    this.$store.commit('page/setPageTitle', this.pageTitle)
-    this.$store.commit('page/setPageTitleEn', this.pageTitleEn)
-    this.$store.commit('page/setBackgroundImage', this.backgroundImage)
-  }
+  validate() {
+    return true
+  },
+  asyncData() {},
+  beforeCreate() {},
+  created() {}
 }
 </script>
 

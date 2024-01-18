@@ -5,7 +5,7 @@
       <b-carousel
         id="carousel-1"
         v-model="slide"
-        :interval="3000"
+        :interval="5000"
         indicators
         img-width="1024"
         img-height="490"

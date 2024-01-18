@@ -1,6 +1,6 @@
 export const state = () => ({
-  pageTitle: '頁面標題',
-  pageTitleEn: 'Page Title',
+  pageTitle: '',
+  pageTitleEn: '',
   backgroundImage: '',
 
 

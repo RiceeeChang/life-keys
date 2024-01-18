@@ -22,9 +22,7 @@ export default {
   head() {
     return {
       title: this.headTitle,
-      pageTitle: '',
-      pageTitleEn: '',
-      backgroundImage: ''
+
     }
   },
   data() {
