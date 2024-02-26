@@ -20,10 +20,10 @@
         </div>
         <div class="region north">
           <div class="title1">
-            台北辦公室 <span class="photo-icon" @click="openLightbox('north', '台北辦公室')"></span>
-
+            台北辦公室
+            <span class="photo-icon" @click="openLightbox('north', '台北辦公室')"></span>
             <span class="dotted-line"></span>
-            <svg v-show="!isShowNorth" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('north')" @mouseleave="leaveRegion('north')">
+            <svg class="regional-point" v-show="!isShowNorth" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('north')" @mouseleave="leaveRegion('north')">
               <circle cx="25" cy="25" r="8" fill="#d5b877" />
               <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="2" fill="none" >
               </circle>
@@ -40,7 +40,8 @@
         </div>
         <div class="region middle">
           <div class="title1">
-            台中辦公室 <span class="photo-icon" @click="openLightbox('middle', '中區辦公室')"></span>
+            台中辦公室
+            <span class="photo-icon" @click="openLightbox('middle', '中區辦公室')"></span>
             <span class="dotted-line"></span>
             <svg class="regional-point" v-show="!isShowMiddle" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('middle')" @mouseleave="leaveRegion('middle')">
               <circle cx="25" cy="25" r="8" fill="#d5b877" />
@@ -184,7 +185,7 @@ export default {
     setbackgroundImage(bk) {
       return {
         "background-image": "url('" + bk + "')",
-    
+
       }
     },
     openLightbox(region, title) {
@@ -253,7 +254,7 @@ export default {
     this.animateOnScroll()
   },
   computed: {
-    
+
   }
 };
 </script>
@@ -573,6 +574,9 @@ img.mobile {
   }
   .region.region.south {
     top: 369px;
+  }
+  .region.region.kao {
+    top: 475px;
   }
   .title1 .dotted-line,  .title1 .regional-point {
     display: none;

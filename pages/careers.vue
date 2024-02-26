@@ -1,5 +1,5 @@
 <template>
-  
+
 </template>
 
 <template>
@@ -7,7 +7,7 @@
     <BigBanner :page-title="pageTitle" :page-title-en="pageTitleEn" :background-image="backgroundImage"/>
     <section class="content">
       <Breadcrumb :breadcrumb-item="breadcrumbItem"/>
-      
+
       <section class="page-content">
         <ul class="careers-tab">
           <li :class="{'active': careerTab=='all' }"><a>全部</a></li>
@@ -76,6 +76,13 @@ export default {
       careers: {
         fullTime: [],
         partTime: [],
+      }
+    }
+  },
+  computed: {
+    breadcrumbItem() {
+      return {
+        text: this.pageTitle
       }
     }
   },

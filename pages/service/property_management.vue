@@ -208,6 +208,7 @@ export default {
 
     width: 295px;
     height: 136px;
+    padding-left: 45px;
     background-image: url('/assets/images/property_management1.svg');
     background-size: contain;
     background-repeat: no-repeat;
@@ -220,9 +221,9 @@ export default {
     @include small-screen {
       width: 33%;
       height: 56px;
+      padding-left: 12px;
 
       font-size: 14px;
-
     }
   }
   li:nth-child(2) {

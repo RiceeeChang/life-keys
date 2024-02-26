@@ -69,6 +69,7 @@ export default {
 
     @include small-screen {
       font-size: 24px;
+      margin-bottom: 8px;
     }
   }
   h4 {
@@ -78,6 +79,7 @@ export default {
 
     @include small-screen {
       font-size: 12px;
+      margin-bottom: 10px;
     }
   }
 

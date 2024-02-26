@@ -166,6 +166,10 @@ export default {
           margin-right: 4px;
           vertical-align: -9px;
         }
+
+        &:last-child {
+          border-bottom: none;
+        }
       }
 
     }

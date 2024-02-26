@@ -3,7 +3,7 @@
     <BigBanner :page-title="pageTitle" :page-title-en="pageTitleEn" :background-image="backgroundImage"/>
     <section class="content">
       <Breadcrumb :breadcrumb-item="breadcrumbItem"/>
-      
+
       <section class="page-content">
         <div class="slogan-wrap">
           <div class="slogan">
@@ -34,8 +34,6 @@
 
       </section>
 
-      
-
     </section>
   </main>
 </template>
@@ -49,7 +47,15 @@ export default {
     return {
       pageTitle: '經營理念',
       pageTitleEn: 'Business Philosophy',
-      backgroundImage: '/assets/images/about_us_business_philosophy_banner.webp',
+      //backgroundImage: '/assets/images/about_us_business_philosophy_banner.webp',
+      backgroundImage: 'https://i.imgur.com/6gSYMp7.jpeg',
+    }
+  },
+  computed: {
+    breadcrumbItem() {
+      return {
+        text: this.pageTitle
+      }
     }
   },
   components: {},

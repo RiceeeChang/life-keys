@@ -147,12 +147,12 @@ export default {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-content: space-around;
   row-gap: 80px;
+  column-gap: 12px;
 
   .case {
     .thumbnail {
-      //width: 335px;
-      //height: 250px;
       width: 250px;
+      max-width: 250px;
       height: 335px;
 
       background-size: cover;
@@ -163,7 +163,8 @@ export default {
         height: 100%;
       }
       @include small-screen {
-        width: 175px;
+        width: 100%;
+        max-width: 175px;
         height: 232px;
       }
     }
