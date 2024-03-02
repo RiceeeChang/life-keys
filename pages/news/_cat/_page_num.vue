@@ -198,7 +198,14 @@ export default {
   },
 }
 </script>
-
+<style lang="scss">
+.banner-background {
+  background-image: url('/assets/images/news_banner.webp')!important;
+  @include small-screen {
+    background-image: url('/assets/images/news_banner_mobile.webp')!important;
+  }
+}
+</style>
 <style lang="scss" scoped>
 .form-tab {
   margin-top: 50px;

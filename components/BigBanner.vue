@@ -1,5 +1,5 @@
 <template>
-  <div class="big-banner" :style="style">
+  <div class="big-banner banner-background" :style="style">
     <h2>{{ pageTitle }}</h2>
     <h4>{{ pageTitleEn }}</h4>
     <span></span>
@@ -27,7 +27,7 @@ export default {
   computed: {
     style() {
       return "background-image: url('" + this.backgroundImage + "')";
-    }
+    },
   }
 }
 </script>

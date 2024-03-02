@@ -379,17 +379,6 @@ main {
   color: #333;
 }
 
-.page-item {
-  &:first-child, &:last-child {
-    .page-link {
-      background: none!important;
-    }
-  }
-}
-
-.page-item .nuxt-link-active {
-
-}
 .page-item .page-link:hover {
   background-color: $main-color;
   border-color: $main-color;
@@ -397,6 +386,7 @@ main {
 }
 
 .pagination .page-item:first-child .page-link {
+  background: none!important;
   border-color: #333;
   margin-right: 16px;
 
@@ -405,6 +395,7 @@ main {
   }
 }
 .pagination .page-item:last-child .page-link {
+  background: none!important;
   border-color: #333;
   margin-left: 16px;
 

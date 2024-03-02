@@ -1,10 +1,10 @@
 <template>
   <main>
     <HeroSection />
-    <LazyServiceSection />
-    <LazyPerformanceSection />
-    <LazyNewsSection />
-    <LazyJoinusSection />
+    <ServiceSection />
+    <PerformanceSection />
+    <NewsSection />
+    <JoinusSection />
   </main>
 </template>
 

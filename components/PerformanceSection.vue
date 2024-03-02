@@ -109,10 +109,12 @@
         <div v-show="isShowKao" class="performance-photo-wrap kao">
           <div v-for="p in photos.kao" class="performance-photo" :style="setbackgroundImage(p)"></div>
         </div>
-        <lightbox :title="lightboxTitle" :images="lightboxPhotes" :index="lightboxIndex"/>
+        
       </div>
 
     </div>
+
+    <lightbox :title="lightboxTitle" :images="lightboxPhotes" :index="lightboxIndex"/>
   </section>
 </template>
 

@@ -93,21 +93,21 @@
           <span class="hamburger"></span>
           <span class="hamburger"></span>
 
-          <ul class="mobile-menu" @click="closeMobileMenuOutside">
-            <li>
+          <ul class="mobile-menu" @click="closeMobileMenuOutside" role="tablist">
+            <li role="tab">
               <b-button class="menu-collapse-button" v-b-toggle="'introduce-menu'">公司簡介<span class="cross"></span></b-button>
             </li>
-            <b-collapse id="introduce-menu">
+            <b-collapse id="introduce-menu" accordion="my-accordion" role="tabpanel">
               <ul class="mobile-submenu">
                 <li @click="closeMobileMenuOutside"><b-link :to="'/about_us/community_planning'"> - 社區規劃</b-link></li>
                 <li><b-link :to="'/about_us/business_philosophy'">- 經營理念</b-link></li>
                 <li><b-link :to="'/about_us/management_quality'"> - 管理品質</b-link></li>
               </ul>
             </b-collapse>
-            <li>
+            <li role="tab">
               <b-button class="menu-collapse-button" v-b-toggle="'service-menu'">服務項目<span class="cross"></span></b-button>
             </li>
-            <b-collapse id="service-menu">
+            <b-collapse id="service-menu" accordion="my-accordion" role="tabpanel">
               <ul class="mobile-submenu">
                 <li><b-link :to="'/service/property_management'">- 物業管理</b-link></li>
                 <li><b-link :to="'/service/security_service'">   - 保全服務</b-link></li>
@@ -119,10 +119,10 @@
                 <li><b-link :to="'/service/smart_service'">      - 智能服務</b-link></li>
               </ul>
             </b-collapse>
-            <li>
+            <li role="tab">
               <b-button class="menu-collapse-button" v-b-toggle="'news-menu'">最新消息<span class="cross"></span></b-button>
             </li>
-            <b-collapse id="news-menu">
+            <b-collapse id="news-menu" accordion="my-accordion" role="tabpanel">
               <ul class="mobile-submenu">
                 <li><b-link :to="'/news/lastest'">   - 最新消息</b-link></li>
                 <li><b-link :to="'/news/event'">     - 活動花絮</b-link></li>
@@ -131,10 +131,10 @@
                 <li><b-link :to="'/news/education'"> - 教育訓練</b-link></li>
               </ul>
             </b-collapse>
-            <li>
+            <li role="tab">
               <b-button class="menu-collapse-button" v-b-toggle="'performance-menu'">社區實績<span class="cross"></span></b-button>
             </li>
-            <b-collapse id="performance-menu">
+            <b-collapse id="performance-menu" accordion="my-accordion" role="tabpanel">
               <ul class="mobile-submenu">
                 <li><b-link :to="'/company_archievements'">      全部</b-link></li>
                 <li><b-link :to="'/company_archievements/north'"> - 台北</b-link></li>
