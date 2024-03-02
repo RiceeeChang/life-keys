@@ -36,7 +36,7 @@
       :use-router="true"
     >
       <template #prev-text>
-        <svg width="24" height="24" viewBox="0 0 24 24">
+        <svg width="24" height="24" viewBox="0 0 24 24" :style="showPrevText">
           <path d="M24 0H0v24h24z" style="fill:none"/>
           <path d="m15 6 -6 6 6 6" style="stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;fill:none"/>
         </svg>
@@ -119,7 +119,17 @@ export default {
     }
   },
   components: {},
-
+  computed: {
+    showPrevText() {
+      if (this.totalPages == 1) {
+        return {
+          display: 'none'
+        };
+      } else {
+        return '';
+      }
+    }
+  },
   validate({ params }) {
     const category = params.cat;
 

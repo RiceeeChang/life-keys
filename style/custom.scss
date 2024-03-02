@@ -379,10 +379,16 @@ main {
   color: #333;
 }
 
+.page-item {
+  &:first-child, &:last-child {
+    .page-link {
+      background: none!important;
+    }
+  }
+}
+
 .page-item .nuxt-link-active {
-  background-color: $main-color;
-  border-color: $main-color;
-  color: #333;
+
 }
 .page-item .page-link:hover {
   background-color: $main-color;

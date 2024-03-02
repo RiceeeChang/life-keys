@@ -1,10 +1,10 @@
 <template>
   <main>
     <HeroSection />
-    <ServiceSection />
-    <PerformanceSection />
-    <NewsSection />
-    <JoinusSection />
+    <LazyServiceSection />
+    <LazyPerformanceSection />
+    <LazyNewsSection />
+    <LazyJoinusSection />
   </main>
 </template>
 
@@ -24,5 +24,12 @@ export default {
     NewsSection,
     JoinusSection,
   },
+  mounted() {
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start()
+
+      setTimeout(() => this.$nuxt.$loading.finish(), 500)
+    })
+  }
 }
 </script>

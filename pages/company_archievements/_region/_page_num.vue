@@ -1,6 +1,6 @@
 <template>
   <section class="page-content">
-    <ul class="form-tab">
+    <ul id="form-tab" class="form-tab">
       <li :class="{'active': region=='' }">      <b-link :to="'/company_archievements'">       全部</b-link></li>
       <li :class="{'active': region=='north' }"> <b-link :to="'/company_archievements/north'"> 台北</b-link></li>
       <li :class="{'active': region=='middle' }"><b-link :to="'/company_archievements/middle'">台中</b-link></li>
@@ -26,9 +26,10 @@
       :active="true"
       class="my-pagination"
       :use-router="true"
+      v-on:page-click="changePage"
     >
       <template #prev-text>
-        <svg width="24" height="24" viewBox="0 0 24 24">
+        <svg width="24" height="24" viewBox="0 0 24 24" :style="showPrevText">
           <path d="M24 0H0v24h24z" style="fill:none"/>
           <path d="m15 6 -6 6 6 6" style="stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;fill:none"/>
         </svg>
@@ -69,6 +70,15 @@ export default {
     setbackgroundImage(bk) {
       return "background-image: url('" + encodeURI(bk) + "')";
     },
+    changePage() {
+      const targetElement = document.getElementById("form-tab");
+      const targetOffsetTop = targetElement.offsetTop - 100;
+
+      window.scrollTo({
+        top: targetOffsetTop,
+        behavior: 'smooth' // 可选的，使滚动平滑进行
+      });
+    }
   },
   components: {},
   validate({ params }) {
@@ -126,7 +136,17 @@ export default {
   computed: {
     getRegion() {
       return this.region
+    },
+    showPrevText() {
+      if (this.totalPages == 1) {
+        return {
+          display: 'none'
+        };
+      } else {
+        return '';
+      }
     }
+
   }
 }
 </script>

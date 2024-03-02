@@ -83,5 +83,13 @@ export default {
         reduceIdents: false
       }
     }
-  }
+  },
+  
+  loading: '~/components/IndexLoading.vue',
+  loadingIndicator: {
+    name: 'circle',
+    color: '#3B8070',
+    background: 'white'
+  },
+  
 }
