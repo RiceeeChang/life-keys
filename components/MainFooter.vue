@@ -22,9 +22,21 @@
       </div>
 
     </div>
-    <!-- <p class="bg-000 text-align-center">&copy; 2023 My Website</p> -->
+    <!-- <p class="bg-000 text-align-center">&copy; 2023 伯克錸物業管理顧問有限公司</p> -->
+
+    <BackToTop></BackToTop>
   </footer>
 </template>
+
+<script>
+import BackToTop from '~/components/BackToTop';
+
+export default {
+  components: {
+    BackToTop,
+  },
+}
+</script>
 
 <style scoped>
 footer .section-content {
