@@ -8,7 +8,7 @@
           <h2 class="section-title font-color-main">社區實績</h2>
         </div>
         <div class="line" style="margin-left: 70px; margin-right: 40px;"></div>
-        <div class="slogan">全台灣北中南共有 <span :class="{'big-number': true, 'number-total-counter-animation': isNumberAnimation}" :style="inlineVarNumber('total')"></span> 個服務社區</div>
+        <div class="slogan">全台灣北中南共有 <span id="total-number" class="big-number">0</span> 個服務社區</div>
         <div class="line" style="margin-left: 24px; margin-right: 80px;"></div>
         <b-link class="more" href="/company_archievements">More <span class="link_arrow"></span></b-link>
       </div>
@@ -36,7 +36,7 @@
               </circle>
             </svg></a>
           </div>
-          <div class="title2">服務社區  共有<span :class="{'number': true, 'number-north-counter-animation': isNumberAnimation}" :style="inlineVarNumber('north')"></span>個</div>
+          <div class="title2">服務社區  共有<span id="north-number" class="number">0</span>個</div>
         </div>
         <div class="region middle">
           <div class="title1">
@@ -56,7 +56,7 @@
               </circle>
             </svg></a>
           </div>
-          <div class="title2">服務社區  共有<span :class="{'number': true, 'number-middle-counter-animation': isNumberAnimation}" :style="inlineVarNumber('middle')"></span>個</div>
+          <div class="title2">服務社區  共有<span id="middle-number" class="number">0</span>個</div>
         </div>
         <div class="region south">
           <div class="title1">
@@ -75,7 +75,7 @@
               </circle>
             </svg></a>
           </div>
-          <div class="title2">服務社區  共有<span :class="{'number': true, 'number-south-counter-animation': isNumberAnimation}" :style="inlineVarNumber('south')"></span>個</div>
+          <div class="title2">服務社區  共有<span id="south-number" class="number">0</span>個</div>
         </div>
         <div class="region kao">
           <div class="title1">
@@ -94,7 +94,7 @@
               </circle>
             </svg></a>
           </div>
-          <div class="title2">服務社區  共有<span :class="{'number': true, 'number-kao-counter-animation': isNumberAnimation}" :style="inlineVarNumber('kao')"></span>個</div>
+          <div class="title2">服務社區  共有<span id="kao-number" class="number">0</span>個</div>
         </div>
 
         <div v-show="isShowNorth" class="performance-photo-wrap north">
@@ -206,7 +206,14 @@ export default {
           start: 'top 50%',
           end: 'bottom',
           onEnter: ()=> {
-            this.isNumberAnimation = true;
+            //this.isNumberAnimation = true;
+
+            // 用JS跑數字動畫
+            animateValue(document.getElementById("total-number"),  0, this.numbers['total'],  5000);
+            animateValue(document.getElementById("north-number"),  0, this.numbers['north'],  5000);
+            animateValue(document.getElementById("middle-number"), 0, this.numbers['middle'], 5000);
+            animateValue(document.getElementById("south-number"),  0, this.numbers['south'],  5000);
+            animateValue(document.getElementById("kao-number"),    0, this.numbers['kao'],    5000);
 
             this.isTitleRowSlideUp = true;
 
@@ -254,11 +261,21 @@ export default {
   },
   mounted() {
     this.animateOnScroll()
-  },
-  computed: {
-
   }
 };
+
+function animateValue(obj, start, end, duration) {
+  let startTimestamp = null;
+  const step = (timestamp) => {
+    if (!startTimestamp) startTimestamp = timestamp;
+    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+    obj.innerHTML = Math.floor(progress * (end - start) + start);
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    }
+  };
+  window.requestAnimationFrame(step);
+}
 </script>
 
 <style lang="scss" scoped>
@@ -295,73 +312,6 @@ export default {
   margin-bottom: 10px;
 
   text-align: end;
-}
-
-@property --num-total {
-  syntax: '<integer>';
-  inherits: true;
-  initial-value: 0;
-}
-@property --num-north {
-  syntax: '<integer>';
-  inherits: true;
-  initial-value: 0;
-}
-@property --num-middle {
-  syntax: '<integer>';
-  inherits: true;
-  initial-value: 0;
-}
-@property --num-south {
-  syntax: '<integer>';
-  inherits: true;
-  initial-value: 0;
-}
-@property --num-kao {
-  syntax: '<integer>';
-  inherits: true;
-  initial-value: 0;
-}
-.number-total-counter-animation::before {
-  counter-reset: my-counter var(--num-total);
-  content: counter(my-counter);
-  animation: count-total 5s ease-in-out forwards;
-}
-.number-north-counter-animation::before {
-  counter-reset: my-counter var(--num-north);
-  content: counter(my-counter);
-  animation: count-north 5s ease-in-out forwards;
-}
-.number-middle-counter-animation::before {
-  counter-reset: my-counter var(--num-middle);
-  content: counter(my-counter);
-  animation: count-middle 5s ease-in-out forwards;
-}
-.number-south-counter-animation::before {
-  counter-reset: my-counter var(--num-south);
-  content: counter(my-counter);
-  animation: count-south 5s ease-in-out forwards;
-}
-.number-kao-counter-animation::before {
-  counter-reset: my-counter var(--num-kao);
-  content: counter(my-counter);
-  animation: count-kao 5s ease-in-out forwards;
-}
-@keyframes count-total {
-  //to { --num-total: v-bind(numbers['total']); }
-  to { --num-total: var(--number-total); }
-}
-@keyframes count-north {
-  to { --num-north: var(--number-north); }
-}
-@keyframes count-middle {
-  to { --num-middle: var(--number-middle); }
-}
-@keyframes count-south {
-  to { --num-south: var(--number-south); }
-}
-@keyframes count-kao {
-  to { --num-kao: var(--number-kao); }
 }
 
 
