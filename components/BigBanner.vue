@@ -1,5 +1,5 @@
 <template>
-  <div class="big-banner banner-background" :style="style">
+  <div class="big-banner" :class="[backgroundImageClass]" :style="style">
     <h2>{{ pageTitle }}</h2>
     <h4>{{ pageTitleEn }}</h4>
     <span></span>
@@ -28,6 +28,9 @@ export default {
     style() {
       return "background-image: url('" + this.backgroundImage + "')";
     },
+    backgroundImageClass() {
+      return "banner-background-"+ this.pageTitleEn.replace(" ", "_").toLowerCase();
+    }
   }
 }
 </script>

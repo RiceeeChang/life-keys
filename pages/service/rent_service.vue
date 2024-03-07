@@ -154,7 +154,7 @@ export default {
 }
 </script>
 <style lang="scss">
-.banner-background {
+.banner-background-rent_service {
   background-image: url('/assets/images/service_rent_service_banner.webp')!important;
   @include small-screen {
     background-image: url('/assets/images/service_rent_service_banner_mobile.webp')!important;

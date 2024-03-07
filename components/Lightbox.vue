@@ -50,7 +50,8 @@ export default {
   },
   methods: {
     close() {
-      this.$store.commit('page/setShowLightbox', false)
+      this.$store.commit('page/setShowLightbox', false);
+      window.onscroll = function () { };
     },
     prevImage() {
       if (this.index > 0) {

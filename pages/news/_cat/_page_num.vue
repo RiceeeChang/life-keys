@@ -199,7 +199,7 @@ export default {
 }
 </script>
 <style lang="scss">
-.banner-background {
+.banner-background-news {
   background-image: url('/assets/images/news_banner.webp')!important;
   @include small-screen {
     background-image: url('/assets/images/news_banner_mobile.webp')!important;

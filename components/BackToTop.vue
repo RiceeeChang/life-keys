@@ -29,10 +29,10 @@ export default {
 <style scoped lang="scss">
 .back-top-button {
   position: fixed;
-  z-index: 999;
+  z-index: 90;
 
-  right: 32px;
-  bottom: 160px;
+  right: 36px;
+  bottom: 36px;
   
   width: 40px;
   height: 40px;

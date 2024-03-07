@@ -2,7 +2,7 @@
   <section id="performance-section" class="bg-272727" ref="elementToObserve">
     <div class="section-content">
 
-      <div v-show="isTitleRowSlideUp" :class="{'title-row': true, 'animation-slide-up': isTitleRowSlideUp}">
+      <div v-show="isTitleRowSlideUp" :class="{ 'title-row': true, 'animation-slide-up': isTitleRowSlideUp }">
         <div class="section-title-wrap">
           <h4 class="section-label font-color-main">PERFORMACE</h4>
           <h2 class="section-title font-color-main">社區實績</h2>
@@ -13,7 +13,8 @@
         <b-link class="more" href="/company_archievements">More <span class="link_arrow"></span></b-link>
       </div>
 
-      <div v-show="isPerformanceContentSlideUp" :class="{'performance-content': true, 'animation-slide-up': isPerformanceContentSlideUp}">
+      <div v-show="isPerformanceContentSlideUp"
+        :class="{ 'performance-content': true, 'animation-slide-up': isPerformanceContentSlideUp }">
         <div class="taiwan">
           <img class="mobile" src="/assets/images/taiwan_mobile.svg">
           <img class="desktop" src="/assets/images/taiwan_desktop.svg">
@@ -23,78 +24,89 @@
             台北辦公室
             <span class="photo-icon" @click="openLightbox('north', '台北辦公室')"></span>
             <span class="dotted-line"></span>
-            <svg class="regional-point" v-show="!isShowNorth" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('north')" @mouseleave="leaveRegion('north')">
+            <svg class="regional-point" v-show="!isShowNorth" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+              viewBox="0 0 50 50" @mouseenter="enterRegion('north')" @mouseleave="leaveRegion('north')">
               <circle cx="25" cy="25" r="8" fill="#d5b877" />
-              <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="2" fill="none" >
+              <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="2" fill="none">
               </circle>
             </svg>
-            <a href="/company_archievements/north"><svg v-show="isShowNorth" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('north')" @mouseleave="leaveRegion('north')">
-              <circle cx="25" cy="25" r="8" fill="#d5b877" />
-              <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="4" fill="none" >
-                <animate attributeName="r" from="8" to="24" dur="2s"  repeatCount="indefinite" />
-                <animate attributeName="opacity" from="0.7" to="0.0" dur="2s"  repeatCount="indefinite" />
-              </circle>
-            </svg></a>
+            <a href="/company_archievements/north"><svg v-show="isShowNorth" xmlns="http://www.w3.org/2000/svg"
+                width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('north')"
+                @mouseleave="leaveRegion('north')">
+                <circle cx="25" cy="25" r="8" fill="#d5b877" />
+                <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="4" fill="none">
+                  <animate attributeName="r" from="8" to="24" dur="2s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" from="0.7" to="0.0" dur="2s" repeatCount="indefinite" />
+                </circle>
+              </svg></a>
           </div>
-          <div class="title2">服務社區  共有<span id="north-number" class="number">0</span>個</div>
+          <div class="title2">服務社區 共有<span id="north-number" class="number">0</span>個</div>
         </div>
         <div class="region middle">
           <div class="title1">
             台中辦公室
             <span class="photo-icon" @click="openLightbox('middle', '中區辦公室')"></span>
             <span class="dotted-line"></span>
-            <svg class="regional-point" v-show="!isShowMiddle" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('middle')" @mouseleave="leaveRegion('middle')">
+            <svg class="regional-point" v-show="!isShowMiddle" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+              viewBox="0 0 50 50" @mouseenter="enterRegion('middle')" @mouseleave="leaveRegion('middle')">
               <circle cx="25" cy="25" r="8" fill="#d5b877" />
-              <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="2" fill="none" >
+              <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="2" fill="none">
               </circle>
             </svg>
-            <a href="/company_archievements/middle"><svg v-show="isShowMiddle" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('middle')" @mouseleave="leaveRegion('middle')">
-              <circle cx="25" cy="25" r="8" fill="#d5b877" />
-              <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="4" fill="none" >
-                <animate attributeName="r" from="8" to="24" dur="2s"  repeatCount="indefinite" />
-                <animate attributeName="opacity" from="0.7" to="0.0" dur="2s"  repeatCount="indefinite" />
-              </circle>
-            </svg></a>
+            <a href="/company_archievements/middle"><svg v-show="isShowMiddle" xmlns="http://www.w3.org/2000/svg"
+                width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('middle')"
+                @mouseleave="leaveRegion('middle')">
+                <circle cx="25" cy="25" r="8" fill="#d5b877" />
+                <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="4" fill="none">
+                  <animate attributeName="r" from="8" to="24" dur="2s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" from="0.7" to="0.0" dur="2s" repeatCount="indefinite" />
+                </circle>
+              </svg></a>
           </div>
-          <div class="title2">服務社區  共有<span id="middle-number" class="number">0</span>個</div>
+          <div class="title2">服務社區 共有<span id="middle-number" class="number">0</span>個</div>
         </div>
         <div class="region south">
           <div class="title1">
             台南辦公室 <span class="photo-icon" @click="openLightbox('south', '南區辦公室')"></span>
             <span class="dotted-line"></span>
-            <svg class="regional-point" v-show="!isShowSouth" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('south')" @mouseleave="leaveRegion('south')">
+            <svg class="regional-point" v-show="!isShowSouth" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+              viewBox="0 0 50 50" @mouseenter="enterRegion('south')" @mouseleave="leaveRegion('south')">
               <circle cx="25" cy="25" r="8" fill="#d5b877" />
-              <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="2" fill="none" >
+              <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="2" fill="none">
               </circle>
             </svg>
-            <a href="/company_archievements/south"><svg v-show="isShowSouth" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('south')" @mouseleave="leaveRegion('south')">
-              <circle cx="25" cy="25" r="8" fill="#d5b877" />
-              <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="4" fill="none" >
-                <animate attributeName="r" from="8" to="24" dur="2s"  repeatCount="indefinite" />
-                <animate attributeName="opacity" from="0.7" to="0.0" dur="2s"  repeatCount="indefinite" />
-              </circle>
-            </svg></a>
+            <a href="/company_archievements/south"><svg v-show="isShowSouth" xmlns="http://www.w3.org/2000/svg"
+                width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('south')"
+                @mouseleave="leaveRegion('south')">
+                <circle cx="25" cy="25" r="8" fill="#d5b877" />
+                <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="4" fill="none">
+                  <animate attributeName="r" from="8" to="24" dur="2s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" from="0.7" to="0.0" dur="2s" repeatCount="indefinite" />
+                </circle>
+              </svg></a>
           </div>
-          <div class="title2">服務社區  共有<span id="south-number" class="number">0</span>個</div>
+          <div class="title2">服務社區 共有<span id="south-number" class="number">0</span>個</div>
         </div>
         <div class="region kao">
           <div class="title1">
             高雄辦公室 <span class="photo-icon" @click="openLightbox('kao', '高雄辦公室')"></span>
             <span class="dotted-line"></span>
-            <svg class="regional-point" v-show="!isShowKao" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('kao')" @mouseleave="leaveRegion('kao')">
+            <svg class="regional-point" v-show="!isShowKao" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+              viewBox="0 0 50 50" @mouseenter="enterRegion('kao')" @mouseleave="leaveRegion('kao')">
               <circle cx="25" cy="25" r="8" fill="#d5b877" />
-              <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="2" fill="none" >
+              <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="2" fill="none">
               </circle>
             </svg>
-            <a href="/company_archievements/kao"><svg v-show="isShowKao" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('kao')" @mouseleave="leaveRegion('kao')">
-              <circle cx="25" cy="25" r="8" fill="#d5b877" />
-              <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="4" fill="none" >
-                <animate attributeName="r" from="8" to="24" dur="2s"  repeatCount="indefinite" />
-                <animate attributeName="opacity" from="0.7" to="0.0" dur="2s"  repeatCount="indefinite" />
-              </circle>
-            </svg></a>
+            <a href="/company_archievements/kao"><svg v-show="isShowKao" xmlns="http://www.w3.org/2000/svg" width="50"
+                height="50" viewBox="0 0 50 50" @mouseenter="enterRegion('kao')" @mouseleave="leaveRegion('kao')">
+                <circle cx="25" cy="25" r="8" fill="#d5b877" />
+                <circle cx="25" cy="25" r="16" stroke="#d5b877" stroke-width="4" fill="none">
+                  <animate attributeName="r" from="8" to="24" dur="2s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" from="0.7" to="0.0" dur="2s" repeatCount="indefinite" />
+                </circle>
+              </svg></a>
           </div>
-          <div class="title2">服務社區  共有<span id="kao-number" class="number">0</span>個</div>
+          <div class="title2">服務社區 共有<span id="kao-number" class="number">0</span>個</div>
         </div>
 
         <div v-show="isShowNorth" class="performance-photo-wrap north">
@@ -109,12 +121,12 @@
         <div v-show="isShowKao" class="performance-photo-wrap kao">
           <div v-for="p in photos.kao" class="performance-photo" :style="setbackgroundImage(p)"></div>
         </div>
-        
+
       </div>
 
     </div>
 
-    <lightbox :title="lightboxTitle" :images="lightboxPhotes" :index="lightboxIndex"/>
+    <lightbox :title="lightboxTitle" :images="lightboxPhotes" :index="lightboxIndex" />
   </section>
 </template>
 
@@ -196,6 +208,20 @@ export default {
       this.lightboxTitle = title
       this.lightboxPhotes = this.photos[region]
 
+      // Get the current page scroll position
+      var scrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop;
+      var scrollLeft =
+        window.pageXOffset ||
+        document.documentElement.scrollLeft;
+
+      // if any scroll is attempted,
+      // set this to the previous value
+      window.onscroll = function () {
+        window.scrollTo(scrollLeft, scrollTop);
+      };
+
       console.log('open lightbox');
     },
     animateOnScroll() {
@@ -205,19 +231,19 @@ export default {
           trigger: '#performance-section',
           start: 'top 50%',
           end: 'bottom',
-          onEnter: ()=> {
+          onEnter: () => {
             //this.isNumberAnimation = true;
 
             // 用JS跑數字動畫
-            animateValue(document.getElementById("total-number"),  0, this.numbers['total'],  5000);
-            animateValue(document.getElementById("north-number"),  0, this.numbers['north'],  5000);
+            animateValue(document.getElementById("total-number"), 0, this.numbers['total'], 5000);
+            animateValue(document.getElementById("north-number"), 0, this.numbers['north'], 5000);
             animateValue(document.getElementById("middle-number"), 0, this.numbers['middle'], 5000);
-            animateValue(document.getElementById("south-number"),  0, this.numbers['south'],  5000);
-            animateValue(document.getElementById("kao-number"),    0, this.numbers['kao'],    5000);
+            animateValue(document.getElementById("south-number"), 0, this.numbers['south'], 5000);
+            animateValue(document.getElementById("kao-number"), 0, this.numbers['kao'], 5000);
 
             this.isTitleRowSlideUp = true;
 
-            setTimeout(()=> {
+            setTimeout(() => {
               this.isPerformanceContentSlideUp = true;
             }, 500)
           }
@@ -240,8 +266,8 @@ export default {
     this.numbers['total'] = data.totalDocs;
 
 
-    for(var i=0; i<regions.length; i++) {
-      var catApiUrl = apiUrl + '&where[region][equals]='+regions[i];
+    for (var i = 0; i < regions.length; i++) {
+      var catApiUrl = apiUrl + '&where[region][equals]=' + regions[i];
       var response = await fetch(catApiUrl);
       var data = await response.json();
       var newsList = data.docs;
@@ -250,7 +276,7 @@ export default {
 
       //if (newsList === undefined) continue;
 
-      for(var j=0; j<7; j++) {
+      for (var j = 0; j < 7; j++) {
         if (newsList[j] != undefined) {
           this.photos[regions[i]].push(newsList[j].url);
         } else {
@@ -279,8 +305,6 @@ function animateValue(obj, start, end, duration) {
 </script>
 
 <style lang="scss" scoped>
-
-
 .performance-content {
   position: relative;
 
@@ -289,6 +313,7 @@ function animateValue(obj, start, end, duration) {
   justify-content: center;
   align-items: center;
 }
+
 .title-row .slogan {
   font-size: 28px;
   font-weight: 400;
@@ -318,10 +343,12 @@ function animateValue(obj, start, end, duration) {
 .performance-content .region {
   position: absolute;
   left: 0;
+
   div {
     font-weight: 400;
   }
 }
+
 img.mobile {
   display: none;
 }
@@ -336,6 +363,7 @@ img.mobile {
     display: flex;
   }
 }
+
 .region .title1 .photo-icon {
   display: inline-block;
   width: 24px;
@@ -345,10 +373,12 @@ img.mobile {
 
   background-image: url('/assets/images/photo_icon.svg');
 }
+
 .region .title2 {
   color: #d5b877;
   font-size: 20px;
 }
+
 .region .number {
   color: #d5b877;
   font-size: 36px;
@@ -358,6 +388,7 @@ img.mobile {
   margin-left: 20px;
   margin-right: 16px;
 }
+
 .dotted-line {
   display: inline-block;
   height: 1px;
@@ -368,21 +399,27 @@ img.mobile {
 .region.north {
   top: 116px;
 }
+
 .region.north .dotted-line {
   width: 295px;
 }
+
 .region.middle .dotted-line {
   width: 155px;
 }
+
 .region.south .dotted-line {
   width: 160px;
 }
+
 .region.kao .dotted-line {
   width: 115px;
 }
+
 .region.middle {
   top: 370px;
 }
+
 .region.south {
   top: 550px;
 }
@@ -403,26 +440,32 @@ img.mobile {
   row-gap: 20px;
   width: 430px;
 }
+
 .performance-content .performance-photo-wrap.north {
   .performance-photo:first-child {
     margin-left: 150px;
   }
+
   .performance-photo:nth-child(6) {
     margin-left: 150px;
   }
 }
+
 .performance-content .performance-photo-wrap.middle {
   width: 580px;
   top: 350px;
 }
+
 .performance-content .performance-photo-wrap.south {
   width: 580px;
   top: 540px;
 }
+
 .performance-content .performance-photo-wrap.kao {
   width: 580px;
   top: 540px;
 }
+
 .performance-photo {
   width: 130px;
   height: 210px;
@@ -443,6 +486,7 @@ img.mobile {
 
   text-decoration: none;
 }
+
 .link_arrow {
   display: inline-block;
   vertical-align: middle;
@@ -452,31 +496,38 @@ img.mobile {
 
   margin-left: 8px;
 }
+
 #performance-section {
   padding: 170px 0;
   min-height: 100vh;
 }
-#performance-section .section-title{
+
+#performance-section .section-title {
   margin-bottom: 0;
 }
+
 .title-row {
   display: flex;
   flex-direction: row;
   position: relative;
 }
+
 .line {
   border-left: 1px solid #d5b877;
   height: 84px;
 }
+
 .bg-272727 {
   background-color: #272727;
 }
+
 .service-wrap {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
   row-gap: 24px;
 }
+
 .service-item {
 
   width: 250px;
@@ -496,19 +547,24 @@ img.mobile {
   #performance-section {
     padding-top: 54px;
   }
+
   .title-row {
     flex-direction: column;
   }
+
   .title-row .line {
     display: none;
   }
+
   .title-row .slogan {
     font-size: 18px;
   }
+
   .title-row .slogan .big-number {
     font-size: 42px;
     margin-right: 8px;
   }
+
   .title-row .more {
     position: absolute;
     top: 10px;
@@ -518,28 +574,37 @@ img.mobile {
   .region .title1 .photo-icon {
     visibility: visible;
   }
+
   .region.region.north {
     top: 16px;
   }
+
   .region.region.middle {
     top: 192px;
   }
+
   .region.region.south {
     top: 369px;
   }
+
   .region.region.kao {
     top: 475px;
   }
-  .title1 .dotted-line,  .title1 .regional-point {
+
+  .title1 .dotted-line,
+  .title1 .regional-point {
     display: none;
   }
+
   .performance-content .performance-photo-wrap {
     display: none;
   }
+
   img.mobile {
     display: block;
   }
-  img.desktop{
+
+  img.desktop {
     display: none;
   }
 }
@@ -554,6 +619,7 @@ img.mobile {
     opacity: 0.7;
     transform: translateY(100vh);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
