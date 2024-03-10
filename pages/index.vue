@@ -1,6 +1,6 @@
 <template>
   <div>
-    <MainHeader v-if="lazyShow" :showPageLoading="false"/>
+    <MainHeader v-if="lazyShow" />
     <LazyHeroSection v-if="lazyShow" />
     <LazyServiceSection v-if="lazyShow" />
     <LazyPerformanceSection v-if="lazyShow" />

@@ -1,6 +1,6 @@
 <template>
   <header class="header bg-333">
-    <PageLoading v-if="showPageLoading"></PageLoading>
+    
     <div class="section-content padding-left-0">
       <nav class="navbar">
         <div class="navbar-logo">
@@ -162,12 +162,6 @@ export default {
     return {
       isMenuOpen: false,
     }
-  },
-  props: {
-    showPageLoading: {
-      type: Boolean,
-      default: true
-    },
   },
   methods: {
     closeMobileMenuOutside(event) {

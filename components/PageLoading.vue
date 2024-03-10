@@ -16,7 +16,8 @@ export default {
     }
   },
   mounted() {
-    setTimeout(()=> this.show=false, 2000)
+    console.log("mount pageloading");
+    setTimeout(()=> this.show=false, 2000);
   }
 }
 </script>

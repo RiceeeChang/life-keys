@@ -3,7 +3,7 @@ export const state = () => ({
   pageTitleEn: '',
   backgroundImage: '',
 
-
+  showPageLoading: true,
   showLightboxt: false,
 })
 

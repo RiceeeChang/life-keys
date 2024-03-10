@@ -3,6 +3,7 @@
     <h2>{{ pageTitle }}</h2>
     <h4>{{ pageTitleEn }}</h4>
     <span></span>
+    <PageLoading></PageLoading>
   </div>
 </template>
 <script>
