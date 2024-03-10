@@ -37,8 +37,11 @@ export default {
       this.$nuxt.$loading.start()
 
       setTimeout(() => {
-        this.$nuxt.$loading.finish();
+        
         this.lazyShow = true;
+      }, 2000)
+      setTimeout(() => {
+        this.$nuxt.$loading.finish();
       }, 4000)
     })
   }
