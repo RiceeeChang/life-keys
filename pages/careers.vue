@@ -102,7 +102,6 @@ export default {
   },
   created() {},
   async fetch() {
-    console.log('page fetch');
     var apiUrl = process.env.API_URL + 'api/offers?limit=30&sort=order&where[offer_type][equals]=full-time';
     var response = await fetch(apiUrl);
     var data = await response.json();
