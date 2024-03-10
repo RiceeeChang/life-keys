@@ -1,11 +1,13 @@
 <template>
-  <main>
-    <HeroSection />
-    <ServiceSection />
-    <PerformanceSection />
-    <NewsSection />
-    <JoinusSection />
-  </main>
+  <div>
+    <MainHeader v-if="lazyShow" :showPageLoading="false"/>
+    <LazyHeroSection v-if="lazyShow" />
+    <LazyServiceSection v-if="lazyShow" />
+    <LazyPerformanceSection v-if="lazyShow" />
+    <LazyNewsSection v-if="lazyShow" />
+    <LazyJoinusSection v-if="lazyShow" />
+    <MainFooter v-if="lazyShow" />
+  </div>
 </template>
 
 <script>
@@ -16,7 +18,8 @@ import NewsSection from '~/components/NewsSection.vue';
 import JoinusSection from '~/components/JoinusSection.vue';
 
 export default {
-  name: 'IndexPage',
+  name: 'index',
+  layout: "empty",
   components: {
     HeroSection,
     ServiceSection,
@@ -24,11 +27,19 @@ export default {
     NewsSection,
     JoinusSection,
   },
+  data() {
+    return {
+      lazyShow: false,
+    }
+  },
   mounted() {
     this.$nextTick(() => {
       this.$nuxt.$loading.start()
 
-      setTimeout(() => this.$nuxt.$loading.finish(), 500)
+      setTimeout(() => {
+        this.$nuxt.$loading.finish();
+        this.lazyShow = true;
+      }, 4000)
     })
   }
 }

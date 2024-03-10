@@ -10,9 +10,12 @@
           <span>{{ slide.label }}</span>
           <h1 v-html="slide.title"></h1>
           <h3>{{ slide.subtitle }}</h3>
+          <NuxtImg class="preload-image" preload :src="slide.imageSrc" />
         </b-carousel-slide>
       </b-carousel>
     </div>
+
+
 
   </section>
 </template>
@@ -56,6 +59,13 @@ export default {
   },
   mounted() {
     console.log('herosection');
+    for (var i = 0; i < this.slides.length; i++) {
+      const img = new Image();
+      img.onload = () => {
+        console.log('Image loaded');
+      };
+      img.src = this.slides[i].imageSrc;
+    }
   }
 }
 </script>
@@ -67,5 +77,9 @@ export default {
   @include small-screen {
     height: 490px;
   }
+}
+
+.preload-image {
+  display: none;
 }
 </style>

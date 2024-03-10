@@ -46,7 +46,7 @@ export default {
       this.$gsap.to('#service-section', {
         scrollTrigger: {
           trigger: '#service-section',
-          start: 'top 50%',
+          start: 'top 80%',
           end: 'bottom',
           onEnter: ()=> {
             this.isTextSlideUp = true;

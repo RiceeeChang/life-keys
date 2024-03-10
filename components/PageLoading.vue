@@ -1,29 +1,22 @@
 <template>
-  <div v-if="loading" class="index-loading">
+  <div v-if="show" class="index-loading">
 
-    <div class="logo">
-      <img src="/BrandLogo.svg">
-    </div>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
 
-    <div class="progressive-bar"></div>
+    <dotlottie-player src="https://lottie.host/b9892b03-f94f-44bb-a378-8aa8d1716392/SYyP3XmbHR.lottie" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+
   </div>
 </template>
 
 <script>
 export default {
-  data: () => ({
-    loading: false
-  }),
-  methods: {
-    start() {
-      this.loading = true
-    },
-    finish() {
-      this.loading = false
-    },
-    increase(num) {
-
+  data() {
+    return {
+      show: true
     }
+  },
+  mounted() {
+    setTimeout(()=> this.show=false, 2000)
   }
 }
 </script>
