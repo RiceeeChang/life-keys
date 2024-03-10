@@ -31,7 +31,7 @@ export default {
 <style scoped lang="scss">
 .index-loading {
   position: fixed;
-  z-index: 20;
+  z-index: 100;
   top: 0;
   left: 0;
 
@@ -41,7 +41,7 @@ export default {
   align-items: center;
 
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   padding-bottom: 100px;
 
   background-color: #333;

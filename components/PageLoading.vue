@@ -34,7 +34,7 @@ export default {
   align-items: center;
 
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   padding-bottom: 100px;
 
   background-color: #333;
