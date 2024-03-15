@@ -65,7 +65,7 @@ export default {
     }
   },
   async fetch() {
-    var apiUrl = process.env.API_URL + 'api/posts?limit=5' + '&where[show][equals]=show';
+    var apiUrl = process.env.API_URL + 'api/posts?limit=6' + '&where[show][equals]=show';
 
     var newsCategories = Object.keys(this.news);
     var categoryList = {

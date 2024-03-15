@@ -130,9 +130,6 @@ export default {
 <style lang="scss">
 .banner-background-careers {
   background-image: url('/assets/images/careers_banner.webp')!important;
-  @include small-screen {
-    background-image: url('/assets/images/careers_banner_mobile.webp')!important;
-  }
 }
 </style>
 <style lang="scss" scoped>

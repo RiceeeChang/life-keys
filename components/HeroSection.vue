@@ -2,7 +2,7 @@
   <section id="hero-section">
     <div class="">
 
-      <b-carousel id="carousel-1" v-model="slide" :interval="5000" indicators img-width="1024" img-height="490"
+      <b-carousel id="carousel-1" v-model="slide" :interval="6000" indicators img-width="1024" img-height="490"
         style="text-shadow: 1px 1px 2px #333;" @sliding-start="onSlideStart" @sliding-end="onSlideEnd">
         <!-- Text slides with image -->
         <b-carousel-slide v-for="slide in slides" :key="slide.id"
@@ -14,13 +14,11 @@
       </b-carousel>
     </div>
 
-
-
   </section>
 </template>
 
 <script>
-export default {
+export default {  
   data() {
     return {
       slide: 0,
