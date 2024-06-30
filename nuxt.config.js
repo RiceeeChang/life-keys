@@ -17,7 +17,6 @@ export default {
   },
 
   env: {
-    SITE_URL: 'http://35.236.181.91:4000/',
     API_URL: 'https://dashboard.life-keys.com.tw/',
     SITE_TITLE: '伯克錸物業管理顧問有限公司',
   },
@@ -85,12 +84,12 @@ export default {
       }
     }
   },
-  
+
   loading: '~/components/IndexLoading.vue',
   loadingIndicator: {
     name: 'circle',
     color: '#3B8070',
     background: 'white'
   },
-  
+
 }
