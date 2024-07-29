@@ -15,13 +15,13 @@
         <form>
           <h5>聯絡地區<span>*</span></h5>
           <div class="radio-group">
-            <FormRadio v-for="region in regions" :key="region.value" :radio-label="region.label" :radio-value="region.value"/>
+            <FormRadio v-for="region in regions" :key="region.value" :radio-name="'region'" :radio-label="region.label" :radio-value="region.value"/>
           </div>
 
 
           <h5>諮詢主題<span>*</span></h5>
           <div class="radio-group">
-            <FormRadio v-for="topic in formTopics" :key="topic.value" :radio-label="topic.label" :radio-value="topic.value"/>
+            <FormRadio v-for="topic in formTopics" :key="topic.value" :radio-name="'topic'" :radio-label="topic.label" :radio-value="topic.value"/>
           </div>
 
           <div class="fillment-wrap">
@@ -262,7 +262,6 @@ export default {
     },
     async submitForm(event) {
       event.preventDefault();
-      console.log(this.contactFormData)
       var apiUrl = process.env.API_URL + 'api/contact';
 
       try {
@@ -276,6 +275,9 @@ export default {
 
         const result = await response.json();
         alert('發送成功！');
+
+        // reload
+
       } catch (error) {
         console.error("Error:", error);
       }

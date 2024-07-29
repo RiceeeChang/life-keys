@@ -1,12 +1,17 @@
 <template>
   <div class="form-radio">
-    <input type="radio" name="form-topic" :value="radioValue" :id="radioValue" required>
+    <input type="radio" :name="radioName" :value="radioValue" :id="radioValue" required>
     <label :for="radioValue">{{ radioLabel }}</label>
   </div>
 </template>
 <script>
 export default {
   props: {
+    radioName: {
+      type: String,
+      default: '',
+      required: true,
+    },
     radioLabel: {
       type: String,
       default: "選項標籤",
