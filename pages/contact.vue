@@ -15,13 +15,26 @@
         <form>
           <h5>聯絡地區<span>*</span></h5>
           <div class="radio-group">
-            <FormRadio v-for="region in regions" :key="region.value" :radio-name="'region'" :radio-label="region.label" :radio-value="region.value"/>
+            <div class="form-radio" v-for="region in regions">
+              <input type="radio" name="region" :value="region.label" :id="region.label" v-model="contactFormData.region" required>
+              <label :for="region.label">{{ region.label }}</label>
+            </div>
+            <!--
+            <FormRadio v-for="region in regions" :key="region.value" :radio-name="'region'" :radio-label="region.label" :radio-value="region.value" v-model="contactRegion" />
+            -->
           </div>
 
 
           <h5>諮詢主題<span>*</span></h5>
           <div class="radio-group">
-            <FormRadio v-for="topic in formTopics" :key="topic.value" :radio-name="'topic'" :radio-label="topic.label" :radio-value="topic.value"/>
+            <div class="form-radio" v-for="topic in formTopics">
+              <input type="radio" name="topic" :value="topic.label" :id="topic.label" v-model="contactFormData.topic" required>
+              <label :for="topic.label">{{ topic.label }}</label>
+            </div>
+            <!--
+            <FormRadio v-for="topic in formTopics" :key="topic.value" :radio-name="'topic'" :radio-label="topic.label" :radio-value="topic.value" v-model="contactTopic" />
+            -->
+
           </div>
 
           <div class="fillment-wrap">
@@ -237,6 +250,8 @@ export default {
         unit: '',
         address: '',
         content: '',
+        region: '',
+        topic: '',
       }
     }
   },
@@ -277,7 +292,7 @@ export default {
         alert('發送成功！');
 
         // reload
-
+        location.reload();
       } catch (error) {
         console.error("Error:", error);
       }

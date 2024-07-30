@@ -1,12 +1,13 @@
 <template>
   <div class="form-radio">
-    <input type="radio" :name="radioName" :value="radioValue" :id="radioValue" required>
+    <input type="radio" :name="radioName" :value="radioValue" :id="radioValue" @input="handleInput" required>
     <label :for="radioValue">{{ radioLabel }}</label>
   </div>
 </template>
 <script>
 export default {
   props: {
+    value: '',
     radioName: {
       type: String,
       default: '',
@@ -20,6 +21,16 @@ export default {
     radioValue: {
       type: String,
       required: true
+    }
+  },
+  data() {
+    return {
+      content: this.value
+    }
+  },
+  methods: {
+    handleInput (e) {
+      this.$emit('input', this.content)
     }
   }
 }
