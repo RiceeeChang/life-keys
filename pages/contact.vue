@@ -16,7 +16,7 @@
           <h5>聯絡地區<span>*</span></h5>
           <div class="radio-group">
             <div class="form-radio" v-for="region in regions">
-              <input type="radio" name="region" :value="region.label" :id="region.label" v-model="contactFormData.region" required>
+              <input type="radio" name="region" :value="region.value" :id="region.label" v-model="contactFormData.region" required>
               <label :for="region.label">{{ region.label }}</label>
             </div>
             <!--
@@ -34,7 +34,6 @@
             <!--
             <FormRadio v-for="topic in formTopics" :key="topic.value" :radio-name="'topic'" :radio-label="topic.label" :radio-value="topic.value" v-model="contactTopic" />
             -->
-
           </div>
 
           <div class="fillment-wrap">
