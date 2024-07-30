@@ -69,7 +69,7 @@
             </div>
           </div>
 
-          <button class="form-submit" type="submit" @click="submitForm">送出</button>
+          <button class="form-submit" type="submit" @click="submitForm" :disabled="isSubmitDisable">送出</button>
 
         </form>
 
@@ -251,7 +251,9 @@ export default {
         content: '',
         region: '',
         topic: '',
-      }
+      },
+
+      isSubmitDisable: false,
     }
   },
   components: {
@@ -276,6 +278,8 @@ export default {
     },
     async submitForm(event) {
       event.preventDefault();
+
+      this.isSubmitDisable = true;
       var apiUrl = process.env.API_URL + 'api/contact';
 
       try {
