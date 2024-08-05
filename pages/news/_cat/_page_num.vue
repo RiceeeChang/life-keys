@@ -19,6 +19,7 @@
       <div v-for="news in newsList" class="news">
         <span class="tag">{{ news.tag }}</span>
         <span v-if="news.region" class="tag" style="width: 42px;">{{ news.region }}</span>
+        <span v-if="news.pinned" class="tag" style="width: 42px;">置頂</span>
         <h3><a :href="news.url">{{ news.title }}</a></h3>
         <span class="date">{{ news.dateString }}</span>
       </div>
@@ -173,8 +174,10 @@ export default {
     var apiUrl = process.env.API_URL + 'api/posts?limit=' + limit+'&page=' + this.pageNumber + '&where[show][equals]=show';
 
     if (this.category != '') {
-      apiUrl = apiUrl + '&where[category][equals]='+this.category;
+      apiUrl += '&where[category][equals]='+this.category;
     }
+
+    apiUrl += '&sort=-orderby';
 
     const response = await fetch(apiUrl);
     const data = await response.json();

@@ -35,6 +35,8 @@
 
         <div v-for="item in news[newsTab]" class="news-item">
           <div class="news-category font-color-333333">{{ item.cat }}</div>
+          <div v-if="item.region" class="news-category font-color-333333" style="width: 42px; margin-left: 4px;">{{ item.region }}</div>
+          <div v-if="item.pinned" class="news-category font-color-333333" style="width: 42px; margin-left: 4px;">置頂</div>
           <a :href="'/news/post/' + item.id" class="news-title font-color-333333">{{ item.title }}</a>
           <div class="news-date font-color-959595">{{ item.dateString }}</div>
         </div>
@@ -96,8 +98,22 @@ export default {
       },
     };
 
+    var regionMap = {
+      north: '台北',
+      middle: '台中',
+      south: '台南',
+      kao: '高雄'
+    };
+
     for(var i=0; i<newsCategories.length; i++) {
       var catApiUrl = (newsCategories[i] == 'all') ? apiUrl : apiUrl + '&where[category][equals]='+newsCategories[i];
+
+      //catApiUrl += '&sort=-pinned,-createdAt';
+      catApiUrl += '&sort=-orderby';
+
+      console.log(catApiUrl);
+
+
       var response = await fetch(catApiUrl);
       var data = await response.json();
       var newsList = data.docs;
@@ -108,6 +124,7 @@ export default {
         var item = newsList[j];
 
         newsList[j]['cat'] = categoryList[item.category].text;
+        newsList[j]['region'] = regionMap[item.region];
 
         var d = new Date(item.createdAt);
 
@@ -115,6 +132,7 @@ export default {
       }
 
       this.news[newsCategories[i]] = newsList;
+
     }
   },
   mounted() {
