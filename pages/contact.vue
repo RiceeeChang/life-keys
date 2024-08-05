@@ -13,7 +13,7 @@
       <div v-if="contactTab=='form'" class="contact-form">
 
         <form>
-          <h5>聯絡地區<span>*</span></h5>
+          <h5>社區位置<span>*</span></h5>
           <div class="radio-group">
             <div class="form-radio" v-for="region in regions">
               <input type="radio" name="region" :value="region.value" :id="region.label" v-model="contactFormData.region" required>

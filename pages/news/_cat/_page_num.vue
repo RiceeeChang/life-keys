@@ -18,6 +18,7 @@
 
       <div v-for="news in newsList" class="news">
         <span class="tag">{{ news.tag }}</span>
+        <span v-if="news.region" class="tag" style="width: 42px;">{{ news.region }}</span>
         <h3><a :href="news.url">{{ news.title }}</a></h3>
         <span class="date">{{ news.dateString }}</span>
       </div>
@@ -179,10 +180,17 @@ export default {
     const data = await response.json();
     this.newsList = data.docs;
 
+    var regionMap = {
+      north: '台北',
+      middle: '台中',
+      south: '台南',
+      kao: '高雄'
+    };
+
     for(var i=0; i<this.newsList.length; i++) {
       var item = this.newsList[i];
       this.newsList[i]['tag'] = this.categoryList[item.category].text;
-
+      this.newsList[i]['region'] = regionMap[this.newsList[i]['region']];
       var d = new Date(item.createdAt);
       this.newsList[i]['dateString'] = format(d, 'yyyy/MM/dd');
       this.newsList[i]['url'] = "/news/post/"+item.id;
