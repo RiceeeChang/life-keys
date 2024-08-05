@@ -6,7 +6,7 @@
         style="text-shadow: 1px 1px 2px #333;" @sliding-start="onSlideStart" @sliding-end="onSlideEnd">
         <!-- Text slides with image -->
         <b-carousel-slide v-for="slide in slides" :key="slide.id"
-          :style="'background-image: url(' + slide.imageSrc + ')'"><!---->
+          :style="'background-image: url(' + slide.imageSrc + ')'" :align-pc="slide.title_place_pc" :align-mobile="slide.title_place_mobile"><!---->
           <span>{{ slide.label }}</span>
           <h1 v-html="slide.title"></h1>
           <h3>{{ slide.subtitle }}</h3>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-export default {  
+export default {
   data() {
     return {
       slide: 0,
